@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <Button
+        android:id="@+id/btnMicrosoft"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Microsoft" />
+    <Button
+        android:id="@+id/btnGoogle"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Google" />
+    <Button
+        android:id="@+id/btnTwitter"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Twitter" />
+    <Button
+        android:id="@+id/btnChild"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Child" />
+    <Button
+        android:id="@+id/btnChildVitals"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Child Vitals" />
+</LinearLayout>

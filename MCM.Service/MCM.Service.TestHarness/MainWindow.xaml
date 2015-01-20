@@ -1,0 +1,12 @@
+﻿<Window x:Class="MCM.Service.TestHarness.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Button x:Name="btnMicrosoft" Content="Microsoft" HorizontalAlignment="Left" Margin="68,25,0,0" VerticalAlignment="Top" Width="75" Click="btnMicrosoft_Click"/>
+        <Button x:Name="btnChild" Content="Child" HorizontalAlignment="Left" Margin="299,25,0,0" VerticalAlignment="Top" Width="75" Click="btnChild_Click"/>
+        <Button x:Name="btnChildVitals" Content="Child Vitals" HorizontalAlignment="Left" Margin="299,81,0,0" VerticalAlignment="Top" Width="75" Click="btnChildVitals_Click"/>
+        <Button x:Name="btnGoogle" Content="Google" HorizontalAlignment="Left" Margin="68,65,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.435,3.558" Click="btnGoogle_Click"/>
+
+    </Grid>
+</Window>
