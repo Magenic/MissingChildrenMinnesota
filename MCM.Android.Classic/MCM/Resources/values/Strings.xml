@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="app_name">MCM</string>
+	<string name="hotmail_login_button_text">Login with Hotmail</string>
+	<string name="gmail_login_button_text">Login with Gmail</string>
+	<string name="twitter_login_button_text">Login with Twitter</string>
+
+	<string name="aboutmcm_label">About MCM</string>
+
+	<string name="mcm_mychildren_button_text">My Children</string>
+	<string name="mcm_homedna_button_text">Home DNA</string>
+	<string name="mcm_safetyforchildren_button_text">Safety for Children</string>
+	<string name="mcm_missingchild_button_text">Missing Child?</string>
+	<string name="mcm_aboutmcm_button_text">About MCM</string>
+
+	<string name="childprofile_addphoto_button_text">Add Photo</string>
+	<string name="childprofile_childbasics_button_text">Child Basics</string>
+	<string name="childprofile_measurements_button_text">Measurements</string>
+	<string name="childprofile_physicaldetails_button_text">Physical Details</string>
+	<string name="childprofile_doctorinfo_button_text">Doctor Info</string>
+	<string name="childprofile_dentalinfo_button_text">Dental Info</string>
+	<string name="childprofile_medicalalertinfo_button_text">Medical Alert Info</string>
+	<string name="childprofile_distinguishingfeatures_button_text">Distinguishing Features</string>
+	<string name="childprofile_idchecklist_button_text">ID Checklist</string>
+</resources>

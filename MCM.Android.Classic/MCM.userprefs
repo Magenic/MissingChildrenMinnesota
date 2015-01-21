@@ -1,0 +1,17 @@
+﻿<Properties StartupItem="MCM\MCM.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.SelectDevice" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="MCM\MainActivity.cs">
+    <Files>
+      <File FileName="MCM\Resources\values\Strings.xml" Line="1" Column="1" />
+      <File FileName="MCM\MainActivity.cs" Line="1" Column="1" />
+      <File FileName="MCM\MCMActivity.cs" Line="1" Column="1" />
+      <File FileName="MCM\ChildProfileActivity.cs" Line="1" Column="1" />
+      <File FileName="MCM\AboutMCMActivity.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.MCM MonoForAntroid.PreferredDevice="Nexus 4" />
+</Properties>
