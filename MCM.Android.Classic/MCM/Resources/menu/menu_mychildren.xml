@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+  <item android:id="@+id/menu_add_child"
+        android:icon="@drawable/ic_action_add_person"
+        android:title="Add Child"
+        android:showAsAction="ifRoom|withText" />
+
+</menu>

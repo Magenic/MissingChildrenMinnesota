@@ -20,8 +20,12 @@ namespace MCM
 		{
 			base.OnCreate (bundle);
 
+            RequestWindowFeature(WindowFeatures.ActionBar);
+            ActionBar.SetDisplayHomeAsUpEnabled(true);
+            ActionBar.SetHomeButtonEnabled(true);
+
 			SetContentView (Resource.Layout.AboutMCM);
-		}
+        }
 	}
 }
 

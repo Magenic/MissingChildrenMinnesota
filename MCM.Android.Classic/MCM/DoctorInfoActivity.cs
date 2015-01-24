@@ -22,6 +22,39 @@ namespace MCM
 
 			SetContentView (Resource.Layout.DoctorInfo);
 		}
-	}
+
+        public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            MenuInflater.Inflate(Resource.Menu.menu_save_cancel, menu);
+            return true;
+        }
+
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            switch (item.ItemId)
+            {
+                case Resource.Id.menu_save_info:
+                    CreateAndShowDialog("Save Clicked", "Menu");
+                    return true;
+
+                case Resource.Id.menu_cancel_info:
+                    CreateAndShowDialog("Cancel Clicked", "Menu");
+                    return true;
+
+                default:
+                    Finish();
+                    return base.OnOptionsItemSelected(item);
+            }
+        }
+
+        private void CreateAndShowDialog(string message, string title)
+        {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+            builder.SetMessage(message);
+            builder.SetTitle(title);
+            builder.Create().Show();
+        }
+    }
 }
 

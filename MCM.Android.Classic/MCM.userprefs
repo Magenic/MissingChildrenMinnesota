@@ -1,6 +1,6 @@
 ﻿<Properties StartupItem="MCM\MCM.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.SelectDevice" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="MCM\MainActivity.cs">
+  <MonoDevelop.Ide.Workbench>
     <Files>
       <File FileName="MCM\Resources\values\Strings.xml" Line="1" Column="1" />
       <File FileName="MCM\MainActivity.cs" Line="1" Column="1" />

@@ -13,7 +13,7 @@ using Android.Widget;
 
 namespace MCM
 {
-	[Activity (Label = "ChildBasicsActivity")]			
+    [Activity(Label = "@string/childbasics_layout_label")]			
 	public class ChildBasicsActivity : Activity
 	{
 		protected override void OnCreate (Bundle bundle)
@@ -22,6 +22,43 @@ namespace MCM
 
 			SetContentView (Resource.Layout.ChildBasics);
 		}
-	}
+
+        public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            MenuInflater.Inflate(Resource.Menu.menu_childbasics, menu);
+            return true;
+        }
+
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            switch (item.ItemId)
+            {
+                case Resource.Id.menu_save_info:
+                    CreateAndShowDialog("Save Clicked", "Menu");
+                    return true;
+
+                case Resource.Id.menu_cancel_info:
+                    CreateAndShowDialog("Cancel Clicked", "Menu");
+                    return true;
+
+                case Resource.Id.menu_delete_info:
+                    CreateAndShowDialog("Delete Clicked", "Menu");
+                    return true;
+
+                default:
+                    Finish();
+                    return base.OnOptionsItemSelected(item);
+            }
+        }
+
+        private void CreateAndShowDialog(string message, string title)
+        {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+            builder.SetMessage(message);
+            builder.SetTitle(title);
+            builder.Create().Show();
+        }
+    }
 }
 

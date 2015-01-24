@@ -29,6 +29,9 @@ namespace MCM
 		{
 			base.OnCreate (bundle);
 
+            // Enable the ActionBar
+            RequestWindowFeature(WindowFeatures.ActionBar);
+
 			// Set our view from the "main" layout resource
 			SetContentView (Resource.Layout.Main);
 
@@ -37,7 +40,7 @@ namespace MCM
 				//MobileServiceAuthenticationProvider provder = null;
 				// Create the Mobile Service Client instance, using the provided
 				// Mobile Service URL and key
-				_client = new MobileServiceClient (applicationURL, applicationKey);
+				//_client = new MobileServiceClient (applicationURL, applicationKey);
 
 				// Get our button from the layout resource,
 				// and attach an event to it
@@ -88,7 +91,8 @@ namespace MCM
 		private void HandleLoginTwitter (object sender, EventArgs ea)
 		{
 			Login(MobileServiceAuthenticationProvider.Twitter);
-		}
+            NavigateToMCM();
+        }
 
 		private void HandleLoginBypass (object sender, EventArgs ea)
 		{
@@ -115,10 +119,6 @@ namespace MCM
 			safetyForChildrenButton.Click += HandleSafetyForChildrenButton;
 			missingChildButton.Click += HandleMissingChildButton;
 			aboutMCMButton.Click += HandleAboutMCMButton;
-
-			//var activity = new Intent (this, typeof(MCMActivity));
-			//activity.PutExtra ("MyData", "Data from Activity1");
-			//StartActivity (activity);
 		}
 
 		private void HandleMyChildrenButton (object sender, EventArgs ea)

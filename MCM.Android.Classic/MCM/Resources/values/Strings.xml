@@ -5,9 +5,10 @@
 	<string name="gmail_login_button_text">Login with Gmail</string>
 	<string name="twitter_login_button_text">Login with Twitter</string>
 
-	<string name="aboutmcm_label">About MCM</string>
+	<string name="aboutmcm_layout_label">About MCM</string>
+  <string name="childbasics_layout_label">Child Basics</string>
 
-	<string name="mcm_mychildren_button_text">My Children</string>
+  <string name="mcm_mychildren_button_text">My Children</string>
 	<string name="mcm_homedna_button_text">Home DNA</string>
 	<string name="mcm_safetyforchildren_button_text">Safety for Children</string>
 	<string name="mcm_missingchild_button_text">Missing Child?</string>
