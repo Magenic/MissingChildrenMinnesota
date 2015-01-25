@@ -13,7 +13,7 @@ using Android.Widget;
 
 namespace MCM
 {
-	[Activity (Label = "MedicalAlertInfoActivity")]			
+    [Activity(Label = "@string/medicalalertinfo_layout_label")]			
 	public class MedicalAlertInfoActivity : Activity
 	{
 		protected override void OnCreate (Bundle bundle)

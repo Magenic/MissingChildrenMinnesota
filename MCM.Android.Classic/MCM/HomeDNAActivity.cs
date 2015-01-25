@@ -13,7 +13,7 @@ using Android.Widget;
 
 namespace MCM
 {
-	[Activity (Label = "HomeDNAActivity")]			
+    [Activity(Label = "@string/homedna_layout_label")]			
 	public class HomeDNAActivity : Activity
 	{
 		protected override void OnCreate (Bundle bundle)

@@ -13,7 +13,7 @@ using Android.Widget;
 
 namespace MCM
 {
-	[Activity (Label = "AboutMCMActivity")]			
+    [Activity(Label = "@string/aboutmcm_layout_label")]			
 	public class AboutMCMActivity : Activity
 	{
 		protected override void OnCreate (Bundle bundle)

@@ -13,7 +13,7 @@ using Android.Widget;
 
 namespace MCM
 {
-	[Activity (Label = "ChildProfileActivity")]			
+    [Activity(Label = "@string/childprofile_layout_label")]			
 	public class ChildProfileActivity : Activity
 	{
 		protected override void OnCreate (Bundle bundle)

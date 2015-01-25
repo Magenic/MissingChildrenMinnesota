@@ -13,7 +13,7 @@ using Android.Widget;
 
 namespace MCM
 {
-	[Activity (Label = "SafetyForChildrenActivity")]			
+    [Activity(Label = "@string/safetyforchildren_layout_label")]			
 	public class SafetyForChildrenActivity : Activity
 	{
 		protected override void OnCreate (Bundle bundle)

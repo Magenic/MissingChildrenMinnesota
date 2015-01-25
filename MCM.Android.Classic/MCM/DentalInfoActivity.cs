@@ -13,7 +13,7 @@ using Android.Widget;
 
 namespace MCM
 {
-	[Activity (Label = "DentalInfoActivity")]			
+    [Activity(Label = "@string/dentalinfo_layout_label")]			
 	public class DentalInfoActivity : Activity
 	{
 		protected override void OnCreate (Bundle bundle)

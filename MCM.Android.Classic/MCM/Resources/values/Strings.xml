@@ -6,7 +6,22 @@
 	<string name="twitter_login_button_text">Login with Twitter</string>
 
 	<string name="aboutmcm_layout_label">About MCM</string>
+  <string name="addphoto_layout_label">Add Photo</string>
   <string name="childbasics_layout_label">Child Basics</string>
+  <string name="childprofile_layout_label">Child Profile</string>
+  <string name="dentalinfo_layout_label">Dental Info</string>
+  <string name="distinguishingfeatures_layout_label">Features</string>
+  <string name="doctorinfo_layout_label">Doctor Info</string>
+  <string name="homedna_layout_label">Home DNA</string>
+  <string name="idchecklist_layout_label">I.D. Checklist</string>
+  <string name="main_layout_label">MCM</string>
+  <string name="mcm_layout_label">MCM</string>
+  <string name="measurements_layout_label">Measurements</string>
+  <string name="medicalalertinfo_layout_label">Medical Alert</string>
+  <string name="missingchild_layout_label">Missing Child</string>
+  <string name="mychildren_layout_label">My Children</string>
+  <string name="physicaldetails_layout_label">Physical Details</string>
+  <string name="safetyforchildren_layout_label">Saftey For Children</string>
 
   <string name="mcm_mychildren_button_text">My Children</string>
 	<string name="mcm_homedna_button_text">Home DNA</string>

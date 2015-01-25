@@ -13,7 +13,7 @@ using Android.Widget;
 
 namespace MCM
 {
-	[Activity (Label = "PhysicalDetailsActivity")]			
+    [Activity(Label = "@string/physicaldetails_layout_label")]			
 	public class PhysicalDetailsActivity : Activity
 	{
 		protected override void OnCreate (Bundle bundle)

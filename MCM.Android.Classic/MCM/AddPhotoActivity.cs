@@ -13,7 +13,7 @@ using Android.Widget;
 
 namespace MCM
 {
-	[Activity (Label = "AddPhotoActivity")]			
+    [Activity(Label = "@string/addphoto_layout_label")]			
 	public class AddPhotoActivity : Activity
 	{
 		protected override void OnCreate (Bundle bundle)

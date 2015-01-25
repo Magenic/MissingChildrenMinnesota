@@ -13,7 +13,7 @@ using Android.Widget;
 
 namespace MCM
 {
-	[Activity (Label = "DistinguishingFeaturesActivity")]			
+    [Activity(Label = "@string/distinguishingfeatures_layout_label")]			
 	public class DistinguishingFeaturesActivity : Activity
 	{
 		protected override void OnCreate (Bundle bundle)

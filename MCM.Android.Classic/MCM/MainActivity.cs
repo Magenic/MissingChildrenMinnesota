@@ -14,7 +14,7 @@ using Microsoft.WindowsAzure.MobileServices.Sync;
 
 namespace MCM
 {
-	[Activity (Label = "MCM", MainLauncher = true, Icon = "@drawable/icon")]
+    [Activity(Label = "@string/main_layout_label", MainLauncher = true, Icon = "@drawable/icon")]
 	public class MainActivity : Activity
 	{
 		const string applicationURL = @"";

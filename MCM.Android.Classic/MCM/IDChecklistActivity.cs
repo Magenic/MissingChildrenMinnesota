@@ -13,7 +13,7 @@ using Android.Widget;
 
 namespace MCM
 {
-	[Activity (Label = "IDChecklistActivity")]			
+    [Activity(Label = "@string/idchecklist_layout_label")]			
 	public class IDChecklistActivity : Activity
 	{
 		protected override void OnCreate (Bundle bundle)

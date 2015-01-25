@@ -13,7 +13,7 @@ using Android.Widget;
 
 namespace MCM
 {
-	[Activity (Label = "MissingChildActivity")]			
+    [Activity(Label = "@string/missingchild_layout_label")]			
 	public class MissingChildActivity : Activity
 	{
 		protected override void OnCreate (Bundle bundle)

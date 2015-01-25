@@ -13,7 +13,7 @@ using Android.Widget;
 
 namespace MCM
 {
-	[Activity (Label = "MyChildrenActivity")]			
+    [Activity(Label = "@string/mychildren_layout_label")]			
 	public class MyChildrenActivity : Activity
 	{
 		protected override void OnCreate (Bundle bundle)
@@ -38,7 +38,7 @@ namespace MCM
             switch (item.ItemId)
             {
                 case Resource.Id.menu_add_child:
-                    var activity = new Intent(this, typeof(ChildBasicsActivity));
+                    var activity = new Intent(this, typeof(ChildProfileActivity));
 			        StartActivity (activity);
                     return true;
 
