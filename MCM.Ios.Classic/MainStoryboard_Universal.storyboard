@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6206.8" systemVersion="13A461" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="33" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7026.1"/>
+    </dependencies>
+    <scenes>
+        <!--class Prefix:identifier View Controller-->
+        <scene sceneID="32">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="33" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="36">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="35" kind="relationship" relationship="rootViewController" id="34"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="37" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="433" y="-16"/>
+        </scene>
+        <scene sceneID="38">
+            <objects>
+                <viewController id="35" sceneMemberID="viewController" customClass="RootViewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="30"/>
+                        <viewControllerLayoutGuide type="bottom" id="31"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="40">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="381" translatesAutoresizingMaskIntoConstraints="NO" misplaced="YES">
+                                <rect key="frame" x="132" y="151" width="93" height="30"/>
+                                <state key="normal" title="Hotmail">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnHotmail_TouchUpInside:" destination="35" id="386" eventType="touchUpInside"/>
+                                </connections>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <rect key="frame" x="105" y="213" width="53" height="30"/>
+                                </variation>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="385" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
+                                <rect key="frame" x="132" y="261" width="93" height="30"/>
+                                <state key="normal" title="Google">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnGoogle_TouchUpInside:" destination="35" id="387" eventType="touchUpInside"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="388" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
+                                <rect key="frame" x="142" y="385" width="60" height="30"/>
+                                <state key="normal" title="Twitter">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnTwitter_TouchUpInside:" destination="35" id="390" eventType="touchUpInside"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint id="383" constant="105" firstItem="381" firstAttribute="leading" secondItem="40" secondAttribute="leading"/>
+                            <constraint id="384" constant="213" firstItem="381" firstAttribute="top" secondItem="40" secondAttribute="top"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="39"/>
+                    <connections>
+                        <outlet property="btnHotmail" destination="381" id="name-outlet-381"/>
+                        <outlet property="btnGoogle" destination="385" id="name-outlet-385"/>
+                        <outlet property="btnTwitter" destination="388" id="name-outlet-388"/>
+                        <segue id="1085" destination="56" kind="show" identifier="sguToMain"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="41" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="877" y="-10"/>
+        </scene>
+        <scene sceneID="55">
+            <objects>
+                <viewController id="56" sceneMemberID="viewController" customClass="HomePageController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="53"/>
+                        <viewControllerLayoutGuide type="bottom" id="54"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="57">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="371" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="137" y="214" width="46" height="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="371"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="371"/>
+                            </mask>
+                        </variation>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="58" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1426" y="-11"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Default-568h.png" width="640" height="1136"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedScreenMetrics key="destination"/>
+    </simulatedMetricsContainer>
+</document>
