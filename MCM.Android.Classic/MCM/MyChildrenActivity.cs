@@ -16,9 +16,13 @@ namespace MCM
     [Activity(Label = "@string/mychildren_layout_label")]			
 	public class MyChildrenActivity : Activity
 	{
+        private string _userInfo = string.Empty;
+
 		protected override void OnCreate (Bundle bundle)
 		{
 			base.OnCreate (bundle);
+
+            _userInfo = ((GlobalVars)this.Application).UserInfo;
 
             RequestWindowFeature(WindowFeatures.ActionBar);
             ActionBar.SetDisplayHomeAsUpEnabled(true);

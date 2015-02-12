@@ -70,7 +70,9 @@ namespace MCM
 			try
 			{
 				_user = await _client.LoginAsync(this, provider);
-				CreateAndShowDialog(string.Format("you are now logged in - {0}", _user.UserId), "Logged in!");
+                ((GlobalVars)this.Application).UserInfo = _user.UserId;
+                ((GlobalVars)this.Application).AuthenticationToken = _user.MobileServiceAuthenticationToken;
+                CreateAndShowDialog(string.Format("you are now logged in - {0}", _user.UserId), "Logged in!");
 			}
 			catch (Exception ex)
 			{
@@ -96,7 +98,10 @@ namespace MCM
 
 		private void HandleLoginBypass (object sender, EventArgs ea)
 		{
-			NavigateToMCM ();
+            //this is just for testing
+            ((GlobalVars)this.Application).UserInfo = Guid.NewGuid().ToString();
+            ((GlobalVars)this.Application).AuthenticationToken = AndroidEnvironment.AndroidLogAppName;
+            NavigateToMCM();
 		}
 
 		private async void Login(MobileServiceAuthenticationProvider provider)
