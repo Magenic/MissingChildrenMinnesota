@@ -60,6 +60,9 @@
     <Reference Include="System.Net.Http" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Child.cs" />
+    <Compile Include="Classes\ChildMeasurement.cs" />
+    <Compile Include="Classes\DistinguishingFeature.cs" />
     <Compile Include="GlobalVars.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
