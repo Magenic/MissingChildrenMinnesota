@@ -60,9 +60,9 @@
     <Reference Include="System.Net.Http" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\Child.cs" />
-    <Compile Include="Classes\ChildMeasurement.cs" />
-    <Compile Include="Classes\DistinguishingFeature.cs" />
+    <Compile Include="DataObjects\Child.cs" />
+    <Compile Include="DataObjects\ChildMeasurement.cs" />
+    <Compile Include="DataObjects\DistinguishingFeature.cs" />
     <Compile Include="GlobalVars.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
@@ -87,7 +87,9 @@
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
-    <None Include="Properties\AndroidManifest.xml" />
+    <None Include="Properties\AndroidManifest.xml">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Main.axml" />

@@ -1,6 +1,6 @@
 using System;
 
-namespace MCM.Classes
+namespace MCM.DataObjects
 {
     public class ChildMeasurement
     {

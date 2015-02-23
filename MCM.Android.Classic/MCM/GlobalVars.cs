@@ -10,11 +10,18 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 
+using Microsoft.WindowsAzure.MobileServices;
+
 namespace MCM
 {
     [Application]
     public class GlobalVars : Application
     {
+        public MobileServiceClient MobileServiceClient { get; set; }
+
+        public string ApplicationURL { get; set; }
+        public string ApplicationKey { get; set; }
+
         public string UserInfo { get; set; }
         public string AuthenticationToken { get; set; }
 

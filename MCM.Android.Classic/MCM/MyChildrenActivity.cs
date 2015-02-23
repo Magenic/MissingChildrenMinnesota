@@ -1,8 +1,8 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 using Android.App;
 using Android.Content;
@@ -11,18 +11,24 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 
+using Microsoft.WindowsAzure.MobileServices;
+using Microsoft.WindowsAzure.MobileServices.Sync;
+
 namespace MCM
 {
     [Activity(Label = "@string/mychildren_layout_label")]			
 	public class MyChildrenActivity : Activity
 	{
-        private string _userInfo = string.Empty;
+        private GlobalVars _globalVars;
+        private List<DataObjects.Child> _children;
 
 		protected override void OnCreate (Bundle bundle)
 		{
 			base.OnCreate (bundle);
 
-            _userInfo = ((GlobalVars)this.Application).UserInfo;
+            _globalVars = ((GlobalVars)this.Application);
+
+            GetChildren();
 
             RequestWindowFeature(WindowFeatures.ActionBar);
             ActionBar.SetDisplayHomeAsUpEnabled(true);
@@ -43,13 +49,34 @@ namespace MCM
             {
                 case Resource.Id.menu_add_child:
                     var activity = new Intent(this, typeof(ChildProfileActivity));
-			        StartActivity (activity);
+                    //StartActivity (activity);
                     return true;
 
                 default:
                     Finish();
                     return base.OnOptionsItemSelected(item);
             }
+        }
+
+        private async void GetChildren()
+        {
+            ProgressDialog progressDialog = new ProgressDialog(this);
+            progressDialog.SetTitle("Loading");
+            progressDialog.SetMessage("Loading application View, please wait...");
+            progressDialog.Show();
+
+            _children = await GetChildrenList();
+
+            progressDialog.Dismiss();
+            
+            CreateAndShowDialog(_children.Count.ToString(), " Children Found");
+        }
+
+        private Task<List<DataObjects.Child>> GetChildrenList()
+        {
+            Task<List<DataObjects.Child>> children = Task.Factory.StartNew(() => _globalVars.MobileServiceClient.GetTable<DataObjects.Child>().Where(_ => _.UserAccount == _globalVars.UserInfo).ToListAsync().Result);
+            
+            return children;
         }
 
         private void CreateAndShowDialog(string message, string title)

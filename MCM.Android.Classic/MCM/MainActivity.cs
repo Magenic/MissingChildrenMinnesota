@@ -17,17 +17,17 @@ namespace MCM
     [Activity(Label = "@string/main_layout_label", MainLauncher = true, Icon = "@drawable/icon")]
 	public class MainActivity : Activity
 	{
-		const string applicationURL = @"";
-		const string applicationKey = @"";
-
-		private MobileServiceUser _user;
-
-		//Mobile Service Client reference
-		private MobileServiceClient _client;
+        //Mobile Service Client reference
+        private MobileServiceUser _user;
+        private GlobalVars _globalVars;
 
 		protected override void OnCreate (Bundle bundle)
 		{
 			base.OnCreate (bundle);
+
+            _globalVars = ((GlobalVars)this.Application);
+            _globalVars.ApplicationURL = @"";
+            _globalVars.ApplicationKey = @"";
 
             // Enable the ActionBar
             RequestWindowFeature(WindowFeatures.ActionBar);
@@ -40,7 +40,7 @@ namespace MCM
 				//MobileServiceAuthenticationProvider provder = null;
 				// Create the Mobile Service Client instance, using the provided
 				// Mobile Service URL and key
-				//_client = new MobileServiceClient (applicationURL, applicationKey);
+                _globalVars.MobileServiceClient = new MobileServiceClient(_globalVars.ApplicationURL, _globalVars.ApplicationKey);
 
 				// Get our button from the layout resource,
 				// and attach an event to it
@@ -69,14 +69,13 @@ namespace MCM
 		{
 			try
 			{
-				_user = await _client.LoginAsync(this, provider);
-                ((GlobalVars)this.Application).UserInfo = _user.UserId;
-                ((GlobalVars)this.Application).AuthenticationToken = _user.MobileServiceAuthenticationToken;
-                CreateAndShowDialog(string.Format("you are now logged in - {0}", _user.UserId), "Logged in!");
+                _user = await _globalVars.MobileServiceClient.LoginAsync(this, provider);
+                _globalVars.UserInfo = _user.UserId;
+                _globalVars.AuthenticationToken = _user.MobileServiceAuthenticationToken;
 			}
 			catch (Exception ex)
 			{
-				CreateAndShowDialog(ex, "Authentication failed");
+				CreateAndShowDialog(ex, "Authentication Error");
 			}
 		}
 
@@ -93,20 +92,31 @@ namespace MCM
 		private void HandleLoginTwitter (object sender, EventArgs ea)
 		{
 			Login(MobileServiceAuthenticationProvider.Twitter);
-            NavigateToMCM();
         }
 
 		private void HandleLoginBypass (object sender, EventArgs ea)
 		{
             //this is just for testing
-            ((GlobalVars)this.Application).UserInfo = Guid.NewGuid().ToString();
-            ((GlobalVars)this.Application).AuthenticationToken = AndroidEnvironment.AndroidLogAppName;
+            //_globalVars.UserInfo = Guid.NewGuid().ToString();
+            //sample data in database has UserAccount = '12345'
+            _globalVars.UserInfo = "12345";
+            _globalVars.AuthenticationToken = AndroidEnvironment.AndroidLogAppName;
+
             NavigateToMCM();
 		}
 
 		private async void Login(MobileServiceAuthenticationProvider provider)
 		{
 			await Authenticate(provider);
+            if (_user != null && !string.IsNullOrWhiteSpace(_user.UserId))
+            {
+                CreateAndShowDialog(string.Format("you are now logged in - {0}", _user.UserId), "Logged in!");
+                NavigateToMCM();
+            }
+            else
+            {
+                CreateAndShowDialog("Unable to Authenticate User", "Not Authenticated");
+            }
 		}
 
 		private void NavigateToMCM()

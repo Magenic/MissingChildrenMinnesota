@@ -5,7 +5,7 @@
 	<string name="gmail_login_button_text">Login with Gmail</string>
 	<string name="twitter_login_button_text">Login with Twitter</string>
 
-	<string name="aboutmcm_layout_label">About MCM</string>
+  <string name="aboutmcm_layout_label">About MCM</string>
   <string name="addphoto_layout_label">Add Photo</string>
   <string name="childbasics_layout_label">Child Basics</string>
   <string name="childprofile_layout_label">Child Profile</string>
