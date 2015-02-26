@@ -38,4 +38,10 @@
 	<string name="childprofile_medicalalertinfo_button_text">Medical Alert Info</string>
 	<string name="childprofile_distinguishingfeatures_button_text">Distinguishing Features</string>
 	<string name="childprofile_idchecklist_button_text">ID Checklist</string>
+
+  <string name="childbasics_firstname_textview_text">First Name</string>
+  <string name="childbasics_middlename_textview_text">Middle Name</string>
+  <string name="childbasics_lastname_textview_text">Last Name</string>
+  <string name="childbasics_dateofbirth_textview_text">DOB</string>
+  <string name="childbasics_pickdate_button_text">Pick Date</string>
 </resources>

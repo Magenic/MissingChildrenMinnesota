@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 
 using Android.App;
 using Android.Content;
@@ -11,17 +13,62 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 
+using Newtonsoft.Json;
+
 namespace MCM
 {
     [Activity(Label = "@string/childbasics_layout_label")]			
 	public class ChildBasicsActivity : Activity
 	{
-		protected override void OnCreate (Bundle bundle)
+        const int DATE_DIALOG_ID = 0;
+
+        private GlobalVars _globalVars;
+
+        private EditText _firstNameText;
+        private EditText _middleNameText;
+        private EditText _lastNameText;
+        private TextView _dateDisplayTextView;
+        private Button _pickDate;
+        private DateTime _date;
+
+        private ProgressDialog _progressDialog;
+        private System.Threading.Timer _timer;
+        private int _timerCount = 0;
+        private DataObjects.Child _child;
+
+        protected override void OnCreate(Bundle bundle)
 		{
 			base.OnCreate (bundle);
 
+            _globalVars = ((GlobalVars)this.Application);
+            _child = JsonConvert.DeserializeObject<DataObjects.Child>(Intent.GetStringExtra("Child"));        
+
 			SetContentView (Resource.Layout.ChildBasics);
-		}
+
+            _firstNameText = FindViewById<EditText>(Resource.Id.FirstNameText);
+            _middleNameText = FindViewById<EditText>(Resource.Id.MiddleNameText);
+            _lastNameText = FindViewById<EditText>(Resource.Id.LastNameText);
+            _dateDisplayTextView = FindViewById<TextView>(Resource.Id.DateDisplayTextView);
+
+            // capture our View elements
+            _pickDate = FindViewById<Button>(Resource.Id.PickDateButton);
+
+            // add a click event handler to the button
+            _pickDate.Click += delegate { ShowDialog(DATE_DIALOG_ID); };
+
+            if (string.IsNullOrWhiteSpace(_child.Id))
+            {
+                // get the current date
+                _date = DateTime.Today;
+            }
+            else
+            {
+                _date = _child.BirthDate;
+            }
+
+            // display the current date (this method is below)
+            UpdateDisplay();
+        }
 
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
@@ -34,7 +81,8 @@ namespace MCM
             switch (item.ItemId)
             {
                 case Resource.Id.menu_save_info:
-                    CreateAndShowDialog("Save Clicked", "Menu");
+                    //CreateAndShowDialog("Save Clicked", "Menu");
+                    AddChild();
                     return true;
 
                 case Resource.Id.menu_cancel_info:
@@ -49,6 +97,124 @@ namespace MCM
                     Finish();
                     return base.OnOptionsItemSelected(item);
             }
+        }
+        
+        protected override Dialog OnCreateDialog(int id)
+        {
+            switch (id)
+            {
+                case DATE_DIALOG_ID:
+                    return new DatePickerDialog(this, OnDateSet, _date.Year, _date.Month - 1, _date.Day);
+            }
+            return null;
+        }
+        
+        // the event received when the user "sets" the date in the dialog
+        private void OnDateSet(object sender, DatePickerDialog.DateSetEventArgs e)
+        {
+            this._date = e.Date;
+            UpdateDisplay();
+        }        
+
+        private async void AddChild()
+        {
+            bool isValid = true;
+            StringBuilder sb = new StringBuilder();
+            if (string.IsNullOrWhiteSpace(_firstNameText.Text))
+            {
+                isValid = false;
+                sb.Append("First Name is required.");
+            }
+            if (string.IsNullOrWhiteSpace(_lastNameText.Text))
+            {
+                isValid = false;
+                if (!string.IsNullOrWhiteSpace(sb.ToString()))
+                {
+                    sb.Append("\n");
+                }
+                sb.Append("Last Name is required.");
+            }
+            if (!string.IsNullOrWhiteSpace(sb.ToString()))
+            {
+                CreateAndShowDialog(sb.ToString(), "Please correct the following: \n");
+            }
+            else
+            {
+                try
+                {
+                    _progressDialog = new ProgressDialog(this);
+                    _progressDialog.SetTitle("Adding Child Information");
+                    _progressDialog.SetMessage("Please Wait...");
+                    _progressDialog.Show();
+
+                    _child.FirstName = _firstNameText.Text.Trim();
+                    _child.MiddleName = _middleNameText.Text.Trim();
+                    _child.LastName = _lastNameText.Text.Trim();
+                    _child.BirthDate = _date;
+
+                    await InsertToTable();
+
+                    //CreateAndShowDialog(string.Format("Child Id: {0}", _child.Id), "Child Added");
+                }
+                catch
+                {
+                    CreateAndShowDialog("Unable to add Child.", "Add Child");
+                }
+
+                //CreateAndShowDialog(_children.Count.ToString(), " Children Found");
+            }
+        }
+
+        private Task InsertToTable()
+        {
+            Task task = null;
+            
+            try
+            {
+                var childTable = _globalVars.MobileServiceClient.GetTable<DataObjects.Child>();
+                task = Task.Factory.StartNew(() => childTable.InsertAsync(_child));
+
+                //timer is used to assure that the Id assigned is retrieved. saw that it may take longer than expected
+                //to retrieve the returned Id from the mobile service.
+                _timerCount = 0;
+                _timer = new System.Threading.Timer(TimerDelegate, null, 250, 250);
+            }
+            catch
+            {
+                CreateAndShowDialog("Unable to add Child.", "Add Child");
+            }
+
+            return task;
+        }
+
+        private void TimerDelegate(object state)
+        {
+            if (!string.IsNullOrWhiteSpace(_child.Id))
+            {
+                _timer.Dispose();
+                _progressDialog.Dismiss();
+            }
+            else
+            {
+                //if more than 3 seconds has elapsed, consider error
+                if (_timerCount > 12)
+                {
+                    //final check to see if there is an Id
+                    if (string.IsNullOrWhiteSpace(_child.Id))
+                    {
+                        _timer.Dispose();
+                        _progressDialog.Dismiss();
+                    }
+                }
+            }
+
+            _timerCount++;
+        }
+
+        // updates the date in the TextView
+        private void UpdateDisplay()
+        {
+            _dateDisplayTextView.Text = _date.ToString("d");
         }
 
         private void CreateAndShowDialog(string message, string title)

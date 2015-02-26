@@ -11,14 +11,20 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 
+using Newtonsoft.Json;
+
 namespace MCM
 {
     [Activity(Label = "@string/childprofile_layout_label")]			
 	public class ChildProfileActivity : Activity
 	{
+        private DataObjects.Child _child;
+
 		protected override void OnCreate (Bundle bundle)
 		{
 			base.OnCreate (bundle);
+
+            _child = JsonConvert.DeserializeObject<DataObjects.Child>(Intent.GetStringExtra("Child"));
 
 			SetContentView (Resource.Layout.ChildProfile);
 
@@ -41,6 +47,19 @@ namespace MCM
 			medicalAlertInfoButton.Click += HandleMedicalAlertInfoButton;
 			distinguishingFeaturesButton.Click += HandleDistinguishingFeaturesButton;
 			idChecklistButton.Click += HandleIDChecklistButton;
+
+            if (string.IsNullOrWhiteSpace(_child.Id))
+            {
+                addPhotoButton.Enabled = false;
+                measurementsButton.Enabled = false;
+                physicalDetailsButton.Enabled = false;
+                doctorInfoButton.Enabled = false;
+                dentalInfoButton.Enabled = false;
+                medicalAlertInfoButton.Enabled = false;
+                distinguishingFeaturesButton.Enabled = false;
+                idChecklistButton.Enabled = false;
+                HandleChildBasicsButton(this, new EventArgs());
+            }
 		}
 
 		private void HandleAddPhotoButton (object sender, EventArgs ea)
@@ -53,7 +72,7 @@ namespace MCM
 		private void HandleChildBasicsButton (object sender, EventArgs ea)
 		{
 			var activity = new Intent (this, typeof(ChildBasicsActivity));
-			//activity.PutExtra ("MyData", "Data from Activity1");
+            activity.PutExtra("Child", JsonConvert.SerializeObject(_child));
 			StartActivity (activity);
 		}
 

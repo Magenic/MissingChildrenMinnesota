@@ -14,6 +14,8 @@ using Android.Widget;
 using Microsoft.WindowsAzure.MobileServices;
 using Microsoft.WindowsAzure.MobileServices.Sync;
 
+using Newtonsoft.Json;
+
 namespace MCM
 {
     [Activity(Label = "@string/mychildren_layout_label")]			
@@ -48,8 +50,11 @@ namespace MCM
             switch (item.ItemId)
             {
                 case Resource.Id.menu_add_child:
+                    var newChild = new DataObjects.Child();
+                    newChild.UserAccount = _globalVars.UserInfo;
                     var activity = new Intent(this, typeof(ChildProfileActivity));
-                    //StartActivity (activity);
+                    activity.PutExtra("Child", JsonConvert.SerializeObject(newChild));
+                    StartActivity (activity);
                     return true;
 
                 default:
@@ -62,7 +67,7 @@ namespace MCM
         {
             ProgressDialog progressDialog = new ProgressDialog(this);
             progressDialog.SetTitle("Loading");
-            progressDialog.SetMessage("Loading application View, please wait...");
+            progressDialog.SetMessage("Please Wait...");
             progressDialog.Show();
 
             _children = await GetChildrenList();

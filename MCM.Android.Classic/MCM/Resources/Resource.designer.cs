@@ -78,86 +78,113 @@ namespace MCM
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f060013
-			public const int AboutMCMButton = 2131099667;
-			
-			// aapt resource value: 0x7f060002
-			public const int AddPhotoButton = 2131099650;
-			
-			// aapt resource value: 0x7f06000e
-			public const int BypassLoginButton = 2131099662;
-			
-			// aapt resource value: 0x7f060003
-			public const int ChildBasicsButton = 2131099651;
-			
-			// aapt resource value: 0x7f060001
-			public const int ChildPhotoImageView = 2131099649;
-			
-			// aapt resource value: 0x7f060007
-			public const int DentalInfoButton = 2131099655;
-			
-			// aapt resource value: 0x7f060009
-			public const int DistinguishingFeaturesButton = 2131099657;
-			
-			// aapt resource value: 0x7f060006
-			public const int DoctorInfoButton = 2131099654;
+			// aapt resource value: 0x7f06001d
+			public const int AboutMCMButton = 2131099677;
 			
 			// aapt resource value: 0x7f06000c
-			public const int GmailLoginButton = 2131099660;
-			
-			// aapt resource value: 0x7f060010
-			public const int HomeDNAButton = 2131099664;
-			
-			// aapt resource value: 0x7f06000b
-			public const int HotmailLoginButton = 2131099659;
-			
-			// aapt resource value: 0x7f06000a
-			public const int IDChecklistButton = 2131099658;
-			
-			// aapt resource value: 0x7f060004
-			public const int MeasurementsButton = 2131099652;
-			
-			// aapt resource value: 0x7f060008
-			public const int MedicalAlertInfoButton = 2131099656;
-			
-			// aapt resource value: 0x7f060012
-			public const int MissingChildButton = 2131099666;
-			
-			// aapt resource value: 0x7f06000f
-			public const int MyChildrenButton = 2131099663;
-			
-			// aapt resource value: 0x7f060005
-			public const int PhysicalDetailsButton = 2131099653;
-			
-			// aapt resource value: 0x7f060011
-			public const int SafetyForChildrenButton = 2131099665;
-			
-			// aapt resource value: 0x7f06000d
-			public const int TwitterLoginButton = 2131099661;
-			
-			// aapt resource value: 0x7f060014
-			public const int imageView1 = 2131099668;
-			
-			// aapt resource value: 0x7f060015
-			public const int linearLayout1 = 2131099669;
-			
-			// aapt resource value: 0x7f06001a
-			public const int menu_add_child = 2131099674;
+			public const int AddPhotoButton = 2131099660;
 			
 			// aapt resource value: 0x7f060018
-			public const int menu_cancel_info = 2131099672;
+			public const int BypassLoginButton = 2131099672;
+			
+			// aapt resource value: 0x7f06000d
+			public const int ChildBasicsButton = 2131099661;
+			
+			// aapt resource value: 0x7f06000b
+			public const int ChildPhotoImageView = 2131099659;
+			
+			// aapt resource value: 0x7f060009
+			public const int DateDisplayTextView = 2131099657;
+			
+			// aapt resource value: 0x7f060011
+			public const int DentalInfoButton = 2131099665;
+			
+			// aapt resource value: 0x7f060013
+			public const int DistinguishingFeaturesButton = 2131099667;
+			
+			// aapt resource value: 0x7f060010
+			public const int DoctorInfoButton = 2131099664;
+			
+			// aapt resource value: 0x7f060002
+			public const int FirstNameText = 2131099650;
+			
+			// aapt resource value: 0x7f060016
+			public const int GmailLoginButton = 2131099670;
+			
+			// aapt resource value: 0x7f06001a
+			public const int HomeDNAButton = 2131099674;
+			
+			// aapt resource value: 0x7f060015
+			public const int HotmailLoginButton = 2131099669;
+			
+			// aapt resource value: 0x7f060014
+			public const int IDChecklistButton = 2131099668;
+			
+			// aapt resource value: 0x7f060006
+			public const int LastNameText = 2131099654;
+			
+			// aapt resource value: 0x7f06000e
+			public const int MeasurementsButton = 2131099662;
+			
+			// aapt resource value: 0x7f060012
+			public const int MedicalAlertInfoButton = 2131099666;
+			
+			// aapt resource value: 0x7f060004
+			public const int MiddleNameText = 2131099652;
+			
+			// aapt resource value: 0x7f06001c
+			public const int MissingChildButton = 2131099676;
 			
 			// aapt resource value: 0x7f060019
-			public const int menu_delete_info = 2131099673;
+			public const int MyChildrenButton = 2131099673;
+			
+			// aapt resource value: 0x7f06000f
+			public const int PhysicalDetailsButton = 2131099663;
+			
+			// aapt resource value: 0x7f06000a
+			public const int PickDateButton = 2131099658;
+			
+			// aapt resource value: 0x7f06001b
+			public const int SafetyForChildrenButton = 2131099675;
 			
 			// aapt resource value: 0x7f060017
-			public const int menu_save_info = 2131099671;
+			public const int TwitterLoginButton = 2131099671;
+			
+			// aapt resource value: 0x7f06001e
+			public const int imageView1 = 2131099678;
+			
+			// aapt resource value: 0x7f060008
+			public const int linearLayout1 = 2131099656;
+			
+			// aapt resource value: 0x7f060023
+			public const int menu_add_child = 2131099683;
+			
+			// aapt resource value: 0x7f060021
+			public const int menu_cancel_info = 2131099681;
+			
+			// aapt resource value: 0x7f060022
+			public const int menu_delete_info = 2131099682;
+			
+			// aapt resource value: 0x7f060020
+			public const int menu_save_info = 2131099680;
 			
 			// aapt resource value: 0x7f060000
 			public const int textView1 = 2131099648;
 			
-			// aapt resource value: 0x7f060016
-			public const int textView2 = 2131099670;
+			// aapt resource value: 0x7f06001f
+			public const int textView2 = 2131099679;
+			
+			// aapt resource value: 0x7f060001
+			public const int textView3 = 2131099649;
+			
+			// aapt resource value: 0x7f060003
+			public const int textView4 = 2131099651;
+			
+			// aapt resource value: 0x7f060005
+			public const int textView5 = 2131099653;
+			
+			// aapt resource value: 0x7f060007
+			public const int textView6 = 2131099655;
 			
 			static Id()
 			{
@@ -267,8 +294,23 @@ namespace MCM
 			// aapt resource value: 0x7f040000
 			public const int app_name = 2130968576;
 			
+			// aapt resource value: 0x7f040026
+			public const int childbasics_dateofbirth_textview_text = 2130968614;
+			
+			// aapt resource value: 0x7f040023
+			public const int childbasics_firstname_textview_text = 2130968611;
+			
+			// aapt resource value: 0x7f040025
+			public const int childbasics_lastname_textview_text = 2130968613;
+			
 			// aapt resource value: 0x7f040006
 			public const int childbasics_layout_label = 2130968582;
+			
+			// aapt resource value: 0x7f040024
+			public const int childbasics_middlename_textview_text = 2130968612;
+			
+			// aapt resource value: 0x7f040027
+			public const int childbasics_pickdate_button_text = 2130968615;
 			
 			// aapt resource value: 0x7f04001a
 			public const int childprofile_addphoto_button_text = 2130968602;

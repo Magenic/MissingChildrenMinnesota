@@ -11,4 +11,52 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textView1" />
+    <TextView
+        android:text="@string/childbasics_firstname_textview_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView3" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/FirstNameText" />
+    <TextView
+        android:text="@string/childbasics_middlename_textview_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView4" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/MiddleNameText" />
+    <TextView
+        android:text="@string/childbasics_lastname_textview_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView5" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/LastNameText" />
+    <TextView
+        android:text="@string/childbasics_dateofbirth_textview_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView6" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout1">
+        <TextView
+            android:text=""
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/DateDisplayTextView" />
+        <Button
+            android:text="@string/childbasics_pickdate_button_text"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/PickDateButton" />
+    </LinearLayout>
 </LinearLayout>
