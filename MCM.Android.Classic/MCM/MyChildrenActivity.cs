@@ -71,7 +71,10 @@ namespace MCM
             progressDialog.Show();
 
             _children = await GetChildrenList();
-
+            var cLV = FindViewById<ListView>(Resource.Id.ChildrenListView);
+            cLV.Adapter = new ArrayAdapter<String>(this
+                                                    , Android.Resource.Layout.SimpleListItem1
+                                                    , _children.Select(c => c.LastName + ", " + c.FirstName).ToArray<string>());
             progressDialog.Dismiss();
             
             CreateAndShowDialog(_children.Count.ToString(), " Children Found");

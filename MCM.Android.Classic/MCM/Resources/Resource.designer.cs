@@ -93,6 +93,9 @@ namespace MCM
 			// aapt resource value: 0x7f06000b
 			public const int ChildPhotoImageView = 2131099659;
 			
+			// aapt resource value: 0x7f06001e
+			public const int ChildrenListView = 2131099678;
+			
 			// aapt resource value: 0x7f060009
 			public const int DateDisplayTextView = 2131099657;
 			
@@ -150,29 +153,23 @@ namespace MCM
 			// aapt resource value: 0x7f060017
 			public const int TwitterLoginButton = 2131099671;
 			
-			// aapt resource value: 0x7f06001e
-			public const int imageView1 = 2131099678;
-			
 			// aapt resource value: 0x7f060008
 			public const int linearLayout1 = 2131099656;
 			
-			// aapt resource value: 0x7f060023
-			public const int menu_add_child = 2131099683;
-			
-			// aapt resource value: 0x7f060021
-			public const int menu_cancel_info = 2131099681;
-			
 			// aapt resource value: 0x7f060022
-			public const int menu_delete_info = 2131099682;
+			public const int menu_add_child = 2131099682;
 			
 			// aapt resource value: 0x7f060020
-			public const int menu_save_info = 2131099680;
+			public const int menu_cancel_info = 2131099680;
+			
+			// aapt resource value: 0x7f060021
+			public const int menu_delete_info = 2131099681;
+			
+			// aapt resource value: 0x7f06001f
+			public const int menu_save_info = 2131099679;
 			
 			// aapt resource value: 0x7f060000
 			public const int textView1 = 2131099648;
-			
-			// aapt resource value: 0x7f06001f
-			public const int textView2 = 2131099679;
 			
 			// aapt resource value: 0x7f060001
 			public const int textView3 = 2131099649;
