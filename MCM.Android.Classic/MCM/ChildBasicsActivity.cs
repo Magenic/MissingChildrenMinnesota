@@ -28,6 +28,7 @@ namespace MCM
         private EditText _middleNameText;
         private EditText _lastNameText;
         private TextView _dateDisplayTextView;
+        private TextView _pageTitleTextView;
         private Button _pickDate;
         private DateTime _date;
 
@@ -49,6 +50,7 @@ namespace MCM
             _middleNameText = FindViewById<EditText>(Resource.Id.MiddleNameText);
             _lastNameText = FindViewById<EditText>(Resource.Id.LastNameText);
             _dateDisplayTextView = FindViewById<TextView>(Resource.Id.DateDisplayTextView);
+            _pageTitleTextView = FindViewById<TextView>(Resource.Id.textView1);
 
             // capture our View elements
             _pickDate = FindViewById<Button>(Resource.Id.PickDateButton);
@@ -56,20 +58,12 @@ namespace MCM
             // add a click event handler to the button
             _pickDate.Click += delegate { ShowDialog(DATE_DIALOG_ID); };
 
-            if (string.IsNullOrWhiteSpace(_child.Id))
-            {
-                // get the current date
-                _date = DateTime.Today;
-            }
-            else
-            {
-                _date = _child.BirthDate;
-            }
-
             // display the current date (this method is below)
+            InitializeDisplay();
             UpdateDisplay();
         }
 
+       
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
             MenuInflater.Inflate(Resource.Menu.menu_childbasics, menu);
@@ -142,18 +136,19 @@ namespace MCM
             {
                 try
                 {
-                    _progressDialog = new ProgressDialog(this);
-                    _progressDialog.SetTitle("Adding Child Information");
-                    _progressDialog.SetMessage("Please Wait...");
-                    _progressDialog.Show();
-
                     _child.FirstName = _firstNameText.Text.Trim();
                     _child.MiddleName = _middleNameText.Text.Trim();
                     _child.LastName = _lastNameText.Text.Trim();
                     _child.BirthDate = _date;
 
-                    await InsertToTable();
-
+                    if (!string.IsNullOrWhiteSpace(_child.Id))
+                    {
+                        await UpdateTable();
+                    }
+                    else
+                    {
+                        await InsertToTable();
+                    }
                     //CreateAndShowDialog(string.Format("Child Id: {0}", _child.Id), "Child Added");
                 }
                 catch
@@ -168,7 +163,10 @@ namespace MCM
         private Task InsertToTable()
         {
             Task task = null;
-            
+            _progressDialog = new ProgressDialog(this);
+            _progressDialog.SetTitle("Adding Child Information");
+            _progressDialog.SetMessage("Please Wait...");
+            _progressDialog.Show();            
             try
             {
                 var childTable = _globalVars.MobileServiceClient.GetTable<DataObjects.Child>();
@@ -186,6 +184,32 @@ namespace MCM
 
             return task;
         }
+
+        private Task UpdateTable()
+        {
+            Task task = null;
+                                _progressDialog = new ProgressDialog(this);
+                    _progressDialog.SetTitle("Updating Child Information");
+                    _progressDialog.SetMessage("Please Wait...");
+                    _progressDialog.Show();
+            try
+            {
+                var childTable = _globalVars.MobileServiceClient.GetTable<DataObjects.Child>();
+                task = Task.Factory.StartNew(() => childTable.UpdateAsync(_child));
+
+                //timer is used to assure that the Id assigned is retrieved. saw that it may take longer than expected
+                //to retrieve the returned Id from the mobile service.
+                _timerCount = 0;
+                _timer = new System.Threading.Timer(TimerDelegate, null, 250, 250);
+            }
+            catch
+            {
+                CreateAndShowDialog("Unable to update Child.", "Add Child");
+            }
+
+            return task;
+        }
+
 
         private void TimerDelegate(object state)
         {
@@ -209,6 +233,24 @@ namespace MCM
             }
 
             _timerCount++;
+        }
+
+        private void InitializeDisplay()
+        {
+            if (string.IsNullOrWhiteSpace(_child.Id))
+            {
+                // get the current date
+                _date = DateTime.Today;
+            }
+            else
+            {
+                _pageTitleTextView.Text = _pageTitleTextView.Text.Replace("Child ", _child.FirstName + "'s ");
+                _firstNameText.Text = _child.FirstName;
+                _middleNameText.Text = _child.MiddleName;
+                _lastNameText.Text = _child.LastName;
+                _date = _child.BirthDate;
+            }
+
         }
 
         // updates the date in the TextView

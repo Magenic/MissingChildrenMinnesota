@@ -19,6 +19,16 @@ namespace MCM
 	public class ChildProfileActivity : Activity
 	{
         private DataObjects.Child _child;
+        private TextView _pageTitleTextView;
+        private Button _addPhotoButton ;
+        private Button _childBasicsButton;
+        private Button _measurementsButton;
+        private Button _physicalDetailsButton;
+        private Button _doctorInfoButton;
+        private Button _dentalInfoButton;
+        private Button _medicalAlertInfoButton;
+        private Button _distinguishingFeaturesButton;
+        private Button _idChecklistButton;
 
 		protected override void OnCreate (Bundle bundle)
 		{
@@ -28,39 +38,50 @@ namespace MCM
 
 			SetContentView (Resource.Layout.ChildProfile);
 
-			Button addPhotoButton = FindViewById<Button>(Resource.Id.AddPhotoButton);
-			Button childBasicsButton = FindViewById<Button>(Resource.Id.ChildBasicsButton);
-			Button measurementsButton = FindViewById<Button>(Resource.Id.MeasurementsButton);
-			Button physicalDetailsButton = FindViewById<Button>(Resource.Id.PhysicalDetailsButton);
-			Button doctorInfoButton = FindViewById<Button>(Resource.Id.DoctorInfoButton);
-			Button dentalInfoButton = FindViewById<Button>(Resource.Id.DentalInfoButton);
-			Button medicalAlertInfoButton = FindViewById<Button>(Resource.Id.MedicalAlertInfoButton);
-			Button distinguishingFeaturesButton = FindViewById<Button>(Resource.Id.DistinguishingFeaturesButton);
-			Button idChecklistButton = FindViewById<Button>(Resource.Id.IDChecklistButton);
+			_addPhotoButton = FindViewById<Button>(Resource.Id.AddPhotoButton);
+			_childBasicsButton = FindViewById<Button>(Resource.Id.ChildBasicsButton);
+			_measurementsButton = FindViewById<Button>(Resource.Id.MeasurementsButton);
+			_physicalDetailsButton = FindViewById<Button>(Resource.Id.PhysicalDetailsButton);
+			_doctorInfoButton = FindViewById<Button>(Resource.Id.DoctorInfoButton);
+			_dentalInfoButton = FindViewById<Button>(Resource.Id.DentalInfoButton);
+			_medicalAlertInfoButton = FindViewById<Button>(Resource.Id.MedicalAlertInfoButton);
+			_distinguishingFeaturesButton = FindViewById<Button>(Resource.Id.DistinguishingFeaturesButton);
+			_idChecklistButton = FindViewById<Button>(Resource.Id.IDChecklistButton);
+            _pageTitleTextView = FindViewById<TextView>(Resource.Id.textView1);
 
-			addPhotoButton.Click += HandleAddPhotoButton;
-			childBasicsButton.Click += HandleChildBasicsButton;
-			measurementsButton.Click += HandleMeasurementsButton;
-			physicalDetailsButton.Click += HandlePhysicalDetailsButton;
-			doctorInfoButton.Click += HandleDoctorInfoButton;
-			dentalInfoButton.Click += HandleDentalInfoButton;
-			medicalAlertInfoButton.Click += HandleMedicalAlertInfoButton;
-			distinguishingFeaturesButton.Click += HandleDistinguishingFeaturesButton;
-			idChecklistButton.Click += HandleIDChecklistButton;
+			_addPhotoButton.Click += HandleAddPhotoButton;
+			_childBasicsButton.Click += HandleChildBasicsButton;
+			_measurementsButton.Click += HandleMeasurementsButton;
+			_physicalDetailsButton.Click += HandlePhysicalDetailsButton;
+			_doctorInfoButton.Click += HandleDoctorInfoButton;
+			_dentalInfoButton.Click += HandleDentalInfoButton;
+			_medicalAlertInfoButton.Click += HandleMedicalAlertInfoButton;
+			_distinguishingFeaturesButton.Click += HandleDistinguishingFeaturesButton;
+			_idChecklistButton.Click += HandleIDChecklistButton;
 
+            InitializeDisplay();
+		}
+
+        private void InitializeDisplay()
+        {
             if (string.IsNullOrWhiteSpace(_child.Id))
             {
-                addPhotoButton.Enabled = false;
-                measurementsButton.Enabled = false;
-                physicalDetailsButton.Enabled = false;
-                doctorInfoButton.Enabled = false;
-                dentalInfoButton.Enabled = false;
-                medicalAlertInfoButton.Enabled = false;
-                distinguishingFeaturesButton.Enabled = false;
-                idChecklistButton.Enabled = false;
+                _addPhotoButton.Enabled = false;
+                _measurementsButton.Enabled = false;
+                _physicalDetailsButton.Enabled = false;
+                _doctorInfoButton.Enabled = false;
+                _dentalInfoButton.Enabled = false;
+                _medicalAlertInfoButton.Enabled = false;
+                _distinguishingFeaturesButton.Enabled = false;
+                _idChecklistButton.Enabled = false;
                 HandleChildBasicsButton(this, new EventArgs());
             }
-		}
+            else
+            {
+                _pageTitleTextView.Text = _pageTitleTextView.Text.Replace("Child ", _child.FirstName + "'s ");
+            }
+
+        }
 
 		private void HandleAddPhotoButton (object sender, EventArgs ea)
 		{

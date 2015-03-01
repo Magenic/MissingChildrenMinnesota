@@ -65,6 +65,7 @@
     <Compile Include="DataObjects\DistinguishingFeature.cs" />
     <Compile Include="GlobalVars.cs" />
     <Compile Include="MainActivity.cs" />
+    <Compile Include="MyChildrenListViewAdapter.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MCMActivity.cs" />
@@ -90,6 +91,9 @@
     <None Include="Properties\AndroidManifest.xml">
       <SubType>Designer</SubType>
     </None>
+    <AndroidResource Include="Resources\layout\ChildListItem.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Main.axml" />
