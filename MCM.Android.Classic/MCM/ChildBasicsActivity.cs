@@ -37,6 +37,11 @@ namespace MCM
         private int _timerCount = 0;
         private DataObjects.Child _child;
 
+        private string _orgFirstName;
+        private string _orgMiddleName;
+        private string _orgLastName;
+        private DateTime _orgBirthDate;
+
         protected override void OnCreate(Bundle bundle)
 		{
 			base.OnCreate (bundle);
@@ -75,16 +80,22 @@ namespace MCM
             switch (item.ItemId)
             {
                 case Resource.Id.menu_save_info:
-                    //CreateAndShowDialog("Save Clicked", "Menu");
-                    AddChild();
+                    AddUpdateChild();
                     return true;
 
                 case Resource.Id.menu_cancel_info:
+                    if (!_orgBirthDate.Equals(_date) ||
+                        _orgFirstName.Equals(_firstNameText.Text.Trim(), StringComparison.OrdinalIgnoreCase) ||
+                        _orgMiddleName.Equals(_middleNameText.Text.Trim(), StringComparison.OrdinalIgnoreCase) ||
+                        _orgLastName.Equals(_lastNameText.Text.Trim(), StringComparison.OrdinalIgnoreCase))
+                    {
+
+                    }
                     CreateAndShowDialog("Cancel Clicked", "Menu");
                     return true;
 
                 case Resource.Id.menu_delete_info:
-                    CreateAndShowDialog("Delete Clicked", "Menu");
+                    DeleteChild();
                     return true;
 
                 default:
@@ -110,18 +121,15 @@ namespace MCM
             UpdateDisplay();
         }        
 
-        private async void AddChild()
+        private async void AddUpdateChild()
         {
-            bool isValid = true;
             StringBuilder sb = new StringBuilder();
             if (string.IsNullOrWhiteSpace(_firstNameText.Text))
             {
-                isValid = false;
                 sb.Append("First Name is required.");
             }
             if (string.IsNullOrWhiteSpace(_lastNameText.Text))
             {
-                isValid = false;
                 if (!string.IsNullOrWhiteSpace(sb.ToString()))
                 {
                     sb.Append("\n");
@@ -141,15 +149,14 @@ namespace MCM
                     _child.LastName = _lastNameText.Text.Trim();
                     _child.BirthDate = _date;
 
-                    if (!string.IsNullOrWhiteSpace(_child.Id))
-                    {
-                        await UpdateTable();
-                    }
-                    else
+                    if (string.IsNullOrWhiteSpace(_child.Id))
                     {
                         await InsertToTable();
                     }
-                    //CreateAndShowDialog(string.Format("Child Id: {0}", _child.Id), "Child Added");
+                    else
+                    {
+                        await UpdateTable();
+                    }
                 }
                 catch
                 {
@@ -179,6 +186,7 @@ namespace MCM
             }
             catch
             {
+                _progressDialog.Dismiss();
                 CreateAndShowDialog("Unable to add Child.", "Add Child");
             }
 
@@ -188,10 +196,10 @@ namespace MCM
         private Task UpdateTable()
         {
             Task task = null;
-                                _progressDialog = new ProgressDialog(this);
-                    _progressDialog.SetTitle("Updating Child Information");
-                    _progressDialog.SetMessage("Please Wait...");
-                    _progressDialog.Show();
+            _progressDialog = new ProgressDialog(this);
+            _progressDialog.SetTitle("Updating Child Information");
+            _progressDialog.SetMessage("Please Wait...");
+            _progressDialog.Show();
             try
             {
                 var childTable = _globalVars.MobileServiceClient.GetTable<DataObjects.Child>();
@@ -204,12 +212,60 @@ namespace MCM
             }
             catch
             {
+                _progressDialog.Dismiss();
                 CreateAndShowDialog("Unable to update Child.", "Add Child");
             }
 
             return task;
         }
 
+        private async void DeleteChild()
+        {
+            _progressDialog = new ProgressDialog(this);
+            _progressDialog.SetTitle("Removing Child Information");
+            _progressDialog.SetMessage("Please Wait...");
+            _progressDialog.Show();
+            try
+            {
+                _child.FirstName = _firstNameText.Text.Trim();
+                _child.MiddleName = _middleNameText.Text.Trim();
+                _child.LastName = _lastNameText.Text.Trim();
+                _child.BirthDate = _date;
+
+                await DeleteFromTable();
+
+                _progressDialog.Dismiss();
+                CreateAndShowDialog(string.Format("Child '{0} {1}' removed.", _child.FirstName, _child.LastName), "Remove Child");
+                Finish();
+            }
+            catch
+            {
+                _progressDialog.Dismiss();
+                CreateAndShowDialog("Unable to remove Child.", "Remove Child");
+            }
+        }
+
+        private Task DeleteFromTable()
+        {
+            Task task = null;
+
+            try
+            {
+                var childTable = _globalVars.MobileServiceClient.GetTable<DataObjects.Child>();
+                task = Task.Factory.StartNew(() => childTable.DeleteAsync(_child));
+
+                ////timer is used to assure that the Id assigned is retrieved. saw that it may take longer than expected
+                ////to retrieve the returned Id from the mobile service.
+                //_timerCount = 0;
+                //_timer = new System.Threading.Timer(TimerDelegate, null, 250, 250);
+            }
+            catch
+            {
+                CreateAndShowDialog("Unable to remove Child.", "Remove Child");
+            }
+
+            return task;
+        }
 
         private void TimerDelegate(object state)
         {
@@ -251,6 +307,10 @@ namespace MCM
                 _date = _child.BirthDate;
             }
 
+            _orgBirthDate = _date;
+            _orgFirstName = _child.FirstName;
+            _orgMiddleName = _child.MiddleName;
+            _orgLastName = _child.LastName;
         }
 
         // updates the date in the TextView
