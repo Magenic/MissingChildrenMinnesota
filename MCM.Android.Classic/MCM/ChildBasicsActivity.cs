@@ -157,6 +157,11 @@ namespace MCM
                     {
                         await UpdateTable();
                     }
+
+                    Intent returnIntent = new Intent();
+                    returnIntent.PutExtra("Child", JsonConvert.SerializeObject(_child));
+                    this.SetResult(0, returnIntent);
+
                 }
                 catch
                 {

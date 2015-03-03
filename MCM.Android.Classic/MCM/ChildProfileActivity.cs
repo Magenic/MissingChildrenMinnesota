@@ -15,12 +15,12 @@ using Newtonsoft.Json;
 
 namespace MCM
 {
-    [Activity(Label = "@string/childprofile_layout_label")]			
-	public class ChildProfileActivity : Activity
-	{
+    [Activity(Label = "@string/childprofile_layout_label")]
+    public class ChildProfileActivity : Activity
+    {
         private DataObjects.Child _child;
         private TextView _pageTitleTextView;
-        private Button _addPhotoButton ;
+        private Button _addPhotoButton;
         private Button _childBasicsButton;
         private Button _measurementsButton;
         private Button _physicalDetailsButton;
@@ -30,37 +30,79 @@ namespace MCM
         private Button _distinguishingFeaturesButton;
         private Button _idChecklistButton;
 
-		protected override void OnCreate (Bundle bundle)
-		{
-			base.OnCreate (bundle);
+
+        enum IntentCodes
+        {
+            Photo,
+            Basics,
+            Measurements,
+            PhysicalDetails,
+            DoctorInfo,
+            DentalInfo,
+            DistinguishingFeatures,
+            CheckList,
+        }
+
+        protected override void OnCreate(Bundle bundle)
+        {
+            base.OnCreate(bundle);
 
             _child = JsonConvert.DeserializeObject<DataObjects.Child>(Intent.GetStringExtra("Child"));
 
-			SetContentView (Resource.Layout.ChildProfile);
+            SetContentView(Resource.Layout.ChildProfile);
 
-			_addPhotoButton = FindViewById<Button>(Resource.Id.AddPhotoButton);
-			_childBasicsButton = FindViewById<Button>(Resource.Id.ChildBasicsButton);
-			_measurementsButton = FindViewById<Button>(Resource.Id.MeasurementsButton);
-			_physicalDetailsButton = FindViewById<Button>(Resource.Id.PhysicalDetailsButton);
-			_doctorInfoButton = FindViewById<Button>(Resource.Id.DoctorInfoButton);
-			_dentalInfoButton = FindViewById<Button>(Resource.Id.DentalInfoButton);
-			_medicalAlertInfoButton = FindViewById<Button>(Resource.Id.MedicalAlertInfoButton);
-			_distinguishingFeaturesButton = FindViewById<Button>(Resource.Id.DistinguishingFeaturesButton);
-			_idChecklistButton = FindViewById<Button>(Resource.Id.IDChecklistButton);
+            _addPhotoButton = FindViewById<Button>(Resource.Id.AddPhotoButton);
+            _childBasicsButton = FindViewById<Button>(Resource.Id.ChildBasicsButton);
+            _measurementsButton = FindViewById<Button>(Resource.Id.MeasurementsButton);
+            _physicalDetailsButton = FindViewById<Button>(Resource.Id.PhysicalDetailsButton);
+            _doctorInfoButton = FindViewById<Button>(Resource.Id.DoctorInfoButton);
+            _dentalInfoButton = FindViewById<Button>(Resource.Id.DentalInfoButton);
+            _medicalAlertInfoButton = FindViewById<Button>(Resource.Id.MedicalAlertInfoButton);
+            _distinguishingFeaturesButton = FindViewById<Button>(Resource.Id.DistinguishingFeaturesButton);
+            _idChecklistButton = FindViewById<Button>(Resource.Id.IDChecklistButton);
             _pageTitleTextView = FindViewById<TextView>(Resource.Id.textView1);
 
-			_addPhotoButton.Click += HandleAddPhotoButton;
-			_childBasicsButton.Click += HandleChildBasicsButton;
-			_measurementsButton.Click += HandleMeasurementsButton;
-			_physicalDetailsButton.Click += HandlePhysicalDetailsButton;
-			_doctorInfoButton.Click += HandleDoctorInfoButton;
-			_dentalInfoButton.Click += HandleDentalInfoButton;
-			_medicalAlertInfoButton.Click += HandleMedicalAlertInfoButton;
-			_distinguishingFeaturesButton.Click += HandleDistinguishingFeaturesButton;
-			_idChecklistButton.Click += HandleIDChecklistButton;
+            _addPhotoButton.Click += HandleAddPhotoButton;
+            _childBasicsButton.Click += HandleChildBasicsButton;
+            _measurementsButton.Click += HandleMeasurementsButton;
+            _physicalDetailsButton.Click += HandlePhysicalDetailsButton;
+            _doctorInfoButton.Click += HandleDoctorInfoButton;
+            _dentalInfoButton.Click += HandleDentalInfoButton;
+            _medicalAlertInfoButton.Click += HandleMedicalAlertInfoButton;
+            _distinguishingFeaturesButton.Click += HandleDistinguishingFeaturesButton;
+            _idChecklistButton.Click += HandleIDChecklistButton;
 
             InitializeDisplay();
-		}
+        }
+
+        protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
+        {
+            if (resultCode == 0)
+            {
+                switch (requestCode)
+                {
+                    case (int)IntentCodes.Basics:
+                        if ( data != null &&
+                            !string.IsNullOrEmpty(data.GetStringExtra("Child")))
+                        {
+                            _child = JsonConvert.DeserializeObject<DataObjects.Child>(data.GetStringExtra("Child"));
+                            InitializeDisplay();
+                        }
+                        else
+                        {
+                            _child = new DataObjects.Child();
+                            Finish();
+                        }
+                        break;
+                    default:
+                        break;
+                }
+            }
+            else
+            {
+
+            }
+        }//onActivityResult
 
         private void InitializeDisplay()
         {
@@ -78,73 +120,75 @@ namespace MCM
             }
             else
             {
-                _pageTitleTextView.Text = _pageTitleTextView.Text.Replace("Child ", _child.FirstName + "'s ");
+                _pageTitleTextView.Text = string.Format("{0}'s Profile", _child.FirstName );
             }
 
         }
 
-		private void HandleAddPhotoButton (object sender, EventArgs ea)
-		{
-			var activity = new Intent (this, typeof(AddPhotoActivity));
-			//activity.PutExtra ("MyData", "Data from Activity1");
-			StartActivity (activity);
-		}
+        private void HandleAddPhotoButton(object sender, EventArgs ea)
+        {
+            var activity = new Intent(this, typeof(AddPhotoActivity));
+            //activity.PutExtra ("MyData", "Data from Activity1");
+            StartActivity(activity);
+        }
 
-		private void HandleChildBasicsButton (object sender, EventArgs ea)
-		{
-			var activity = new Intent (this, typeof(ChildBasicsActivity));
+        private void HandleChildBasicsButton(object sender, EventArgs ea)
+        {
+            var activity = new Intent(this, typeof(ChildBasicsActivity));
             activity.PutExtra("Child", JsonConvert.SerializeObject(_child));
-			StartActivity (activity);
-		}
+            //StartActivity (activity);
 
-		private void HandleMeasurementsButton (object sender, EventArgs ea)
-		{
-			var activity = new Intent (this, typeof(MeasurementsActivity));
-			//activity.PutExtra ("MyData", "Data from Activity1");
-			StartActivity (activity);
-		}
+            StartActivityForResult(activity, (int)IntentCodes.Basics);
+        }
 
-		private void HandlePhysicalDetailsButton (object sender, EventArgs ea)
-		{
-			var activity = new Intent (this, typeof(PhysicalDetailsActivity));
-			//activity.PutExtra ("MyData", "Data from Activity1");
-			StartActivity (activity);
-		}
+        private void HandleMeasurementsButton(object sender, EventArgs ea)
+        {
+            var activity = new Intent(this, typeof(MeasurementsActivity));
+            //activity.PutExtra ("MyData", "Data from Activity1");
+            StartActivity(activity);
+        }
 
-		private void HandleDoctorInfoButton (object sender, EventArgs ea)
-		{
-			var activity = new Intent (this, typeof(DoctorInfoActivity));
-			//activity.PutExtra ("MyData", "Data from Activity1");
-			StartActivity (activity);
-		}
+        private void HandlePhysicalDetailsButton(object sender, EventArgs ea)
+        {
+            var activity = new Intent(this, typeof(PhysicalDetailsActivity));
+            //activity.PutExtra ("MyData", "Data from Activity1");
+            StartActivity(activity);
+        }
 
-		private void HandleDentalInfoButton (object sender, EventArgs ea)
-		{
-			var activity = new Intent (this, typeof(DentalInfoActivity));
-			//activity.PutExtra ("MyData", "Data from Activity1");
-			StartActivity (activity);
-		}
+        private void HandleDoctorInfoButton(object sender, EventArgs ea)
+        {
+            var activity = new Intent(this, typeof(DoctorInfoActivity));
+            //activity.PutExtra ("MyData", "Data from Activity1");
+            StartActivity(activity);
+        }
 
-		private void HandleMedicalAlertInfoButton (object sender, EventArgs ea)
-		{
-			var activity = new Intent (this, typeof(MedicalAlertInfoActivity));
-			//activity.PutExtra ("MyData", "Data from Activity1");
-			StartActivity (activity);
-		}
+        private void HandleDentalInfoButton(object sender, EventArgs ea)
+        {
+            var activity = new Intent(this, typeof(DentalInfoActivity));
+            //activity.PutExtra ("MyData", "Data from Activity1");
+            StartActivity(activity);
+        }
 
-		private void HandleDistinguishingFeaturesButton (object sender, EventArgs ea)
-		{
-			var activity = new Intent (this, typeof(DistinguishingFeaturesActivity));
-			//activity.PutExtra ("MyData", "Data from Activity1");
-			StartActivity (activity);
-		}
+        private void HandleMedicalAlertInfoButton(object sender, EventArgs ea)
+        {
+            var activity = new Intent(this, typeof(MedicalAlertInfoActivity));
+            //activity.PutExtra ("MyData", "Data from Activity1");
+            StartActivity(activity);
+        }
 
-		private void HandleIDChecklistButton (object sender, EventArgs ea)
-		{
-			var activity = new Intent (this, typeof(IDChecklistActivity));
-			//activity.PutExtra ("MyData", "Data from Activity1");
-			StartActivity (activity);
-		}
-	}
+        private void HandleDistinguishingFeaturesButton(object sender, EventArgs ea)
+        {
+            var activity = new Intent(this, typeof(DistinguishingFeaturesActivity));
+            //activity.PutExtra ("MyData", "Data from Activity1");
+            StartActivity(activity);
+        }
+
+        private void HandleIDChecklistButton(object sender, EventArgs ea)
+        {
+            var activity = new Intent(this, typeof(IDChecklistActivity));
+            //activity.PutExtra ("MyData", "Data from Activity1");
+            StartActivity(activity);
+        }
+    }
 }
 
