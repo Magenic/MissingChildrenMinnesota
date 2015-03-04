@@ -9,10 +9,10 @@ using System;
 using System.CodeDom.Compiler;
 using UIKit;
 
-namespace MCM.Ios.Classic.Controllers
+namespace MCM.Ios.Classic
 {
-	[Register ("RootViewController")]
-	partial class RootViewController
+	[Register ("LoginViewController")]
+	partial class LoginViewController
 	{
 		void ReleaseDesignerOutlets ()
 		{

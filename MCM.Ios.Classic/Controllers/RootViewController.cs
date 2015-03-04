@@ -60,18 +60,5 @@ namespace MCM.Ios.Classic.Controllers
         {
             base.PrepareForSegue(segue, sender);
         }
-
-        partial void btnHotmail_TouchUpInside(UIButton sender)
-        {
-            PerformSegue("sguToMain", this);
-        }
-
-        partial void btnGoogle_TouchUpInside(UIButton sender)
-        {
-        }
-
-        partial void btnTwitter_TouchUpInside(UIButton sender)
-        {
-        }
     }
 }
