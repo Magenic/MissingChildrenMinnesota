@@ -60,6 +60,7 @@
     <Reference Include="System.Net.Http" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BitmapHelpers.cs" />
     <Compile Include="DataObjects\Child.cs" />
     <Compile Include="DataObjects\ChildMeasurement.cs" />
     <Compile Include="DataObjects\DistinguishingFeature.cs" />
