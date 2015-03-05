@@ -33,6 +33,8 @@ namespace MCM.DataObjects
         public string DentistPostalCode { get; set; }
         public string DentistPhoneNumber { get; set; }
         public string MedicalAlertInfo { get; set; }
+
+        public string Picture { get; set; }
     
     
         public int AgeInYears

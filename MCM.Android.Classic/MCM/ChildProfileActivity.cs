@@ -136,8 +136,9 @@ namespace MCM
         private void HandleAddPhotoButton(object sender, EventArgs ea)
         {
             var activity = new Intent(this, typeof(AddPhotoActivity));
-            //activity.PutExtra ("MyData", "Data from Activity1");
-            StartActivity(activity);
+            activity.PutExtra("Child", JsonConvert.SerializeObject(_child));
+
+            StartActivityForResult(activity, (int)IntentCodes.Photo);
         }
 
         private void HandleChildBasicsButton(object sender, EventArgs ea)

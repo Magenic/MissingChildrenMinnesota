@@ -16,6 +16,9 @@ using Java.IO;
 using Android.Graphics;
 using Android.Provider;
 using Android.Content.PM;
+using Android.Util;
+using Android.Graphics.Drawables;
+using Newtonsoft.Json;
 
 namespace MCM
 {
@@ -29,10 +32,13 @@ namespace MCM
         };
 
         private ImageView _imageView;
+        private DataObjects.Child _child;
 
 		protected override void OnCreate (Bundle bundle)
 		{
 			base.OnCreate (bundle);
+
+            _child = JsonConvert.DeserializeObject<DataObjects.Child>(Intent.GetStringExtra("Child"));
 
             SetContentView(Resource.Layout.AddPhoto);
             _imageView = FindViewById<ImageView>(Resource.Id.imageView1);
@@ -65,6 +71,13 @@ namespace MCM
                 Android.Net.Uri uri = data.Data;
                 _imageView.SetImageURI(uri);
 
+                //Bitmap bitmap = MediaStore.Images.Media.GetBitmap(this.GetContentResolver(), uri);
+
+                _imageView.BuildDrawingCache(true);
+                Bitmap bitmap = _imageView.GetDrawingCache(true);
+
+                SaveImageToChild(bitmap);
+
                 string path = GetPathToImage(uri);
                 Toast.MakeText(this, path, ToastLength.Long);
             }
@@ -82,7 +95,20 @@ namespace MCM
                 int height = Resources.DisplayMetrics.HeightPixels;
                 int width = _imageView.Width;
                 CameraCapture.bitmap = CameraCapture._file.Path.LoadAndResizeBitmap(width, height);
+
+                _imageView.SetImageBitmap(CameraCapture.bitmap);
+                SaveImageToChild(CameraCapture.bitmap);
+
             }
+        }
+
+        private void SaveImageToChild(Bitmap bitmap)
+        {
+            var baos = new System.IO.MemoryStream();
+            bitmap.Compress(Bitmap.CompressFormat.Jpeg, 100, baos); //bm is the bitmap object   
+            byte[] b = baos.ToArray();
+            string encodedImage = Base64.EncodeToString(b, Base64.Default);
+            _child.Picture = encodedImage;
         }
 
         private string GetPathToImage(Uri uri)
