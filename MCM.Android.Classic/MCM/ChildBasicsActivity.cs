@@ -47,9 +47,13 @@ namespace MCM
 			base.OnCreate (bundle);
 
             _globalVars = ((GlobalVars)this.Application);
-            _child = JsonConvert.DeserializeObject<DataObjects.Child>(Intent.GetStringExtra("Child"));        
+            _child = JsonConvert.DeserializeObject<DataObjects.Child>(Intent.GetStringExtra("Child"));
 
-			SetContentView (Resource.Layout.ChildBasics);
+            RequestWindowFeature(WindowFeatures.ActionBar);
+            ActionBar.SetDisplayHomeAsUpEnabled(true);
+            ActionBar.SetHomeButtonEnabled(true);
+            
+            SetContentView(Resource.Layout.ChildBasics);
 
             _firstNameText = FindViewById<EditText>(Resource.Id.FirstNameText);
             _middleNameText = FindViewById<EditText>(Resource.Id.MiddleNameText);
