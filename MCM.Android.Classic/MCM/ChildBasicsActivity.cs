@@ -42,6 +42,8 @@ namespace MCM
         private string _orgLastName;
         private DateTime _orgBirthDate;
 
+        private bool _childAddedOrUpdated = false;
+
         protected override void OnCreate(Bundle bundle)
 		{
 			base.OnCreate (bundle);
@@ -69,7 +71,7 @@ namespace MCM
 
             // display the current date (this method is below)
             InitializeDisplay();
-            UpdateDisplay();
+            UpdateBirthDateDisplay();
         }
 
        
@@ -93,9 +95,14 @@ namespace MCM
                         _orgMiddleName.Equals(_middleNameText.Text.Trim(), StringComparison.OrdinalIgnoreCase) ||
                         _orgLastName.Equals(_lastNameText.Text.Trim(), StringComparison.OrdinalIgnoreCase))
                     {
-
+                        ///
+                        ///TODO: dialog to ask to discard changes
+                        ///
+                        
+                        //replace fields with original values
+                        InitializeDisplay();
+                        UpdateBirthDateDisplay();
                     }
-                    CreateAndShowDialog("Cancel Clicked", "Menu");
                     return true;
 
                 case Resource.Id.menu_delete_info:
@@ -107,7 +114,18 @@ namespace MCM
                     return base.OnOptionsItemSelected(item);
             }
         }
-        
+
+        public override void Finish()
+        {
+            if (_childAddedOrUpdated)
+            {
+                Intent returnIntent = new Intent();
+                returnIntent.PutExtra("Child", JsonConvert.SerializeObject(_child));
+                this.SetResult(Result.Ok, returnIntent);
+            }
+            base.Finish();
+        }
+
         protected override Dialog OnCreateDialog(int id)
         {
             switch (id)
@@ -122,7 +140,7 @@ namespace MCM
         private void OnDateSet(object sender, DatePickerDialog.DateSetEventArgs e)
         {
             this._date = e.Date;
-            UpdateDisplay();
+            UpdateBirthDateDisplay();
         }        
 
         private async void AddUpdateChild()
@@ -161,11 +179,6 @@ namespace MCM
                     {
                         await UpdateTable();
                     }
-
-                    Intent returnIntent = new Intent();
-                    returnIntent.PutExtra("Child", JsonConvert.SerializeObject(_child));
-                    this.SetResult(0, returnIntent);
-
                 }
                 catch
                 {
@@ -236,10 +249,6 @@ namespace MCM
             _progressDialog.Show();
             try
             {
-                _child.FirstName = _firstNameText.Text.Trim();
-                _child.MiddleName = _middleNameText.Text.Trim();
-                _child.LastName = _lastNameText.Text.Trim();
-                _child.BirthDate = _date;
 
                 await DeleteFromTable();
 
@@ -280,6 +289,8 @@ namespace MCM
         {
             if (!string.IsNullOrWhiteSpace(_child.Id))
             {
+                _childAddedOrUpdated = true;
+                SaveOriginalValues();
                 _timer.Dispose();
                 _progressDialog.Dismiss();
             }
@@ -291,6 +302,8 @@ namespace MCM
                     //final check to see if there is an Id
                     if (string.IsNullOrWhiteSpace(_child.Id))
                     {
+                        _childAddedOrUpdated = true;
+                        SaveOriginalValues();
                         _timer.Dispose();
                         _progressDialog.Dismiss();
                     }
@@ -316,6 +329,11 @@ namespace MCM
                 _date = _child.BirthDate;
             }
 
+            SaveOriginalValues();
+        }
+
+        private void SaveOriginalValues()
+        {
             _orgBirthDate = _date;
             _orgFirstName = _child.FirstName;
             _orgMiddleName = _child.MiddleName;
@@ -323,7 +341,7 @@ namespace MCM
         }
 
         // updates the date in the TextView
-        private void UpdateDisplay()
+        private void UpdateBirthDateDisplay()
         {
             _dateDisplayTextView.Text = _date.ToString("d");
         }
