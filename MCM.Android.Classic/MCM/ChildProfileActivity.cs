@@ -49,6 +49,10 @@ namespace MCM
 
             _child = JsonConvert.DeserializeObject<DataObjects.Child>(Intent.GetStringExtra("Child"));
 
+            RequestWindowFeature(WindowFeatures.ActionBar);
+            ActionBar.SetDisplayHomeAsUpEnabled(true);
+            ActionBar.SetHomeButtonEnabled(true);
+
             SetContentView(Resource.Layout.ChildProfile);
 
             _addPhotoButton = FindViewById<Button>(Resource.Id.AddPhotoButton);
@@ -73,6 +77,16 @@ namespace MCM
             _idChecklistButton.Click += HandleIDChecklistButton;
 
             InitializeDisplay();
+        }
+
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            switch (item.ItemId)
+            {
+                default:
+                    Finish();
+                    return base.OnOptionsItemSelected(item);
+            }
         }
 
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
@@ -108,19 +122,13 @@ namespace MCM
         {
             if (string.IsNullOrWhiteSpace(_child.Id))
             {
-                _addPhotoButton.Enabled = false;
-                _measurementsButton.Enabled = false;
-                _physicalDetailsButton.Enabled = false;
-                _doctorInfoButton.Enabled = false;
-                _dentalInfoButton.Enabled = false;
-                _medicalAlertInfoButton.Enabled = false;
-                _distinguishingFeaturesButton.Enabled = false;
-                _idChecklistButton.Enabled = false;
+                DisableChildInfoButtons();
                 HandleChildBasicsButton(this, new EventArgs());
             }
             else
             {
                 _pageTitleTextView.Text = string.Format("{0}'s Profile", _child.FirstName );
+                EnableChildInfoButtons();
             }
 
         }
@@ -188,6 +196,30 @@ namespace MCM
             var activity = new Intent(this, typeof(IDChecklistActivity));
             //activity.PutExtra ("MyData", "Data from Activity1");
             StartActivity(activity);
+        }
+
+        private void DisableChildInfoButtons()
+        {
+            _addPhotoButton.Enabled = false;
+            _measurementsButton.Enabled = false;
+            _physicalDetailsButton.Enabled = false;
+            _doctorInfoButton.Enabled = false;
+            _dentalInfoButton.Enabled = false;
+            _medicalAlertInfoButton.Enabled = false;
+            _distinguishingFeaturesButton.Enabled = false;
+            _idChecklistButton.Enabled = false;
+        }
+
+        private void EnableChildInfoButtons()
+        {
+            _addPhotoButton.Enabled = true;
+            _measurementsButton.Enabled = true;
+            _physicalDetailsButton.Enabled = true;
+            _doctorInfoButton.Enabled = true;
+            _dentalInfoButton.Enabled = true;
+            _medicalAlertInfoButton.Enabled = true;
+            _distinguishingFeaturesButton.Enabled = true;
+            _idChecklistButton.Enabled = true;
         }
     }
 }
