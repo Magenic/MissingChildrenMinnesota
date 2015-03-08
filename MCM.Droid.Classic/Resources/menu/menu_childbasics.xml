@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+  <item android:id="@+id/menu_save_info"
+        android:icon="@drawable/ic_action_save"
+        android:title="Save"
+        android:showAsAction="ifRoom|withText" />
+
+  <item android:id="@+id/menu_cancel_info"
+        android:icon="@drawable/ic_action_cancel"
+        android:title="Cancel"
+        android:showAsAction="ifRoom|withText" />
+
+  <item android:id="@+id/menu_delete_info"
+        android:icon="@drawable/ic_action_discard"
+        android:title="Remove Child"
+        android:showAsAction="ifRoom|withText" />
+
+</menu>

@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6FBC0134-4048-4700-B27A-05EF5D4017A5}</ProjectGuid>
+    <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MCM.Droid.Classic</RootNamespace>
+    <AssemblyName>MCM.Droid.Classic</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <AndroidApplication>true</AndroidApplication>
+    <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
+    <DevInstrumentationEnabled>True</DevInstrumentationEnabled>
+    <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AndroidUseSharedRuntime>True</AndroidUseSharedRuntime>
+    <AndroidLinkMode>None</AndroidLinkMode>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AndroidUseSharedRuntime>False</AndroidUseSharedRuntime>
+    <AndroidLinkMode>SdkOnly</AndroidLinkMode>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.WindowsAzure.Mobile">
+      <HintPath>Components\azure-mobile-services-1.3.1\lib\android\Microsoft.WindowsAzure.Mobile.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Mobile.Ext">
+      <HintPath>Components\azure-mobile-services-1.3.1\lib\android\Microsoft.WindowsAzure.Mobile.Ext.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Android" />
+    <Reference Include="mscorlib" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>Components\azure-mobile-services-1.3.1\lib\android\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Extensions">
+      <HintPath>Components\azure-mobile-services-1.3.1\lib\android\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives">
+      <HintPath>Components\azure-mobile-services-1.3.1\lib\android\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AboutMCMActivity.cs" />
+    <Compile Include="AddPhotoActivity.cs" />
+    <Compile Include="BitMapHelpers.cs" />
+    <Compile Include="ChildBasicsActivity.cs" />
+    <Compile Include="ChildProfileActivity.cs" />
+    <Compile Include="DataObjects\Child.cs" />
+    <Compile Include="DataObjects\ChildMeasurement.cs" />
+    <Compile Include="DataObjects\DistinguishingFeature.cs" />
+    <Compile Include="DentalInfoActivity.cs" />
+    <Compile Include="DistinguishingFeaturesActivity.cs" />
+    <Compile Include="DoctorInfoActivity.cs" />
+    <Compile Include="GlobalVars.cs" />
+    <Compile Include="HomeDNAActivity.cs" />
+    <Compile Include="IDChecklistActivity.cs" />
+    <Compile Include="MainActivity.cs" />
+    <Compile Include="MCMActivity.cs" />
+    <Compile Include="MeasurementsActivity.cs" />
+    <Compile Include="MedicalAlertInfoActivity.cs" />
+    <Compile Include="MissingChildActivity.cs" />
+    <Compile Include="MyChildrenActivity.cs" />
+    <Compile Include="MyChildrenListViewAdapter.cs" />
+    <Compile Include="PhysicalDetailsActivity.cs" />
+    <Compile Include="Resources\Resource.Designer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SafetyForChildrenActivity.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AboutResources.txt" />
+    <None Include="Assets\AboutAssets.txt" />
+    <AndroidResource Include="Resources\layout\AboutMCM.axml" />
+    <AndroidResource Include="Resources\layout\AddPhoto.axml" />
+    <AndroidResource Include="Resources\layout\ChildBasics.axml" />
+    <AndroidResource Include="Resources\layout\ChildListItem.axml" />
+    <AndroidResource Include="Resources\layout\ChildProfile.axml" />
+    <AndroidResource Include="Resources\layout\DentalInfo.axml" />
+    <AndroidResource Include="Resources\layout\DistinguishingFeatures.axml" />
+    <AndroidResource Include="Resources\layout\DoctorInfo.axml" />
+    <AndroidResource Include="Resources\layout\HomeDNA.axml" />
+    <AndroidResource Include="Resources\layout\IDChecklist.axml" />
+    <AndroidResource Include="Resources\layout\MCM.axml" />
+    <AndroidResource Include="Resources\layout\Measurements.axml" />
+    <AndroidResource Include="Resources\layout\MedicalAlertInfo.axml" />
+    <AndroidResource Include="Resources\layout\MissingChild.axml" />
+    <AndroidResource Include="Resources\layout\MyChildren.axml" />
+    <AndroidResource Include="Resources\layout\PhysicalDetails.axml" />
+    <AndroidResource Include="Resources\layout\SafetyForChildren.axml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\Main.axml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\values\Strings.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\Icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Properties\AndroidManifest.xml" />
+    <AndroidResource Include="Resources\drawable\ic_action_add_person.png" />
+    <AndroidResource Include="Resources\drawable\ic_action_cancel.png" />
+    <AndroidResource Include="Resources\drawable\ic_action_discard.png" />
+    <AndroidResource Include="Resources\drawable\ic_action_save.png" />
+    <AndroidResource Include="Resources\drawable\sample_0.jpg" />
+    <AndroidResource Include="Resources\drawable\sample_1.jpg" />
+    <AndroidResource Include="Resources\menu\menu_childbasics.xml" />
+    <AndroidResource Include="Resources\menu\menu_mychildren.xml" />
+    <AndroidResource Include="Resources\menu\menu_save_cancel.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <XamarinComponentReference Include="azure-mobile-services">
+      <Visible>False</Visible>
+      <Version>1.3.1</Version>
+    </XamarinComponentReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+     Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

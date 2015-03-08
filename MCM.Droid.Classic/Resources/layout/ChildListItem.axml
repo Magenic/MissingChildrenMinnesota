@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="150dp"
+    android:background="@android:color/background_dark"
+    android:padding="8dp">
+    <LinearLayout
+        android:id="@+id/Text"
+        android:orientation="vertical"
+        android:layout_width="279.8dp"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dip"
+        android:layout_alignParentRight="true">
+        <TextView
+            android:id="@+id/FirstName"
+            android:layout_width="270.6dp"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:textSize="20dip"
+            android:textStyle="italic"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="FirstName" />
+        <TextView
+            android:text="Age"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:id="@+id/AgeLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white" />
+        <TextView
+            android:id="@+id/Age"
+            android:layout_width="264.0dp"
+            android:layout_height="wrap_content"
+            android:textSize="14dip"
+            android:text="XX years old" />
+        <LinearLayout
+            android:id="@+id/CheckListLayout"
+            android:orientation="vertical"
+            android:layout_width="269.8dp"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dip">
+            <TextView
+                android:text="Checklist"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/CheckListLabel"
+                android:textColor="@android:color/white" />
+            <TextView
+                android:text="XX%"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:id="@+id/PercentComplete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+    <ImageView
+        android:id="@+id/Image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:padding="15dp"
+        android:src="@drawable/icon"
+        android:layout_alignParentRight="false" />
+</RelativeLayout>
