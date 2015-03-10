@@ -7,6 +7,8 @@ namespace MCM.Ios.Classic.Controllers
 {
     public partial class RootViewController : UIViewController
     {
+		private readonly ILoginService _loginService;
+
         static bool UserInterfaceIdiomIsPhone
         {
             get { return UIDevice.CurrentDevice.UserInterfaceIdiom == UIUserInterfaceIdiom.Phone; }
@@ -15,6 +17,7 @@ namespace MCM.Ios.Classic.Controllers
         public RootViewController(IntPtr handle)
             : base(handle)
         {
+			_loginService = new LoginService ();
         }
 
         public override void DidReceiveMemoryWarning()

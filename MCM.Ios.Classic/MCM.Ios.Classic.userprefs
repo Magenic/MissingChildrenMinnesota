@@ -1,11 +1,10 @@
 ﻿<Properties StartupItem="MCM.Ios.Classic.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Ad-Hoc|iPhone" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Entitlements.plist">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Ad-Hoc|iPhone" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.Dads iPhone" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Controllers/RootViewController.cs">
     <Files>
-      <File FileName="Controllers/RootViewController.cs" Line="10" Column="10" />
-      <File FileName="Controllers/RootViewController.designer.cs" Line="1" Column="1" />
-      <File FileName="Controllers/LoginViewController.cs" Line="16" Column="16" />
-      <File FileName="Entitlements.plist" />
+      <File FileName="Controllers/RootViewController.cs" Line="6" Column="6" />
+      <File FileName="Controllers/LoginViewController.cs" Line="1" Column="1" />
+      <File FileName="Controllers/LoginViewController.designer.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

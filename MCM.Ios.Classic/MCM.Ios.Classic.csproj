@@ -98,6 +98,8 @@
     <Compile Include="Controllers\LoginViewController.designer.cs">
       <DependentUpon>LoginViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Services\LoginService.cs" />
+    <Compile Include="ILoginService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\RootViewController.designer.cs">
@@ -106,6 +108,8 @@
     <Compile Include="Controllers\RootViewController.cs" />
     <InterfaceDefinition Include="MainStoryboard_Universal.storyboard" />
     <BundleResource Include="Resources\Default-568h%402x.png" />
+    <BundleResource Include="Resources\landing-bg-%402x.png" />
+    <BundleResource Include="Resources\landing-bg-%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.WindowsAzure.Mobile">
@@ -138,4 +142,7 @@
     </XamarinComponentReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="Services\" />
+  </ItemGroup>
 </Project>

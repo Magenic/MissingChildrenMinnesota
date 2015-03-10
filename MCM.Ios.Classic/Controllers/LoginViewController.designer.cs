@@ -14,8 +14,16 @@ namespace MCM.Ios.Classic
 	[Register ("LoginViewController")]
 	partial class LoginViewController
 	{
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton HotmailLoginButton { get; set; }
+
 		void ReleaseDesignerOutlets ()
 		{
+			if (HotmailLoginButton != null) {
+				HotmailLoginButton.Dispose ();
+				HotmailLoginButton = null;
+			}
 		}
 	}
 }

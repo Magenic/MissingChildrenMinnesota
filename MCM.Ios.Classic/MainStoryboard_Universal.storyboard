@@ -63,7 +63,7 @@
         </scene>
         <scene sceneID="1093">
             <objects>
-                <viewController id="1094" sceneMemberID="viewController" storyboardIdentifier="loginViewController" customClass="LoginViewController">
+                <viewController id="1094" sceneMemberID="viewController" storyboardIdentifier="LoginViewController" customClass="LoginViewController" restorationIdentifier="LoginViewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1091"/>
                         <viewControllerLayoutGuide type="bottom" id="1092"/>
@@ -73,20 +73,28 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1117" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO">
-                                <rect key="frame" x="164" y="158" width="46" height="30"/>
-                                <state key="normal" title="Button">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="1317" translatesAutoresizingMaskIntoConstraints="NO" image="landing-bg-.png">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1322" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
+                                <rect key="frame" x="98" y="200" width="180" height="43"/>
+                                <color key="backgroundColor" colorSpace="calibratedRGB" red="0.44705882352941179" green="0.3411764705882353" blue="0.5725490196078431" alpha="1"/>
+                                <state key="normal" title="Login with Hotmail">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1122" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO">
-                                <rect key="frame" x="164" y="257" width="46" height="30"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" colorSpace="calibratedRGB" red="1" green="1" blue="1" alpha="1"/>
                                 </state>
                             </button>
                         </subviews>
+                        <constraints>
+                            <constraint id="1660" constant="0.0" firstItem="1095" firstAttribute="trailing" secondItem="1317" secondAttribute="trailing"/>
+                            <constraint id="1661" constant="0.0" firstItem="1095" firstAttribute="bottom" secondItem="1317" secondAttribute="bottom"/>
+                            <constraint firstItem="1091" firstAttribute="bottom" secondItem="1317" secondAttribute="top" constant="20" id="1664"/>
+                            <constraint firstItem="1317" firstAttribute="leading" secondItem="1095" secondAttribute="leading" constant="0.0" id="1665"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="HotmailLoginButton" destination="1322" id="name-outlet-1322"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1096" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -95,6 +103,8 @@
     </scenes>
     <resources>
         <image name="Default-568h.png" width="640" height="1136"/>
+        <image name="landing-bg-.jpg" width="1080" height="1920"/>
+        <image name="landing-bg-.png" width="1080" height="1920"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedScreenMetrics key="destination" type="retina47"/>
