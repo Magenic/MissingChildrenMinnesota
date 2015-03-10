@@ -71,13 +71,21 @@ namespace MCM
             progressDialog.Show();
 
             _children = await GetChildrenList();
-            var cLV = FindViewById<ListView>(Resource.Id.ChildrenListView);
-            cLV.Adapter = new ArrayAdapter<String>(this
-                                                    , Android.Resource.Layout.SimpleListItem1
-                                                    , _children.Select(c => c.LastName + ", " + c.FirstName).ToArray<string>());
+            var myChildListView = FindViewById<ListView>(Resource.Id.ChildrenListView);
+            myChildListView.Adapter = new MyChildrenListViewAdapter(this, _children);
+            myChildListView.ItemClick += childClick;
+
             progressDialog.Dismiss();
             
             CreateAndShowDialog(_children.Count.ToString(), " Children Found");
+        }
+
+        void childClick(object sender, AdapterView.ItemClickEventArgs e)
+        {
+            var selectedChild = ((MyChildrenListViewAdapter)(((ListView)e.Parent).Adapter))[e.Position] as DataObjects.Child;
+            var activity = new Intent(this, typeof(ChildProfileActivity));
+            activity.PutExtra("Child", JsonConvert.SerializeObject(selectedChild));
+            StartActivity(activity);
         }
 
         private Task<List<DataObjects.Child>> GetChildrenList()
