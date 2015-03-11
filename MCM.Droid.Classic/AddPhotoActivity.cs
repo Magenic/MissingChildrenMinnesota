@@ -56,6 +56,36 @@ namespace MCM.Droid.Classic
 			
 		}
 
+        public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            MenuInflater.Inflate(Resource.Menu.menu_save_cancel, menu);
+            return true;
+        }
+
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            switch (item.ItemId)
+            {
+                case Resource.Id.menu_save_info:
+                    Intent returnIntent = new Intent();
+                    returnIntent.PutExtra("Child", JsonConvert.SerializeObject(_child));
+                    this.SetResult(Result.Ok, returnIntent);
+
+                    Finish();
+                    return true;
+
+                case Resource.Id.menu_cancel_info:
+                    this.SetResult(Result.Canceled);
+                    Finish();
+                    return true;
+
+
+                default:
+                    Finish();
+                    return true;
+            }
+        }
+
         private void ChooseImageButtonClick(object sender, System.EventArgs eventArgs)
         {
             Intent = new Intent();
@@ -71,12 +101,11 @@ namespace MCM.Droid.Classic
                 Android.Net.Uri uri = data.Data;
                 _imageView.SetImageURI(uri);
 
-                //Bitmap bitmap = MediaStore.Images.Media.GetBitmap(this.GetContentResolver(), uri);
-
                 _imageView.BuildDrawingCache(true);
                 Bitmap bitmap = _imageView.GetDrawingCache(true);
-
-                SaveImageToChild(bitmap);
+                _child.PictureUri = uri.ToString();
+;
+                //SaveImageToChild(bitmap);
 
                 string path = GetPathToImage(uri);
                 Toast.MakeText(this, path, ToastLength.Long);
@@ -97,7 +126,7 @@ namespace MCM.Droid.Classic
                 CameraCapture.bitmap = CameraCapture._file.Path.LoadAndResizeBitmap(width, height);
 
                 _imageView.SetImageBitmap(CameraCapture.bitmap);
-                SaveImageToChild(CameraCapture.bitmap);
+                //SaveImageToChild(CameraCapture.bitmap);
 
             }
         }
@@ -107,7 +136,7 @@ namespace MCM.Droid.Classic
             var baos = new System.IO.MemoryStream();
             bitmap.Compress(Bitmap.CompressFormat.Jpeg, 100, baos); //bm is the bitmap object   
             byte[] b = baos.ToArray();
-            string encodedImage = Base64.EncodeToString(b, Base64.Default);
+            string encodedImage = Base64.EncodeToString(b, Base64Flags.Default);
             _child.Picture = encodedImage;
         }
 

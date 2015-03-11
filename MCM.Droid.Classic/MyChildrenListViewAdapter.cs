@@ -41,9 +41,14 @@ namespace MCM.Droid.Classic
             View view = convertView;
             if (view == null) // no view to re-use, create new
                 view = context.LayoutInflater.Inflate(Resource.Layout.ChildListItem, null);
-            view.FindViewById<TextView>(Resource.Id.Age).Text = item.AgeInYears.ToString(); // item.BirthDate.ToString();
+            view.FindViewById<TextView>(Resource.Id.Age).Text = item.DisplayAge; 
             view.FindViewById<TextView>(Resource.Id.FirstName).Text = item.FirstName;
-            //view.FindViewById<ImageView>(Resource.Id.Image).SetImageResource(item.ImageResourceId);
+            
+            if (!string.IsNullOrEmpty(item.PictureUri))
+            {
+                var imageView = view.FindViewById<ImageView>(Resource.Id.Image);
+                imageView.SetImageURI(Android.Net.Uri.Parse(item.PictureUri));
+            }
             return view;
         }
     }

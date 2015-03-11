@@ -3,14 +3,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
 using Android.App;
 using Android.Content;
+using Android.Graphics;
 using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-
 using Newtonsoft.Json;
 
 namespace MCM.Droid.Classic
@@ -93,21 +92,27 @@ namespace MCM.Droid.Classic
         {
             if (resultCode == Result.Ok)
             {
+                if (data != null &&
+                    !string.IsNullOrEmpty(data.GetStringExtra("Child")))
+                {
+                    _child = JsonConvert.DeserializeObject<DataObjects.Child>(data.GetStringExtra("Child"));
+                    InitializeDisplay();
+                }
+                else
+                {
+                    _child = new DataObjects.Child();
+                    Finish();
+                }
+
                 switch (requestCode)
                 {
                     case (int)IntentCodes.Basics:
-                        if ( data != null &&
-                            !string.IsNullOrEmpty(data.GetStringExtra("Child")))
-                        {
-                            _child = JsonConvert.DeserializeObject<DataObjects.Child>(data.GetStringExtra("Child"));
-                            InitializeDisplay();
-                        }
-                        else
-                        {
-                            _child = new DataObjects.Child();
-                            Finish();
-                        }
                         break;
+                    
+                    case (int)IntentCodes.Photo:
+                        
+                        break;
+
                     default:
                         break;
                 }
@@ -128,6 +133,11 @@ namespace MCM.Droid.Classic
             else
             {
                 _pageTitleTextView.Text = string.Format("{0}'s Profile", _child.FirstName );
+                if (!string.IsNullOrEmpty(_child.PictureUri))
+                {
+                    var imageView = FindViewById<ImageView>(Resource.Id.ChildPhotoImageView);
+                    imageView.SetImageURI(Android.Net.Uri.Parse(_child.PictureUri));
+                }
                 EnableChildInfoButtons();
             }
 

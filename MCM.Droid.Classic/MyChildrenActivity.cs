@@ -90,7 +90,11 @@ namespace MCM.Droid.Classic
 
         private Task<List<DataObjects.Child>> GetChildrenList()
         {
-            Task<List<DataObjects.Child>> children = Task.Factory.StartNew(() => _globalVars.MobileServiceClient.GetTable<DataObjects.Child>().Where(_ => _.UserAccount == _globalVars.UserInfo).ToListAsync().Result);
+            Task<List<DataObjects.Child>> children = Task.Factory.StartNew(() => _globalVars.MobileServiceClient.GetTable<DataObjects.Child>()
+                                                                                                                .Where(_ => _.UserAccount == _globalVars.UserInfo)
+                                                                                                                .OrderByDescending(c => c.BirthDate)
+                                                                                                                .ToListAsync()
+                                                                                                                .Result);
             
             return children;
         }

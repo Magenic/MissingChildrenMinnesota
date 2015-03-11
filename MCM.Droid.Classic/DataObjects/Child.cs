@@ -35,17 +35,41 @@ namespace MCM.Droid.Classic.DataObjects
         public string MedicalAlertInfo { get; set; }
 
         public string Picture { get; set; }
-    
-    
+        public string PictureUri { get; set; }
+
+        public string DisplayAge
+        {
+            get
+            {
+                if (AgeInYears < 2)
+                {
+                    return string.Format("{0} Months old.", AgeInMonths);
+                }
+                else
+                {
+                    return string.Format("{0} Years old.", AgeInYears);
+                }
+            }
+        }
+
+        public int AgeInMonths
+        {
+            get
+            {
+                TimeSpan tsAge = DateTime.Now.Subtract(BirthDate);
+                var d = new DateTime(tsAge.Ticks);
+                return ((d.Year - 1)*12) + d.Month;
+            }
+        }
+
         public int AgeInYears
         {
             get
             {
-             TimeSpan tsAge = DateTime.Now.Subtract(BirthDate);
-
-             return new DateTime(tsAge.Ticks).Year - 1;
-}
+                TimeSpan tsAge = DateTime.Now.Subtract(BirthDate);
+                
+                return new DateTime(tsAge.Ticks).Year - 1;
             }
         }
-    
-    }
+    }    
+}
