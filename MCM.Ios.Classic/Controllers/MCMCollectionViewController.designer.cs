@@ -12,7 +12,7 @@ using UIKit;
 namespace MCM.Ios.Classic.Controllers
 {
 	[Register ("RootViewController")]
-	partial class RootViewController
+	partial class MCMCollectionViewController
 	{
 		void ReleaseDesignerOutlets ()
 		{

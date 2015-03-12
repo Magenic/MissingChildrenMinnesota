@@ -16,13 +16,29 @@ namespace MCM.Ios.Classic
 	{
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UIButton HotmailLoginButton { get; set; }
+		UIButton loginWithGmailButton { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton loginWithHotmailButton { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton loginWithTwitterButton { get; set; }
 
 		void ReleaseDesignerOutlets ()
 		{
-			if (HotmailLoginButton != null) {
-				HotmailLoginButton.Dispose ();
-				HotmailLoginButton = null;
+			if (loginWithGmailButton != null) {
+				loginWithGmailButton.Dispose ();
+				loginWithGmailButton = null;
+			}
+			if (loginWithHotmailButton != null) {
+				loginWithHotmailButton.Dispose ();
+				loginWithHotmailButton = null;
+			}
+			if (loginWithTwitterButton != null) {
+				loginWithTwitterButton.Dispose ();
+				loginWithTwitterButton = null;
 			}
 		}
 	}

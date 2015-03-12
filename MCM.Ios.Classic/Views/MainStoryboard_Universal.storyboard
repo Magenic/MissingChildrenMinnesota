@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6206.8" systemVersion="13A461" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="33" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7026.1"/>
+    </dependencies>
+    <scenes>
+        <!--class Prefix:identifier View Controller-->
+        <scene sceneID="32">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="33" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="36">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    </navigationBar>
+                    <connections>
+                        <segue id="1862" destination="1094" kind="presentation" identifier="loginSegue"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="37" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="433" y="-16"/>
+        </scene>
+        <scene sceneID="1093">
+            <objects>
+                <viewController id="1094" sceneMemberID="viewController" storyboardIdentifier="LoginViewController" customClass="LoginViewController" restorationIdentifier="LoginViewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1091"/>
+                        <viewControllerLayoutGuide type="bottom" id="1092"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1095">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="1317" translatesAutoresizingMaskIntoConstraints="NO" image="landing-bg-.png">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1322" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
+                                <rect key="frame" x="38" y="207" width="300" height="55"/>
+                                <color key="backgroundColor" colorSpace="calibratedRGB" red="0.44705882352941179" green="0.3411764705882353" blue="0.5725490196078431" alpha="1"/>
+                                <inset key="imageEdgeInsets" minX="0" minY="0.0" maxX="100" maxY="0.0"/>
+                                <inset key="titleEdgeInsets" minX="0" minY="0.0" maxX="0" maxY="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Login with Hotmail">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" colorSpace="calibratedRGB" red="1" green="1" blue="1" alpha="1"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1672" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
+                                <rect key="frame" x="38" y="289" width="300" height="55"/>
+                                <color key="backgroundColor" colorSpace="calibratedRGB" red="0.44705882352941179" green="0.3411764705882353" blue="0.5725490196078431" alpha="1"/>
+                                <inset key="imageEdgeInsets" minX="0" minY="0.0" maxX="100" maxY="0.0"/>
+                                <inset key="titleEdgeInsets" minX="0" minY="0.0" maxX="0" maxY="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Login with Gmail">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" colorSpace="calibratedRGB" red="1" green="1" blue="1" alpha="1"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1674" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
+                                <rect key="frame" x="38" y="380" width="300" height="55"/>
+                                <color key="backgroundColor" colorSpace="calibratedRGB" red="0.44705882352941179" green="0.3411764705882353" blue="0.5725490196078431" alpha="1"/>
+                                <inset key="imageEdgeInsets" minX="0" minY="0.0" maxX="100" maxY="0.0"/>
+                                <inset key="titleEdgeInsets" minX="0" minY="0.0" maxX="0" maxY="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Login with Twitter">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" colorSpace="calibratedRGB" red="1" green="1" blue="1" alpha="1"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint id="1660" constant="0.0" firstItem="1095" firstAttribute="trailing" secondItem="1317" secondAttribute="trailing"/>
+                            <constraint id="1661" constant="0.0" firstItem="1095" firstAttribute="bottom" secondItem="1317" secondAttribute="bottom"/>
+                            <constraint firstItem="1091" firstAttribute="bottom" secondItem="1317" secondAttribute="top" constant="20" id="1664"/>
+                            <constraint firstItem="1317" firstAttribute="leading" secondItem="1095" secondAttribute="leading" constant="0.0" id="1665"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="loginWithHotmailButton" destination="1322" id="name-outlet-1322"/>
+                        <outlet property="loginWithGmailButton" destination="1672" id="name-outlet-1672"/>
+                        <outlet property="loginWithTwitterButton" destination="1674" id="name-outlet-1674"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1096" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="877" y="730"/>
+        </scene>
+        <scene sceneID="1866">
+            <objects>
+                <collectionViewController autoresizesArchivedViewToFullSize="NO" id="1867" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1864"/>
+                        <viewControllerLayoutGuide type="bottom" id="1865"/>
+                    </layoutGuides>
+                    <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="1868">
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="1923">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="1871" reuseIdentifier="myChildrenCell" customClass="myChildrenCell">
+                                <rect key="frame" x="32.5" y="0.0" width="310" height="145"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="32" y="0.0" width="310" height="145"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" id="1924" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" image="stock-photo-23203293-cheerful-group-of-children-lying-in-the-park.jpg">
+                                            <rect key="frame" x="0.0" y="0.0" width="310" height="145"/>
+                                        </imageView>
+                                        <view contentMode="scaleToFill" id="1931" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO">
+                                            <rect key="frame" x="0.0" y="95" width="310" height="50"/>
+                                            <color key="backgroundColor" customColorSpace="calibratedWhite" colorSpace="calibratedRGB" red="0" green="0" blue="0" alpha="0.49803921568627452"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="My Children" lineBreakMode="tailTruncation" minimumFontSize="10" id="1932" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" textAlignment="center">
+                                                    <rect key="frame" x="12" y="15" width="286" height="21"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                                    <color key="textColor" colorSpace="calibratedRGB" red="1" green="1" blue="1" alpha="1"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                    </subviews>
+                                </view>
+                                <size key="customSize" width="310" height="145"/>
+                                <connections>
+                                    <outlet property="mcmCellImageView" destination="1924" id="name-outlet-1924"/>
+                                    <outlet property="mcmCellLabel" destination="1932" id="name-outlet-1932"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="1867" id="1869"/>
+                            <outlet property="delegate" destination="1867" id="1870"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem title="Title" id="1919" key="navigationItem"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1873" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="987" y="-24"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Default-568h.png" width="640" height="1136"/>
+        <image name="landing-bg-.jpg" width="1080" height="1920"/>
+        <image name="landing-bg-.png" width="1080" height="1920"/>
+        <image name="icon-gmail.png" width="339" height="260"/>
+        <image name="icon-twitter.png" width="339" height="260"/>
+        <image name="icon-window.png" width="339" height="260"/>
+        <image name="about-mcm.jpg" width="146" height="135"/>
+        <image name="empty-bike-1.jpg" width="146" height="135"/>
+        <image name="empty-bike.jpg" width="146" height="135"/>
+        <image name="stock-photo-23203293-cheerful-group-of-children-lying-in-the-park.jpg" width="380" height="272"/>
+        <image name="stock-photo-23614098-cut-boy.jpg" width="380" height="380"/>
+        <image name="stock-photo-33121882-hand-holding-child-father-bonding.jpg" width="380" height="253"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedScreenMetrics key="destination" type="retina47"/>
+    </simulatedMetricsContainer>
+</document>
