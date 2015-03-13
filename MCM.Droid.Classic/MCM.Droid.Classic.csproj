@@ -74,6 +74,8 @@
     <Compile Include="DataObjects\Child.cs" />
     <Compile Include="DataObjects\ChildMeasurement.cs" />
     <Compile Include="DataObjects\DistinguishingFeature.cs" />
+    <Compile Include="DataObjects\Picture.cs" />
+    <Compile Include="DataObjects\PictureType.cs" />
     <Compile Include="DentalInfoActivity.cs" />
     <Compile Include="DistinguishingFeaturesActivity.cs" />
     <Compile Include="DoctorInfoActivity.cs" />
