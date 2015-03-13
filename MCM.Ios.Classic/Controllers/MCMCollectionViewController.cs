@@ -64,13 +64,25 @@ namespace MCM.Ios.Classic.Controllers
 				cell.CellType = MCMCollectionViewCellType.MyChildren;
 			} else {
 				switch (indexPath.Row) {
+				case 0:
+					cell.CellType = MCMCollectionViewCellType.HomeDNA;
+					break;
+				case 1:
+					cell.CellType = MCMCollectionViewCellType.SafetyForChildren;
+					break;
+				case 2:
+					cell.CellType = MCMCollectionViewCellType.MissingChild;
+					break;
+				case 3:
+					cell.CellType = MCMCollectionViewCellType.AboutMCM;
+					break;
 				default:
 					break;
 				}
 			}
+
 			return cell;
 		}
-
 
 		#endregion
     }
