@@ -104,9 +104,9 @@
       <DependentUpon>MCMCollectionViewController.cs</DependentUpon>
     </Compile>
     <Compile Include="Controllers\MCMCollectionViewController.cs" />
-    <Compile Include="Views\myChildrenCell.cs" />
-    <Compile Include="Views\myChildrenCell.designer.cs">
-      <DependentUpon>myChildrenCell.cs</DependentUpon>
+    <Compile Include="Views\MCMCollectionViewCell.cs" />
+    <Compile Include="Views\MCMCollectionViewCell.designer.cs">
+      <DependentUpon>MCMCollectionViewCell.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -120,9 +120,9 @@
     <BundleResource Include="Resources\about-mcm.jpg" />
     <BundleResource Include="Resources\empty-bike-1.jpg" />
     <BundleResource Include="Resources\empty-bike.jpg" />
-    <BundleResource Include="Resources\stock-photo-23203293-cheerful-group-of-children-lying-in-the-park.jpg" />
-    <BundleResource Include="Resources\stock-photo-23614098-cut-boy.jpg" />
-    <BundleResource Include="Resources\stock-photo-33121882-hand-holding-child-father-bonding.jpg" />
+    <BundleResource Include="Resources\cheerful_children.jpg" />
+    <BundleResource Include="Resources\dna_boy.jpg" />
+    <BundleResource Include="Resources\safety_for_children.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.WindowsAzure.Mobile">

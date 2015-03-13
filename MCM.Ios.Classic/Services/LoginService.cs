@@ -2,7 +2,7 @@
 
 namespace MCM.Ios.Classic
 {
-	public class LoginService
+	public class LoginService : ILoginService
 	{
 		public LoginService ()
 		{

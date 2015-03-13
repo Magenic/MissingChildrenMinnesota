@@ -12,7 +12,7 @@ using UIKit;
 namespace MCM.Ios.Classic
 {
 	[Register ("myChildrenCell")]
-	partial class myChildrenCell
+	partial class MCMCollectionViewCell
 	{
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]

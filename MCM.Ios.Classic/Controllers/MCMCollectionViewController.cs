@@ -9,6 +9,7 @@ namespace MCM.Ios.Classic.Controllers
     {
 		private readonly ILoginService _loginService;
 		private readonly string _loginSegue = "loginSegue";
+		private readonly string _cellId = "myChildrenCell";
 
         static bool UserInterfaceIdiomIsPhone
         {
@@ -39,5 +40,38 @@ namespace MCM.Ios.Classic.Controllers
         {
             base.PrepareForSegue(segue, sender);
         }
+
+		#region UICollectionView methods
+
+		public virtual nint NumberOfSections(UICollectionView collectionView) {
+			return 2;
+		}
+
+		public virtual nint NumberOfItemsInSection(UICollectionView collectionView, nint section) {
+
+			if (section == 0) {
+				return 1;
+			} 
+
+			return 2;
+		}
+
+		public override UICollectionViewCell GetCell (UICollectionView collectionView, NSIndexPath indexPath)
+		{
+			var cell = (MCMCollectionViewCell)collectionView.DequeueReusableCell (_cellId, indexPath);
+
+			if (indexPath.Section == 0) {
+				cell.CellType = MCMCollectionViewCellType.MyChildren;
+			} else {
+				switch (indexPath.Row) {
+				default:
+					break;
+				}
+			}
+			return cell;
+		}
+
+
+		#endregion
     }
 }
