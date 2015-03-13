@@ -113,7 +113,7 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" id="1924" translatesAutoresizingMaskIntoConstraints="NO" image="stock-photo-23203293-cheerful-group-of-children-lying-in-the-park.jpg">
                                             <rect key="frame" x="0.0" y="0.0" width="310" height="145"/>
                                         </imageView>
-                                        <view contentMode="scaleToFill" id="1931" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
+                                        <view contentMode="scaleToFill" id="1931" translatesAutoresizingMaskIntoConstraints="NO">
                                             <rect key="frame" x="0.0" y="95" width="310" height="50"/>
                                             <color key="backgroundColor" customColorSpace="calibratedWhite" colorSpace="calibratedRGB" red="0" green="0" blue="0" alpha="0.49803921568627452"/>
                                             <subviews>
@@ -125,6 +125,9 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint id="1968" firstItem="1931" firstAttribute="height" constant="50"/>
+                                            </constraints>
                                         </view>
                                     </subviews>
                                 </view>
@@ -138,6 +141,9 @@
                                     <constraint id="1959" constant="0.0" firstItem="1871" firstAttribute="bottom" secondItem="1924" secondAttribute="bottom"/>
                                     <constraint firstItem="1924" firstAttribute="trailing" secondItem="1871" secondAttribute="trailing" constant="0.0" id="1962"/>
                                     <constraint firstItem="1924" firstAttribute="top" secondItem="1871" secondAttribute="top" constant="0.0" id="1963"/>
+                                    <constraint firstItem="1931" firstAttribute="trailing" secondItem="1924" secondAttribute="trailing" constant="0.0" id="1964"/>
+                                    <constraint firstItem="1931" firstAttribute="leading" secondItem="1924" secondAttribute="leading" constant="0.0" id="1965"/>
+                                    <constraint firstItem="1931" firstAttribute="bottom" secondItem="1924" secondAttribute="bottom" constant="0.0" id="1966"/>
                                 </constraints>
                             </collectionViewCell>
                         </cells>
