@@ -10,5 +10,13 @@ namespace MCM.Ios.Classic
 		public myChildrenCell (IntPtr handle) : base (handle)
 		{
 		}
+
+		public void updateLabel(string labelText) {
+			mcmCellLabel.Text = labelText;
+		}
+
+		public void updateImage(UIImage image) {
+			mcmCellImageView.Image = image;
+		}
 	}
 }
