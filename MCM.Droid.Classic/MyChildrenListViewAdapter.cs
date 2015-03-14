@@ -43,7 +43,8 @@ namespace MCM.Droid.Classic
                 view = context.LayoutInflater.Inflate(Resource.Layout.ChildListItem, null);
             view.FindViewById<TextView>(Resource.Id.Age).Text = item.DisplayAge; 
             view.FindViewById<TextView>(Resource.Id.FirstName).Text = item.FirstName;
-            
+            view.FindViewById<TextView>(Resource.Id.PercentComplete).Text = item.DisplayCompletion;
+
             if (!string.IsNullOrEmpty(item.PictureUri))
             {
                 var imageView = view.FindViewById<ImageView>(Resource.Id.Image);
