@@ -58,7 +58,7 @@ namespace MCM.Droid.Classic.DataObjects
             {
                 TimeSpan tsAge = DateTime.Now.Subtract(BirthDate);
                 var d = new DateTime(tsAge.Ticks);
-                return ((d.Year - 1)*12) + d.Month;
+                return ((d.Year - 1) * 12) + d.Month;
             }
         }
 
@@ -67,9 +67,57 @@ namespace MCM.Droid.Classic.DataObjects
             get
             {
                 TimeSpan tsAge = DateTime.Now.Subtract(BirthDate);
-                
+
                 return new DateTime(tsAge.Ticks).Year - 1;
             }
         }
-    }    
+
+        public string DisplayCompletion
+        {
+            get
+            {
+                return string.Format("{0}%", CompletionValue);
+            }
+        }
+        public int CompletionValue
+        {
+            get
+            {
+                decimal numberOfFields = 0M;
+                decimal empty = 0M;
+                numberOfFields++; if (string.IsNullOrEmpty(UserAccount)) { empty++; }
+                numberOfFields++; if (string.IsNullOrEmpty(FirstName)) { empty++; }
+                numberOfFields++; if (string.IsNullOrEmpty(MiddleName)) { empty++; }
+                numberOfFields++; if (string.IsNullOrEmpty(LastName)) { empty++; }
+                //numberOfFields++; //public DateTime BirthDate { get; set; }
+                numberOfFields++; if (string.IsNullOrEmpty(HairColor)) { empty++; }
+                numberOfFields++; if (string.IsNullOrEmpty(EyeColor)) { empty++; }
+                //numberOfFields++; //Glasses { get; set; }
+                //numberOfFields++; //Contacts { get; set; }
+                numberOfFields++; if (string.IsNullOrEmpty(SkinTone)) { empty++; }
+                numberOfFields++; if (string.IsNullOrEmpty(RaceEthnicity)) { empty++; }
+                numberOfFields++; if (string.IsNullOrEmpty(DoctorName)) { empty++; }
+                numberOfFields++; if (string.IsNullOrEmpty(DoctorClinicName)) { empty++; }
+                numberOfFields++; if (string.IsNullOrEmpty(DoctorAddress1)) { empty++; }
+                numberOfFields++; if (string.IsNullOrEmpty(DoctorAddress2)) { empty++; }
+                numberOfFields++; if (string.IsNullOrEmpty(DoctorCity)) { empty++; }
+                numberOfFields++; if (string.IsNullOrEmpty(DoctorState)) { empty++; }
+                numberOfFields++; if (string.IsNullOrEmpty(DoctorPostalCode)) { empty++; }
+                numberOfFields++; if (string.IsNullOrEmpty(DoctorPhoneNumber)) { empty++; }
+                numberOfFields++; if (string.IsNullOrEmpty(DentistName)) { empty++; }
+                numberOfFields++; if (string.IsNullOrEmpty(DentistClinicName)) { empty++; }
+                numberOfFields++; if (string.IsNullOrEmpty(DentistAddress1)) { empty++; }
+                numberOfFields++; if (string.IsNullOrEmpty(DentistAddress2)) { empty++; }
+                numberOfFields++; if (string.IsNullOrEmpty(DentistCity)) { empty++; }
+                numberOfFields++; if (string.IsNullOrEmpty(DentistState)) { empty++; }
+                numberOfFields++; if (string.IsNullOrEmpty(DentistPostalCode)) { empty++; }
+                numberOfFields++; if (string.IsNullOrEmpty(DentistPhoneNumber)) { empty++; }
+                numberOfFields++; if (string.IsNullOrEmpty(MedicalAlertInfo)) { empty++; }
+                numberOfFields++; if (string.IsNullOrEmpty(Picture)) { empty++; }
+                numberOfFields++; if (string.IsNullOrEmpty(PictureUri)) { empty++; }
+
+                return Convert.ToInt32(Math.Floor(((decimal)((numberOfFields - empty) / numberOfFields))*100M));
+            }
+        }
+    }
 }
