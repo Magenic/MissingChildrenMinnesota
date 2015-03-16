@@ -11,7 +11,7 @@ using UIKit;
 
 namespace MCM.Ios.Classic.Controllers
 {
-	[Register ("RootViewController")]
+	[Register ("MCMCollectionViewController")]
 	partial class MCMCollectionViewController
 	{
 		void ReleaseDesignerOutlets ()

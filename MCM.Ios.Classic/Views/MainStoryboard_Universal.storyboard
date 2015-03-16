@@ -12,7 +12,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     </navigationBar>
                     <connections>
-                        <segue id="1862" destination="1094" kind="presentation" identifier="loginSegue"/>
+                        <segue id="2002" destination="1867" kind="relationship" relationship="rootViewController"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="37" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -87,7 +87,7 @@
         </scene>
         <scene sceneID="1866">
             <objects>
-                <collectionViewController autoresizesArchivedViewToFullSize="NO" id="1867" sceneMemberID="viewController">
+                <collectionViewController autoresizesArchivedViewToFullSize="NO" id="1867" sceneMemberID="viewController" customClass="MCMCollectionViewController" storyboardIdentifier="MCMCollectionViewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1864"/>
                         <viewControllerLayoutGuide type="bottom" id="1865"/>
@@ -102,7 +102,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="1871" reuseIdentifier="myChildrenCell" customClass="myChildrenCell">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="1871" reuseIdentifier="mcmCell" customClass="MCMCollectionViewCell">
                                 <rect key="frame" x="32.5" y="0.0" width="310" height="145"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -110,7 +110,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" id="1924" translatesAutoresizingMaskIntoConstraints="NO" image="stock-photo-23203293-cheerful-group-of-children-lying-in-the-park.jpg">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" id="1924" translatesAutoresizingMaskIntoConstraints="NO" image="cheerful_children.jpg">
                                             <rect key="frame" x="0.0" y="0.0" width="310" height="145"/>
                                         </imageView>
                                         <view contentMode="scaleToFill" id="1931" translatesAutoresizingMaskIntoConstraints="NO">
@@ -160,7 +160,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1873" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="917" y="-2"/>
+            <point key="canvasLocation" x="922" y="-24"/>
         </scene>
     </scenes>
     <resources>

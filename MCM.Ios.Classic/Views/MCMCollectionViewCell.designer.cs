@@ -11,7 +11,7 @@ using UIKit;
 
 namespace MCM.Ios.Classic
 {
-	[Register ("myChildrenCell")]
+	[Register ("MCMCollectionViewCell")]
 	partial class MCMCollectionViewCell
 	{
 		[Outlet]
