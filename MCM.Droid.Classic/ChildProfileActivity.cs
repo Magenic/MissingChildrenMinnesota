@@ -123,6 +123,12 @@ namespace MCM.Droid.Classic
             }
         }//onActivityResult
 
+        public override void Finish()
+        {
+            this.SetResult(Result.Ok);
+            base.Finish();
+        }
+
         private void InitializeDisplay()
         {
             if (string.IsNullOrWhiteSpace(_child.Id))

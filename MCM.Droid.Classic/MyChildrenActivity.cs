@@ -38,6 +38,11 @@ namespace MCM.Droid.Classic
 
 			SetContentView (Resource.Layout.MyChildren);
         }
+        protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
+        {
+            GetChildren();
+            base.OnActivityResult(requestCode, resultCode, data);
+        }
 
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
@@ -54,7 +59,7 @@ namespace MCM.Droid.Classic
                     newChild.UserAccount = _globalVars.UserInfo;
                     var activity = new Intent(this, typeof(ChildProfileActivity));
                     activity.PutExtra("Child", JsonConvert.SerializeObject(newChild));
-                    StartActivity (activity);
+                    StartActivityForResult(activity, 0);
                     return true;
 
                 default:
@@ -85,11 +90,12 @@ namespace MCM.Droid.Classic
             var selectedChild = ((MyChildrenListViewAdapter)(((ListView)e.Parent).Adapter))[e.Position] as DataObjects.Child;
             var activity = new Intent(this, typeof(ChildProfileActivity));
             activity.PutExtra("Child", JsonConvert.SerializeObject(selectedChild));
-            StartActivity(activity);
+            StartActivityForResult(activity, 0);
         }
 
         private Task<List<DataObjects.Child>> GetChildrenList()
         {
+            System.Diagnostics.Debug.WriteLine("Creating task for child list.");
             Task<List<DataObjects.Child>> children = Task.Factory.StartNew(() => _globalVars.MobileServiceClient.GetTable<DataObjects.Child>()
                                                                                                                 .Where(_ => _.UserAccount == _globalVars.UserInfo)
                                                                                                                 .OrderByDescending(c => c.BirthDate)

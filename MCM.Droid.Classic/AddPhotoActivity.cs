@@ -23,9 +23,9 @@ using System.Threading.Tasks;
 
 namespace MCM.Droid.Classic
 {
-    [Activity(Label = "@string/addphoto_layout_label")]			
-	public class AddPhotoActivity : Activity
-	{
+    [Activity(Label = "@string/addphoto_layout_label")]
+    public class AddPhotoActivity : Activity
+    {
         enum ActivityRequests
         {
             FromGallery,
@@ -40,9 +40,9 @@ namespace MCM.Droid.Classic
         private int _timerCount = 0;
         private GlobalVars _globalVars;
 
-		protected override void OnCreate (Bundle bundle)
-		{
-			base.OnCreate (bundle);
+        protected override void OnCreate(Bundle bundle)
+        {
+            base.OnCreate(bundle);
 
             _globalVars = ((GlobalVars)this.Application);
 
@@ -55,14 +55,18 @@ namespace MCM.Droid.Classic
 
 
             Button cameraButton = FindViewById<Button>(Resource.Id.myButton);
-            if (CameraCapture.bitmap != null)
+            if (!string.IsNullOrEmpty(_child.PictureUri))
+            {
+                _imageView.SetImageURI(Android.Net.Uri.Parse(_child.PictureUri));
+            }
+            else if (CameraCapture.bitmap != null)
             {
                 _imageView.SetImageBitmap(CameraCapture.bitmap);
                 CameraCapture.bitmap = null;
             }
             cameraButton.Click += TakeAPicture;
-			
-		}
+
+        }
 
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
@@ -83,7 +87,7 @@ namespace MCM.Droid.Classic
                     _progressDialog = new ProgressDialog(this);
                     _progressDialog.SetTitle("Adding Child Information");
                     _progressDialog.SetMessage("Please Wait...");
-                    _progressDialog.Show();            
+                    _progressDialog.Show();
 
                     var childTable = _globalVars.MobileServiceClient.GetTable<DataObjects.Child>();
                     task = Task.Factory.StartNew(() => childTable.UpdateAsync(_child));
@@ -92,7 +96,7 @@ namespace MCM.Droid.Classic
                     //to retrieve the returned Id from the mobile service.
                     _timerCount = 0;
                     _timer = new System.Threading.Timer(TimerDelegate, null, 250, 250);
-                    
+
                     Finish();
                     return true;
 
@@ -115,19 +119,19 @@ namespace MCM.Droid.Classic
             Intent.SetAction(Intent.ActionGetContent);
             StartActivityForResult(Intent.CreateChooser(Intent, "Select Picture"), (int)ActivityRequests.FromGallery);
         }
-        
-                protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
+
+        protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
         {
             if ((requestCode == (int)ActivityRequests.FromGallery) && (resultCode == Result.Ok) && (data != null))
             {
                 Android.Net.Uri uri = data.Data;
                 _imageView.SetImageURI(uri);
 
-                
+
                 //_imageView.BuildDrawingCache(true);
                 // Bitmap bitmap = _imageView.GetDrawingCache(true);
                 //SaveImageToChild(bitmap);
-                
+
 
                 var srcPath = GetPathFromGalleryItem(uri);
 
@@ -335,7 +339,7 @@ namespace MCM.Droid.Classic
             public static File _dir;
             public static Bitmap bitmap;
         }
-    
+
         private void TimerDelegate(object state)
         {
             if (!string.IsNullOrWhiteSpace(_child.Id))
