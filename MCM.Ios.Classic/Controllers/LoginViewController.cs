@@ -4,7 +4,7 @@ using System;
 using Foundation;
 using UIKit;
 
-namespace MCM.Ios.Classic
+namespace MCM.Ios.Classic.Controllers
 {
 	public partial class LoginViewController : UIViewController
 	{

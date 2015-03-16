@@ -89,7 +89,6 @@
     <CodesignKey>iPhone Distribution</CodesignKey>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Controllers\HomePageController.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <None Include="Info.plist" />
@@ -99,7 +98,6 @@
       <DependentUpon>LoginViewController.cs</DependentUpon>
     </Compile>
     <Compile Include="Services\LoginService.cs" />
-    <Compile Include="ILoginService.cs" />
     <Compile Include="Controllers\MCMCollectionViewController.designer.cs">
       <DependentUpon>MCMCollectionViewController.cs</DependentUpon>
     </Compile>
@@ -109,6 +107,9 @@
       <DependentUpon>MCMCollectionViewCell.cs</DependentUpon>
     </Compile>
     <Compile Include="Controllers\MCMCollectionViewControllerDataSource.cs" />
+    <Compile Include="Controllers\MCMNavController.cs" />
+    <Compile Include="Services\ILoginService.cs" />
+    <Compile Include="Extensions\HelperMethods.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Default-568h%402x.png" />
@@ -159,5 +160,6 @@
   <ItemGroup>
     <Folder Include="Services\" />
     <Folder Include="Views\" />
+    <Folder Include="Extensions\" />
   </ItemGroup>
 </Project>

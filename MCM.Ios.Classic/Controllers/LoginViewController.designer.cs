@@ -9,7 +9,7 @@ using System;
 using System.CodeDom.Compiler;
 using UIKit;
 
-namespace MCM.Ios.Classic
+namespace MCM.Ios.Classic.Controllers
 {
 	[Register ("LoginViewController")]
 	partial class LoginViewController

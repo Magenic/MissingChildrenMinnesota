@@ -18,6 +18,22 @@ namespace MCM.Ios.Classic
             get;
             set;
         }
+
+		public void setupNavBar() {
+			/*
+			 * 
+			 * UINavigationBar.appearance().barTintColor = UIColor.redColor()
+        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+        let fontDictionary = [ NSForegroundColorAttributeName:UIColor.whiteColor(),
+            NSFontAttributeName:UIFont(name: "Avenir-Heavy", size: 20.0)!]
+        UINavigationBar.appearance().titleTextAttributes = fontDictionary
+        UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent;
+        */
+			UINavigationBar.Appearance.BarTintColor = HelperMethods.MCMColor ();
+			UINavigationBar.Appearance.TintColor = UIColor.White;
+			UIApplication.SharedApplication.StatusBarStyle = UIStatusBarStyle.LightContent;
+		}
+
         // This method is invoked when the application is about to move from active to inactive state.
         // OpenGL applications should use this method to pause.
         public override void OnResignActivation(UIApplication application)

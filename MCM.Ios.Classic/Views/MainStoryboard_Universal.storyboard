@@ -7,7 +7,7 @@
         <!--class Prefix:identifier View Controller-->
         <scene sceneID="32">
             <objects>
-                <navigationController definesPresentationContext="YES" id="33" sceneMemberID="viewController">
+                <navigationController definesPresentationContext="YES" id="33" sceneMemberID="viewController" customClass="MCMNavController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="36">
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     </navigationBar>

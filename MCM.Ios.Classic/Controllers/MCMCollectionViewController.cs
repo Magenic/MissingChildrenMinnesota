@@ -20,6 +20,7 @@ namespace MCM.Ios.Classic.Controllers
             : base(handle)
         {
 			_loginService = new LoginService ();
+			this.Title = "MCM";
         }
 			
         #region View lifecycle
