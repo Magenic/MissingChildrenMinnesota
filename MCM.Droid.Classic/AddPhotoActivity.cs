@@ -36,15 +36,10 @@ namespace MCM.Droid.Classic
         private DataObjects.Child _child;
 
         private ProgressDialog _progressDialog;
-        private System.Threading.Timer _timer;
-        private int _timerCount = 0;
-        private GlobalVars _globalVars;
 
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
-
-            _globalVars = ((GlobalVars)this.Application);
 
             _child = JsonConvert.DeserializeObject<DataObjects.Child>(Intent.GetStringExtra("Child"));
 
@@ -82,21 +77,7 @@ namespace MCM.Droid.Classic
                     Intent returnIntent = new Intent();
                     returnIntent.PutExtra("Child", JsonConvert.SerializeObject(_child));
                     this.SetResult(Result.Ok, returnIntent);
-
-                    Task task = null;
-                    _progressDialog = new ProgressDialog(this);
-                    _progressDialog.SetTitle("Adding Child Information");
-                    _progressDialog.SetMessage("Please Wait...");
-                    _progressDialog.Show();
-
-                    var childTable = _globalVars.MobileServiceClient.GetTable<DataObjects.Child>();
-                    task = Task.Factory.StartNew(() => childTable.UpdateAsync(_child));
-
-                    //timer is used to assure that the Id assigned is retrieved. saw that it may take longer than expected
-                    //to retrieve the returned Id from the mobile service.
-                    _timerCount = 0;
-                    _timer = new System.Threading.Timer(TimerDelegate, null, 250, 250);
-
+                    SaveChildPhoto();
                     Finish();
                     return true;
 
@@ -109,6 +90,27 @@ namespace MCM.Droid.Classic
                 default:
                     Finish();
                     return true;
+            }
+        }
+
+        private async void SaveChildPhoto()
+        {
+            _progressDialog = new ProgressDialog(this);
+            _progressDialog.SetTitle("Adding Child Information");
+            _progressDialog.SetMessage("Please Wait...");
+            _progressDialog.Show();
+            
+            try 
+	        {
+                await _child.Save(this);
+	        }
+	        catch (System.Exception)
+	        {
+                throw;
+	        }
+            finally
+            {
+                _progressDialog.Dismiss();
             }
         }
 
@@ -138,8 +140,6 @@ namespace MCM.Droid.Classic
                 var documentsPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
                 var filePath = System.IO.Path.Combine(documentsPath, string.Format("{0}_{1}_{2}{3}", _child.FirstName, _child.Id, "P", System.IO.Path.GetExtension(srcPath) ?? ".jpg"));
                 _child.PictureUri = filePath;
-                System.Diagnostics.Debug.WriteLine(filePath);
-
 
                 System.IO.File.Copy(srcPath, filePath, true);
 
@@ -338,30 +338,6 @@ namespace MCM.Droid.Classic
             public static File _file;
             public static File _dir;
             public static Bitmap bitmap;
-        }
-
-        private void TimerDelegate(object state)
-        {
-            if (!string.IsNullOrWhiteSpace(_child.Id))
-            {
-                _timer.Dispose();
-                _progressDialog.Dismiss();
-            }
-            else
-            {
-                //if more than 3 seconds has elapsed, consider error
-                if (_timerCount > 12)
-                {
-                    //final check to see if there is an Id
-                    if (string.IsNullOrWhiteSpace(_child.Id))
-                    {
-                        _timer.Dispose();
-                        _progressDialog.Dismiss();
-                    }
-                }
-            }
-
-            _timerCount++;
         }
     }
 }

@@ -1,9 +1,15 @@
 ﻿using System;
+using System.Threading.Tasks;
+using Android.App;
 
 namespace MCM.Droid.Classic.DataObjects
 {
     public class Child
     {
+        private GlobalVars _globalVars;
+        private System.Threading.Timer _timer;
+        private int _timerCount = 0;
+
         public string Id { get; set; }
         public string UserAccount { get; set; }
         public string FirstName { get; set; }
@@ -118,6 +124,92 @@ namespace MCM.Droid.Classic.DataObjects
 
                 return Convert.ToInt32(Math.Floor(((decimal)((numberOfFields - empty) / numberOfFields))*100M));
             }
+        }
+
+        public async Task<Child> Save( Activity activityContext)
+        {
+            
+            _globalVars = ((GlobalVars)activityContext.Application);
+            if (string.IsNullOrWhiteSpace(Id))
+            {
+                await InsertToTable(activityContext);
+            }
+            else
+            {
+                await UpdateTable(activityContext);
+            }
+
+            return this;
+        }
+
+        public async Task Delete(Activity activityContext)
+        {
+            _globalVars = ((GlobalVars)activityContext.Application);
+            await DeleteFromTable(activityContext);
+        }
+
+        private Task InsertToTable(Activity activityContext)
+        {
+            Task task = null;
+            var childTable = _globalVars.MobileServiceClient.GetTable<DataObjects.Child>();
+            task = Task.Factory.StartNew(() => childTable.InsertAsync(this));
+
+            //timer is used to assure that the Id assigned is retrieved. saw that it may take longer than expected
+            //to retrieve the returned Id from the mobile service.
+            _timerCount = 0;
+            _timer = new System.Threading.Timer(TimerDelegate, null, 250, 250);
+
+            return task;
+        }
+
+        private Task UpdateTable(Activity activityContext)
+        {
+            Task task = null;
+
+            var childTable = _globalVars.MobileServiceClient.GetTable<DataObjects.Child>();
+            task = Task.Factory.StartNew(() => childTable.UpdateAsync(this));
+
+            //timer is used to assure that the Id assigned is retrieved. saw that it may take longer than expected
+            //to retrieve the returned Id from the mobile service.
+            _timerCount = 0;
+            _timer = new System.Threading.Timer(TimerDelegate, null, 250, 250);
+
+            return task;
+        }
+
+        private Task DeleteFromTable(Activity activityContext)
+        {
+            Task task = null;
+
+            var childTable = _globalVars.MobileServiceClient.GetTable<DataObjects.Child>();
+            task = Task.Factory.StartNew(() => childTable.DeleteAsync(this));
+
+            return task;
+        }
+
+        private void TimerDelegate(object state)
+        {
+            System.Diagnostics.Debug.WriteLine("Timer Child update/add fired");
+            if (!string.IsNullOrWhiteSpace(Id))
+            {
+                _timer.Dispose();
+            }
+            else
+            {
+                //if more than 3 seconds has elapsed, consider error
+                if (_timerCount > 12)
+                {
+                    //final check to see if there is an Id
+                    if (string.IsNullOrWhiteSpace(Id))
+                    {
+                        System.Diagnostics.Debug.WriteLine("Update/Save of Child timed out");
+                        _timer.Dispose();
+                        throw new ApplicationException("Update/Save of Child timed out.");
+                    }
+                }
+            }
+
+            _timerCount++;
         }
     }
 }

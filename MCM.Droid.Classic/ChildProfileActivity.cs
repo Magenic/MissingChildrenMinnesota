@@ -119,7 +119,7 @@ namespace MCM.Droid.Classic
             }
             else
             {
-
+                Finish();
             }
         }//onActivityResult
 

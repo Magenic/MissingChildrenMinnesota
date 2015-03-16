@@ -22,8 +22,6 @@ namespace MCM.Droid.Classic
 	{
         const int DATE_DIALOG_ID = 0;
 
-        private GlobalVars _globalVars;
-
         private EditText _firstNameText;
         private EditText _middleNameText;
         private EditText _lastNameText;
@@ -33,8 +31,6 @@ namespace MCM.Droid.Classic
         private DateTime _date;
 
         private ProgressDialog _progressDialog;
-        private System.Threading.Timer _timer;
-        private int _timerCount = 0;
         private DataObjects.Child _child;
 
         private string _orgFirstName;
@@ -48,7 +44,6 @@ namespace MCM.Droid.Classic
 		{
 			base.OnCreate (bundle);
 
-            _globalVars = ((GlobalVars)this.Application);
             _child = JsonConvert.DeserializeObject<DataObjects.Child>(Intent.GetStringExtra("Child"));
 
             RequestWindowFeature(WindowFeatures.ActionBar);
@@ -164,6 +159,17 @@ namespace MCM.Droid.Classic
             }
             else
             {
+                var _progressDialog = new ProgressDialog(this);
+                if (string.IsNullOrEmpty(_child.Id))
+                {
+                    _progressDialog.SetTitle("Adding Child Information"); 
+                }
+                else
+                {
+                    _progressDialog.SetTitle("Updating Child Information");
+                }
+                _progressDialog.SetMessage("Please Wait...");
+                _progressDialog.Show();
                 try
                 {
                     _child.FirstName = _firstNameText.Text.Trim();
@@ -171,76 +177,20 @@ namespace MCM.Droid.Classic
                     _child.LastName = _lastNameText.Text.Trim();
                     _child.BirthDate = _date;
 
-                    if (string.IsNullOrWhiteSpace(_child.Id))
-                    {
-                        await InsertToTable();
-                    }
-                    else
-                    {
-                        await UpdateTable();
-                    }
+                    await _child.Save(this);
                 }
                 catch
                 {
                     CreateAndShowDialog("Unable to add Child.", "Add Child");
                 }
+                finally
+                {
+                    _progressDialog.Dismiss();
 
-                //CreateAndShowDialog(_children.Count.ToString(), " Children Found");
+                }
             }
         }
-
-        private Task InsertToTable()
-        {
-            Task task = null;
-            _progressDialog = new ProgressDialog(this);
-            _progressDialog.SetTitle("Adding Child Information");
-            _progressDialog.SetMessage("Please Wait...");
-            _progressDialog.Show();            
-            try
-            {
-                var childTable = _globalVars.MobileServiceClient.GetTable<DataObjects.Child>();
-                task = Task.Factory.StartNew(() => childTable.InsertAsync(_child));
-
-                //timer is used to assure that the Id assigned is retrieved. saw that it may take longer than expected
-                //to retrieve the returned Id from the mobile service.
-                _timerCount = 0;
-                _timer = new System.Threading.Timer(TimerDelegate, null, 250, 250);
-            }
-            catch
-            {
-                _progressDialog.Dismiss();
-                CreateAndShowDialog("Unable to add Child.", "Add Child");
-            }
-
-            return task;
-        }
-
-        private Task UpdateTable()
-        {
-            Task task = null;
-            _progressDialog = new ProgressDialog(this);
-            _progressDialog.SetTitle("Updating Child Information");
-            _progressDialog.SetMessage("Please Wait...");
-            _progressDialog.Show();
-            try
-            {
-                var childTable = _globalVars.MobileServiceClient.GetTable<DataObjects.Child>();
-                task = Task.Factory.StartNew(() => childTable.UpdateAsync(_child));
-
-                //timer is used to assure that the Id assigned is retrieved. saw that it may take longer than expected
-                //to retrieve the returned Id from the mobile service.
-                _timerCount = 0;
-                _timer = new System.Threading.Timer(TimerDelegate, null, 250, 250);
-            }
-            catch
-            {
-                _progressDialog.Dismiss();
-                CreateAndShowDialog("Unable to update Child.", "Add Child");
-            }
-
-            return task;
-        }
-
+                
         private async void DeleteChild()
         {
             _progressDialog = new ProgressDialog(this);
@@ -250,7 +200,7 @@ namespace MCM.Droid.Classic
             try
             {
 
-                await DeleteFromTable();
+               await _child.Delete(this);
 
                 _progressDialog.Dismiss();
                 CreateAndShowDialog(string.Format("Child '{0} {1}' removed.", _child.FirstName, _child.LastName), "Remove Child");
@@ -262,57 +212,7 @@ namespace MCM.Droid.Classic
                 CreateAndShowDialog("Unable to remove Child.", "Remove Child");
             }
         }
-
-        private Task DeleteFromTable()
-        {
-            Task task = null;
-
-            try
-            {
-                var childTable = _globalVars.MobileServiceClient.GetTable<DataObjects.Child>();
-                task = Task.Factory.StartNew(() => childTable.DeleteAsync(_child));
-
-                ////timer is used to assure that the Id assigned is retrieved. saw that it may take longer than expected
-                ////to retrieve the returned Id from the mobile service.
-                //_timerCount = 0;
-                //_timer = new System.Threading.Timer(TimerDelegate, null, 250, 250);
-            }
-            catch
-            {
-                CreateAndShowDialog("Unable to remove Child.", "Remove Child");
-            }
-
-            return task;
-        }
-
-        private void TimerDelegate(object state)
-        {
-            if (!string.IsNullOrWhiteSpace(_child.Id))
-            {
-                _childAddedOrUpdated = true;
-                SaveOriginalValues();
-                _timer.Dispose();
-                _progressDialog.Dismiss();
-            }
-            else
-            {
-                //if more than 3 seconds has elapsed, consider error
-                if (_timerCount > 12)
-                {
-                    //final check to see if there is an Id
-                    if (string.IsNullOrWhiteSpace(_child.Id))
-                    {
-                        _childAddedOrUpdated = true;
-                        SaveOriginalValues();
-                        _timer.Dispose();
-                        _progressDialog.Dismiss();
-                    }
-                }
-            }
-
-            _timerCount++;
-        }
-
+        
         private void InitializeDisplay()
         {
             if (string.IsNullOrWhiteSpace(_child.Id))
