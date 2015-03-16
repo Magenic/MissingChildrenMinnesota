@@ -19,18 +19,19 @@ namespace MCM.Ios.Classic
             set;
         }
 
+		public override bool FinishedLaunching (UIApplication app, NSDictionary options)
+		{
+			setupNavBar ();
+			return true;
+		}
+
 		public void setupNavBar() {
-			/*
-			 * 
-			 * UINavigationBar.appearance().barTintColor = UIColor.redColor()
-        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
-        let fontDictionary = [ NSForegroundColorAttributeName:UIColor.whiteColor(),
-            NSFontAttributeName:UIFont(name: "Avenir-Heavy", size: 20.0)!]
-        UINavigationBar.appearance().titleTextAttributes = fontDictionary
-        UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent;
-        */
-			UINavigationBar.Appearance.BarTintColor = HelperMethods.MCMColor ();
+
+			UINavigationBar.Appearance.BarTintColor = UIColor.FromRGB (114, 87, 146);
 			UINavigationBar.Appearance.TintColor = UIColor.White;
+			var textAttributes = new UITextAttributes ();
+			textAttributes.TextColor = UIColor.White;
+			UINavigationBar.Appearance.SetTitleTextAttributes(textAttributes);
 			UIApplication.SharedApplication.StatusBarStyle = UIStatusBarStyle.LightContent;
 		}
 

@@ -107,9 +107,12 @@
       <DependentUpon>MCMCollectionViewCell.cs</DependentUpon>
     </Compile>
     <Compile Include="Controllers\MCMCollectionViewControllerDataSource.cs" />
-    <Compile Include="Controllers\MCMNavController.cs" />
     <Compile Include="Services\ILoginService.cs" />
     <Compile Include="Extensions\HelperMethods.cs" />
+    <Compile Include="Controllers\MCMNavigationController.cs" />
+    <Compile Include="Controllers\MCMNavigationController.designer.cs">
+      <DependentUpon>MCMNavigationController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Default-568h%402x.png" />
