@@ -9,7 +9,8 @@ namespace MCM.Ios.Classic.Controllers
     {
 		private readonly ILoginService _loginService;
 		private readonly string _loginSegue = "loginSegue";
-		private MCMCollectionViewControllerDataSource _dataSource;
+		private readonly string _aboutMCMSegue = "aboutMCMSegue";
+		private readonly MCMCollectionViewDelegate _delegate;
 
         static bool UserInterfaceIdiomIsPhone
         {
@@ -20,7 +21,7 @@ namespace MCM.Ios.Classic.Controllers
             : base(handle)
         {
 			_loginService = new LoginService ();
-			this.Title = "MCM";
+			this._delegate = new MCMCollectionViewDelegate ();
         }
 			
         #region View lifecycle
@@ -33,17 +34,54 @@ namespace MCM.Ios.Classic.Controllers
 				this.PerformSegue (_loginSegue, this);
 			}
             
-			_dataSource = new MCMCollectionViewControllerDataSource ();
-			this.CollectionView.Source = _dataSource;
-			this.CollectionView.Delegate = new MCMCollectionViewDelegateFlowLayout ();
+			this.CollectionView.Source = new MCMCollectionViewControllerDataSource ();
+			this.CollectionView.Delegate = _delegate;
+			_delegate.ViewController = new WeakReference (this);
 			this.CollectionView.ReloadData ();
         }
+			
+		public override void ViewWillAppear (bool animated)
+		{
+			base.ViewWillAppear (animated);
+			this.Title = "MCM";
+		}
 			
         #endregion
 
         public override void PrepareForSegue(UIStoryboardSegue segue, NSObject sender)
         {
             base.PrepareForSegue(segue, sender);
+			this.Title = "";
         }
+
+		public override void ItemSelected (UICollectionView collectionView, NSIndexPath indexPath) {
+
+			if (indexPath.Section == 0) {
+
+			} else if (indexPath.Section == 1) {
+				switch (indexPath.Row) {
+				case 0:
+					break;
+				case 1:
+					break;
+				default:
+					break;
+				}
+			} else if (indexPath.Section == 2) {
+				switch (indexPath.Row) {
+				case 0:
+					break;
+				case 1:
+					performAboutMCMSegue ();
+					break;
+				default:
+					break;
+				}
+			}
+		}
+
+		private void performAboutMCMSegue() {
+			this.PerformSegue (_aboutMCMSegue, this);
+		}
     }
 }

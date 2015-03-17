@@ -1,6 +1,7 @@
 ﻿using System;
 using Foundation;
 using UIKit;
+using ObjCRuntime;
 
 namespace MCM.Ios.Classic
 {
@@ -56,7 +57,6 @@ namespace MCM.Ios.Classic
 
 			return cell;
 		}
-
 	}
 }
 

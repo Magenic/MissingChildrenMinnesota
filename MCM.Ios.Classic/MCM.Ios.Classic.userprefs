@@ -1,9 +1,11 @@
 ﻿<Properties StartupItem="MCM.Ios.Classic.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone6.8.2" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="MCMCollectionViewFlowLayout.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone5.8.2" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Controllers/AboutMCMViewController.cs">
     <Files>
-      <File FileName="Controllers/MCMCollectionViewControllerDataSource.cs" Line="1" Column="1" />
-      <File FileName="MCMCollectionViewFlowLayout.cs" Line="26" Column="1" />
+      <File FileName="Controllers/MCMCollectionViewControllerDataSource.cs" Line="8" Column="77" />
+      <File FileName="MCMCollectionViewDelegate.cs" Line="43" Column="1" />
+      <File FileName="Controllers/MCMCollectionViewController.cs" Line="54" Column="20" />
+      <File FileName="Controllers/AboutMCMViewController.cs" Line="22" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -113,7 +113,11 @@
     <Compile Include="Controllers\MCMNavigationController.designer.cs">
       <DependentUpon>MCMNavigationController.cs</DependentUpon>
     </Compile>
-    <Compile Include="MCMCollectionViewDelegateFlowLayout.cs" />
+    <Compile Include="MCMCollectionViewDelegate.cs" />
+    <Compile Include="Controllers\AboutMCMViewController.cs" />
+    <Compile Include="Controllers\AboutMCMViewController.designer.cs">
+      <DependentUpon>AboutMCMViewController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Default-568h%402x.png" />

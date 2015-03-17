@@ -106,7 +106,7 @@
                                 <rect key="frame" x="32.5" y="0.0" width="310" height="145"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="32" y="0.0" width="310" height="145"/>
+                                    <rect key="frame" x="32.5" y="0.0" width="310" height="145"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <subviews>
@@ -117,8 +117,8 @@
                                             <rect key="frame" x="0.0" y="95" width="310" height="50"/>
                                             <color key="backgroundColor" customColorSpace="calibratedWhite" colorSpace="calibratedRGB" red="0" green="0" blue="0" alpha="0.49803921568627452"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="My Children" lineBreakMode="tailTruncation" minimumFontSize="10" id="1932" translatesAutoresizingMaskIntoConstraints="NO" textAlignment="center" misplaced="YES">
-                                                    <rect key="frame" x="12" y="15" width="286" height="21"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="My Children" lineBreakMode="tailTruncation" minimumFontSize="10" id="1932" translatesAutoresizingMaskIntoConstraints="NO" textAlignment="center">
+                                                    <rect key="frame" x="7" y="9" width="296" height="33"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                                     <color key="textColor" colorSpace="calibratedRGB" red="1" green="1" blue="1" alpha="1"/>
@@ -156,11 +156,60 @@
                             <outlet property="delegate" destination="1867" id="1870"/>
                         </connections>
                     </collectionView>
-                    <navigationItem title="Title" id="1919" key="navigationItem"/>
+                    <navigationItem title="MCM" id="1919" key="navigationItem"/>
+                    <connections>
+                        <segue id="2426" destination="2011" kind="show" identifier="aboutMCMSegue"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1873" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="922" y="-24"/>
+        </scene>
+        <scene sceneID="2010">
+            <objects>
+                <viewController id="2011" sceneMemberID="viewController" customClass="AboutMCMViewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2008"/>
+                        <viewControllerLayoutGuide type="bottom" id="2009"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2012">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="2087" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="12" y="66" width="356" height="599"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <string key="text">In the summer of 1983 a group of parents of missing children began meeting in Minneapolis to offer moral support and comfort to each other during their ordeal. Out of that support group the idea that there should be a local resource for parents and families dealing with the issue of a missing child began to take shape. In 1984 this group of parents incorporated as the Missing Kids Action Agency; the name was changed to Missing Children Minnesota (MCM) in 1986.
+  
+In 1983, MCM participated in the rewriting of Minnesota’s parental kidnapping statute SS609.26. In 1990, Governor Rudy Perpich established a Governor’s Task Force on Missing Children; two delegates from MCM were invited to serve on the task force. In 1991, the legislature passed the Missing Children’s Act, which included the registration of sex offenders, flagging of school records and additional rewriting of the parental kidnapping statute.
+ 
+MCM has helped thousands of families and children across Minnesota and the Midwest by providing 24 hour case management and crisis intervention services. In addition to search assistance, we also provide four critically acclaimed educational programs to children and adults throughout Minnesota, and all across the country. Every year, MCM presents abduction prevention and personal safety programs to schools, daycare centers, early childhood and family education groups, churches and children’s vacation camps. We hope that by providing children with the tools they need to make better decisions this year, we will have fewer missing children next year.
+ 
+Over the years, MCM has been recognized by many organizations and individuals as a leading authority on missing children. We have been designated as a special collection, and are a recognized published of personal safety materials for children. In addition, MCM is a charter member of the Association of Missing and Exploited Children’s Organizations (AMECO); an international alliance of non-profit missing children’s organizations, which is primarily funded by the United States Office of Juvenile Justice and Delinquency Prevention. AMECO requires that all member organizations recertify themselves every 3-5 years.</string>
+                                <constraints>
+                                    <constraint id="2451" firstAttribute="width" constant="356"/>
+                                    <constraint id="2452" firstAttribute="height" constant="599"/>
+                                </constraints>
+                            </textView>
+                        </subviews>
+                        <constraints>
+                            <constraint id="2449" constant="7" firstItem="2012" firstAttribute="trailing" secondItem="2087" secondAttribute="trailing"/>
+                            <constraint id="2450" constant="2" firstItem="2012" firstAttribute="bottom" secondItem="2087" secondAttribute="bottom"/>
+                            <constraint firstItem="2087" firstAttribute="top" secondItem="2008" secondAttribute="bottom" constant="2" id="2453"/>
+                            <constraint firstItem="2087" firstAttribute="leading" secondItem="2012" secondAttribute="leading" constant="12" id="2455"/>
+                        </constraints>
+                    </view>
+                    <navigationItem title="About MCM" id="2285" key="navigationItem"/>
+                    <connections>
+                        <outlet property="textView" destination="2087" id="name-outlet-2087"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2013" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1482" y="-25"/>
         </scene>
     </scenes>
     <resources>
