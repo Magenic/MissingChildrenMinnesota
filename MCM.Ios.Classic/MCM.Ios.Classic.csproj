@@ -118,6 +118,10 @@
     <Compile Include="Controllers\AboutMCMViewController.designer.cs">
       <DependentUpon>AboutMCMViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\HomeDNAViewController.cs" />
+    <Compile Include="Controllers\HomeDNAViewController.designer.cs">
+      <DependentUpon>HomeDNAViewController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Default-568h%402x.png" />

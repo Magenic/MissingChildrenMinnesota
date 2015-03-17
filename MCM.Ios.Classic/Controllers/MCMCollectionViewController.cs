@@ -10,6 +10,7 @@ namespace MCM.Ios.Classic.Controllers
 		private readonly ILoginService _loginService;
 		private readonly string _loginSegue = "loginSegue";
 		private readonly string _aboutMCMSegue = "aboutMCMSegue";
+		private readonly string _homeDNASegue = "homeDNASegue";
 		private readonly MCMCollectionViewDelegate _delegate;
 
         static bool UserInterfaceIdiomIsPhone
@@ -61,6 +62,7 @@ namespace MCM.Ios.Classic.Controllers
 			} else if (indexPath.Section == 1) {
 				switch (indexPath.Row) {
 				case 0:
+					performHomeDNASegue ();
 					break;
 				case 1:
 					break;
@@ -82,6 +84,10 @@ namespace MCM.Ios.Classic.Controllers
 
 		private void performAboutMCMSegue() {
 			this.PerformSegue (_aboutMCMSegue, this);
+		}
+
+		private void performHomeDNASegue() {
+			this.PerformSegue (_homeDNASegue, this);
 		}
     }
 }
