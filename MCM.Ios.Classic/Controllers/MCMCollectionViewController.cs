@@ -35,9 +35,6 @@ namespace MCM.Ios.Classic.Controllers
             
 			_dataSource = new MCMCollectionViewControllerDataSource ();
 			this.CollectionView.Source = _dataSource;
-			var layout = new UICollectionViewFlowLayout ();
-			layout.SectionInset = new UIEdgeInsets (10,20,10,20);
-			this.CollectionView.SetCollectionViewLayout (layout, true);
 			this.CollectionView.Delegate = new MCMCollectionViewDelegateFlowLayout ();
 			this.CollectionView.ReloadData ();
         }

@@ -14,11 +14,16 @@ namespace MCM.Ios.Classic
 
 			switch (indexPath.Section) {
 			case 0:				
-				return new CGSize (width, height);
+				return new CGSize (width - 20, height);
 			default: 
-				return new CGSize (width / 2, height);
-				break;
+				var size = new CGSize (width / 2, height);
+				size.Width -= 40;
+				return size;
 			}
+		}
+
+		public override UIEdgeInsets GetInsetForSection (UICollectionView collectionView, UICollectionViewLayout layout, nint section) {
+			return new UIEdgeInsets (10,20,10,20);
 		}
 	}
 }
