@@ -5,15 +5,15 @@ using UIKit;
 
 namespace MCM.Ios.Classic
 {
-	partial class HomeDNAViewController : UIViewController
+	partial class MissingChildViewController : UIViewController
 	{
-		public HomeDNAViewController (IntPtr handle) : base (handle)
-		{	}
+		public MissingChildViewController (IntPtr handle) : base (handle)
+		{ }
 
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
-			this.Title = "Home DNA";
+			this.Title = "Missing Child?";
 			textView.Editable = false;
 			var point = new CoreGraphics.CGPoint (0, -200);
 			textView.SetContentOffset (point, false);

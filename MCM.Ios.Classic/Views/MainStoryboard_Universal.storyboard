@@ -160,6 +160,8 @@
                     <connections>
                         <segue id="2426" destination="2011" kind="show" identifier="aboutMCMSegue"/>
                         <segue id="2523" destination="2477" kind="show" identifier="homeDNASegue"/>
+                        <segue id="2627" destination="2553" kind="show" identifier="missingChildSegue"/>
+                        <segue id="2719" destination="2652" kind="show" identifier="safetyForChildrenSegue"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1873" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -190,9 +192,6 @@ In 1983, MCM participated in the rewriting of Minnesota’s parental kidnapping 
 MCM has helped thousands of families and children across Minnesota and the Midwest by providing 24 hour case management and crisis intervention services. In addition to search assistance, we also provide four critically acclaimed educational programs to children and adults throughout Minnesota, and all across the country. Every year, MCM presents abduction prevention and personal safety programs to schools, daycare centers, early childhood and family education groups, churches and children’s vacation camps. We hope that by providing children with the tools they need to make better decisions this year, we will have fewer missing children next year.
  
 Over the years, MCM has been recognized by many organizations and individuals as a leading authority on missing children. We have been designated as a special collection, and are a recognized published of personal safety materials for children. In addition, MCM is a charter member of the Association of Missing and Exploited Children’s Organizations (AMECO); an international alliance of non-profit missing children’s organizations, which is primarily funded by the United States Office of Juvenile Justice and Delinquency Prevention. AMECO requires that all member organizations recertify themselves every 3-5 years.</string>
-                                <constraints>
-                                    <constraint id="2452" firstAttribute="height" constant="599"/>
-                                </constraints>
                             </textView>
                         </subviews>
                         <constraints>
@@ -209,7 +208,7 @@ Over the years, MCM has been recognized by many organizations and individuals as
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2013" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1478" y="-489"/>
+            <point key="canvasLocation" x="1484" y="-7"/>
         </scene>
         <scene sceneID="2476">
             <objects>
@@ -224,27 +223,182 @@ Over the years, MCM has been recognized by many organizations and individuals as
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="2527" translatesAutoresizingMaskIntoConstraints="NO">
-                                <rect key="frame" x="0.0" y="68" width="375" height="599"/>
+                                <rect key="frame" x="9" y="68" width="354" height="599"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <constraints>
-                                    <constraint id="2531" firstAttribute="height" constant="599"/>
-                                </constraints>
+                                <string key="text">Collect and Store your Child’s DNA
+ 
+A DNA sample is one of the best tools you can have in an ID Kit. While some ID Kits will help you fingerprint your child, DNA (not fingerprints) is the standard for identifying a person who cannot (or will not) identify themselves.
+Follow these simple instructions to prepare and store a sample. Properly done, it will last indefinitely.
+ 
+You will need:
+ 
+Plastic or latex gloves
+ 
+A Q-Tip from a NEW, SEALED package. This is to be sure that nobody has touched the cotton end and left some DNA behind already. If you have a double-sided Q-Tip, clip off the end that you are not using.
+ 
+A standard letter sized envelope marked with the child’s:
+Name
+Gender
+Birth Date
+Social Security Number
+Date sample was taken
+ 
+A plastic freezer bag
+ 
+A small, clean, glass container that is shorter than the Q-Tip is tall.
+ 
+Here’s what to do:
+ 
+Read instructions all the way through before beginning the procedure
+ 
+1.       The child giving the sample should not eat or drink anything for one half hour before giving the sample.
+2.       Wash hands and put on the plastic or latex gloves
+3.       Place the cotton end of the Q-Tip in the child’s mouth; between the gums and the cheek. The lower jaw towards the back will give a better sample. Twist the tip around a half dozen times; making sure it is in contact with the gum.
+4.       Place the Q-Tip on the opposite side of the child’s mouth, and repeat.
+5.       Place the Q-Tip in the glass container so that the cotton end is sticking out of the cup, and not in contact with any surfaces. Allow to AIR DRY for half an hour (make sure not to blow on the Q-Tip). Make sure it does not touch anything, and allow to dry naturally.
+6.       Once the Q-Tip is dry, place it in the paper envelope, seal the envelope with tape (do not lick the seal – that will contaminate the sample with your DNA).
+7.       Label plastic bag with the child’s name.
+8.       Place envelope in the freezer bag, and put in the freezer.
+ 
+Other sources of DNA can be stored this way, such as CLEAN fingernail and toenail clippings, hair (10-20 strands with follicle still attached), baby teeth, or a bandage that your child has bled upon. These will not give as good a sample as the swab, but are alternatives if you don’t wish to collect with a swab.  Wear plastic gloves when collecting samples, so that you don’t contaminate the sample with your own DNA. Store any and all samples in a paper envelope in a labeled plastic bag in the freezer.</string>
                             </textView>
                         </subviews>
                         <constraints>
-                            <constraint id="2528" firstItem="2478" firstAttribute="bottom" secondItem="2527" secondAttribute="bottom" constant="0.0"/>
-                            <constraint id="2529" firstItem="2478" firstAttribute="trailing" secondItem="2527" secondAttribute="trailing" constant="0.0"/>
-                            <constraint firstItem="2527" firstAttribute="top" secondItem="2474" secondAttribute="bottom" constant="4" id="2532"/>
-                            <constraint firstItem="2527" firstAttribute="leading" secondItem="2478" secondAttribute="leading" constant="0.0" id="2534"/>
+                            <constraint id="2631" constant="0.0" firstItem="2478" firstAttribute="bottom" secondItem="2527" secondAttribute="bottom"/>
+                            <constraint firstItem="2527" firstAttribute="leading" secondItem="2478" secondAttribute="leading" constant="9" id="2634"/>
+                            <constraint firstItem="2478" firstAttribute="trailing" secondItem="2527" secondAttribute="trailing" constant="12" id="2635"/>
+                            <constraint firstItem="2527" firstAttribute="top" secondItem="2474" secondAttribute="bottom" constant="4" id="2636"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="textView" destination="2527" id="name-outlet-2527"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2479" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1479" y="717"/>
+        </scene>
+        <scene sceneID="2552">
+            <objects>
+                <viewController id="2553" sceneMemberID="viewController" customClass="MissingChildViewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2550"/>
+                        <viewControllerLayoutGuide type="bottom" id="2551"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2554">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="2629" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="9" y="66" width="357" height="601"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <string key="text">WHAT TO DO IMMEDIATELY
+A missing child is one of the most terrifying things a parent can ever experience. Even so, it is vitally important that you do your best to REMAIN CALM.
+
+
+
+1. SEARCH THE IMMEDIATE AREA
+If your child has disappeared from home, make sure s/he is not asleep or hiding in or around the house. Check places the child may have gotten into and then not been able to get out of, i.e. cupboards, closets, crawl spaces, vehicles, etc. Check outdoors and with neighbors, as well as with your child's neighborhood friends.
+ 
+If your child has disappeared in a public place like a store or a mall, contact security and the store manager. Give them a physical description of your child including what s/he is wearing - ask them to begin a search. Also, ask them to post an employee at every exit to make sure that your child does not wander out of the area. 
+
+
+
+2. CALL THE POLICE 
+When you are satisfied that your child is not in the immediate area, call the police immediately and tell the dispatcher “My child is missing, I need to make a report.” If they dispatch an officer, stay exactly where you told the dispatcher you'd be, so the officer will be able to find you when s/he arrives. Make sure that someone stays by the phone.
+
+
+
+3. FIND THE BEST, MOST RECENT PHOTO OF YOUR CHILD AND MAKE COPIES 
+You will need to give copies of the photo to police, searchers and missing child agencies. Plan to make 10-20 copies. Stores like Office Depot, OfficeMax and Kinko's have color copiers that are available to the public for a small fee. If you have a digital camera, you can print photos yourself at home, or at a local store that has a photo processing machine. Many stores like Target, WalMart, Kmart and Walgreens have a photo processor that can make prints from a memory card or CD-Rom. If possible, have a copy of the photo scanned and saved as a graphic file on a CD-Rom, like a GIF or a JPEG file. Kinkos and most other stores with full service business centers can help you to do this.  
+
+
+
+
+4. INVOLVE FAMILY AND FRIENDS IN THE SEARCH 
+During the next few hours stay where you are. Your first urge will be to go out and search for your child, but you need to stay in one place so that police, searchers, your child or anyone else with information can easily contact you. If you haven't already done so, contact family members, friends and neighbors to help with the search. If you are away from home when your child disappears, ask someone to bring photos of your child to where you are. If at all possible, make sure someone is at your home to receive phone calls. 
+
+
+5. CONTACT A MISSING CHILDREN'S ORGANIZATION
+Call Missing Children Minnesota or the missing children's organization nearest to you to register your missing child. Most missing children's organizations can help with poster preparation, contacting the media, logistics, emotional support, etc. A list of all the nationally recognized missing children's organizations can be obtained from the Association of Missing and Expolited Children's Organizations (AMECO) at www.amecoinc.org or by calling 1-877-AMECO-20. You should also register your child with the National Center for Missing and Exploited Children at 1-800-THE-LOST. 
+
+
+
+6. KEEP EVERYONE UP TO DATE 
+Over the next few days, stay in touch with police and Missing Children Minnesota to keep everyone updated on the situation. Make sure you take notes about what is happening and what the police tell you don't try to rely on your memory when you are in a crisis. Also make sure that someone is home to answer the phone when you're not there or use call forwarding to transfer calls to another number (a cell phone, relative's home, etc.) 
+
+
+7. MAKE GOOD USE OF HELPING HANDS 
+Ask someone to help you contact family members, friends, church and community groups for help and support. Many people will offer to help and will want to be involved. They can assist with distributing posters, running errands, preparing meals, etc. Make sure the volunteers who will be in your home are people you feel comfortable with. It's also important for you to get as much rest as possible volunteers can take over for you from time to time so that you can take care of yourself.  
+
+
+UNTIL YOUR CHILD IS FOUND...
+Distribute posters and keep in touch with police and Missing Children Minnesota (and any other agencies that you have contacted) on a regular basis. Over the long term when you need to be away from the house, make sure that you have an voicemail or an answering machine. At the beginning of the message state that "This residence will accept collect calls." This way, if your child (or someone who knows about your child) is at a distance and tries to call collect, the operator will leave the circuit open so that he or she can leave a message. You may need to get counseling to help you and your family through the difficult times. Make plans for when your child is found.   
+
+
+
+WHEN YOUR CHILD IS FOUND...
+Call police and missing children's agencies to close your child's case. Take the posters down. Follow through with the plans you made for what to do when your child comes home. Be prepared for a missing child emergency! Put together an ID folder for your child. Establish a plan for your family in case you become separated at a store or an event away from home. Teach your children (and periodically review with them) how to respond to threatening situations. For more information about keeping kids safe, contact Missing Children Minnesota. 
+
+
+A NOTE ABOUT PARENTAL ABDUCTION...
+If an estranged or former spouse or domestic partner abducts your children, CALL THE POLICE! Tell them that you believe s/he is in violation of Minnesota state statute 609.26 (most states have a similar statute parental kidnapping is a felony in all 50 states!) Many law enforcement officers are unfamiliar with this law so don't be reluctant to mention it to them. Under Minnesota law, it is a crime for a parent to take a child, even if s/he has joint custody, or if custody has not yet been determined. </string>
+                            </textView>
+                        </subviews>
+                        <constraints>
+                            <constraint id="2641" constant="9" firstItem="2554" firstAttribute="trailing" secondItem="2629" secondAttribute="trailing"/>
+                            <constraint id="2642" constant="0.0" firstItem="2554" firstAttribute="bottom" secondItem="2629" secondAttribute="bottom"/>
+                            <constraint firstItem="2629" firstAttribute="leading" secondItem="2554" secondAttribute="leading" constant="9" id="2645"/>
+                            <constraint firstItem="2629" firstAttribute="top" secondItem="2550" secondAttribute="bottom" constant="2" id="2646"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="textView" destination="2629" id="name-outlet-2629"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2555" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1480" y="-735"/>
+        </scene>
+        <scene sceneID="2651">
+            <objects>
+                <viewController id="2652" sceneMemberID="viewController" customClass="SafetyForChildrenViewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2649"/>
+                        <viewControllerLayoutGuide type="bottom" id="2650"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2653">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="2721" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="9" y="66" width="359" height="601"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <constraints>
+                            <constraint id="2722" firstItem="2653" firstAttribute="bottom" secondItem="2721" secondAttribute="bottom" constant="0.0"/>
+                            <constraint id="2723" constant="7" firstItem="2653" firstAttribute="trailing" secondItem="2721" secondAttribute="trailing"/>
+                            <constraint firstItem="2721" firstAttribute="leading" secondItem="2653" secondAttribute="leading" constant="9" id="2726"/>
+                            <constraint firstItem="2721" firstAttribute="top" secondItem="2649" secondAttribute="bottom" constant="2" id="2729"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="textView" destination="2721" id="name-outlet-2721"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2654" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2004" y="-734"/>
         </scene>
     </scenes>
     <resources>

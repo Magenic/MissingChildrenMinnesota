@@ -11,8 +11,8 @@ using UIKit;
 
 namespace MCM.Ios.Classic
 {
-	[Register ("HomeDNAViewController")]
-	partial class HomeDNAViewController
+	[Register ("SafetyForChildrenViewController")]
+	partial class SafetyForChildrenViewController
 	{
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]

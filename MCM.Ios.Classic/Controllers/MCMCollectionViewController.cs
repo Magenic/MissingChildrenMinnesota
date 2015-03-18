@@ -11,6 +11,8 @@ namespace MCM.Ios.Classic.Controllers
 		private readonly string _loginSegue = "loginSegue";
 		private readonly string _aboutMCMSegue = "aboutMCMSegue";
 		private readonly string _homeDNASegue = "homeDNASegue";
+		private readonly string _missingChildSegue = "missingChildSegue";
+		private readonly string _safetyForChildrenSegue = "safetyForChildrenSegue";
 		private readonly MCMCollectionViewDelegate _delegate;
 
         static bool UserInterfaceIdiomIsPhone
@@ -35,11 +37,24 @@ namespace MCM.Ios.Classic.Controllers
 				this.PerformSegue (_loginSegue, this);
 			}
             
+			this.setupNavBarButtonItems ();
 			this.CollectionView.Source = new MCMCollectionViewControllerDataSource ();
 			this.CollectionView.Delegate = _delegate;
 			_delegate.ViewController = new WeakReference (this);
 			this.CollectionView.ReloadData ();
         }
+
+		private void setupNavBarButtonItems() {
+
+			//var settingsButtonItem = new UIBarButtonItem (new UIImage ("gear"), UIBarButtonItemStyle.Plain, new ObjCRuntime.Selector ("settingsTapped"));
+			var otherButton = new UIBarButtonItem (UIBarButtonSystemItem.Organize);
+			this.NavigationItem.RightBarButtonItem = otherButton;
+
+		}
+
+		public void settingsTapped() {
+			
+		}
 			
 		public override void ViewWillAppear (bool animated)
 		{
@@ -65,6 +80,7 @@ namespace MCM.Ios.Classic.Controllers
 					performHomeDNASegue ();
 					break;
 				case 1:
+					performSafetyForChildrenSegue ();
 					break;
 				default:
 					break;
@@ -72,6 +88,7 @@ namespace MCM.Ios.Classic.Controllers
 			} else if (indexPath.Section == 2) {
 				switch (indexPath.Row) {
 				case 0:
+					performMissingChildSegue ();
 					break;
 				case 1:
 					performAboutMCMSegue ();
@@ -88,6 +105,14 @@ namespace MCM.Ios.Classic.Controllers
 
 		private void performHomeDNASegue() {
 			this.PerformSegue (_homeDNASegue, this);
+		}
+
+		private void performMissingChildSegue() {
+			this.PerformSegue (_missingChildSegue, this);
+		}
+
+		private void performSafetyForChildrenSegue() {
+			this.PerformSegue (_safetyForChildrenSegue, this);
 		}
     }
 }

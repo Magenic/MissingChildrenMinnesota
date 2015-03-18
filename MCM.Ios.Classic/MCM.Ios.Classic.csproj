@@ -113,7 +113,6 @@
     <Compile Include="Controllers\MCMNavigationController.designer.cs">
       <DependentUpon>MCMNavigationController.cs</DependentUpon>
     </Compile>
-    <Compile Include="MCMCollectionViewDelegate.cs" />
     <Compile Include="Controllers\AboutMCMViewController.cs" />
     <Compile Include="Controllers\AboutMCMViewController.designer.cs">
       <DependentUpon>AboutMCMViewController.cs</DependentUpon>
@@ -121,6 +120,15 @@
     <Compile Include="Controllers\HomeDNAViewController.cs" />
     <Compile Include="Controllers\HomeDNAViewController.designer.cs">
       <DependentUpon>HomeDNAViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\MissingChildViewController.cs" />
+    <Compile Include="Controllers\MissingChildViewController.designer.cs">
+      <DependentUpon>MissingChildViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\MCMCollectionViewDelegate.cs" />
+    <Compile Include="SafetyForChildrenViewController.cs" />
+    <Compile Include="SafetyForChildrenViewController.designer.cs">
+      <DependentUpon>SafetyForChildrenViewController.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
