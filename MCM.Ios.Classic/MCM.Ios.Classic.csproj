@@ -134,6 +134,11 @@
     <Compile Include="Controllers\MyChildrenViewController.designer.cs">
       <DependentUpon>MyChildrenViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\MyChild.cs" />
+    <Compile Include="Views\MyChildTableViewCell.cs" />
+    <Compile Include="Views\MyChildTableViewCell.designer.cs">
+      <DependentUpon>MyChildTableViewCell.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Default-568h%402x.png" />
@@ -151,6 +156,7 @@
     <BundleResource Include="Resources\safety_for_children.jpg" />
     <BundleResource Include="Resources\19-gear.png" />
     <BundleResource Include="Resources\19-gear%402x.png" />
+    <BundleResource Include="Resources\napolean.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.WindowsAzure.Mobile">
@@ -187,5 +193,6 @@
     <Folder Include="Services\" />
     <Folder Include="Views\" />
     <Folder Include="Extensions\" />
+    <Folder Include="Model\" />
   </ItemGroup>
 </Project>

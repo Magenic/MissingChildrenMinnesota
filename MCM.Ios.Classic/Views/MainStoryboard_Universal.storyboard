@@ -409,13 +409,59 @@ If an estranged or former spouse or domestic partner abducts your children, CALL
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="2946" rowHeight="44">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="2946" rowHeight="100" customClass="MyChildTableViewCell" accessoryType="disclosureIndicator" reuseIdentifier="childCell">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2946" id="2947">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="341" height="99.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" id="3053" translatesAutoresizingMaskIntoConstraints="NO" image="napolean.jpg" clipsSubviews="YES" misplaced="YES">
+                                            <rect key="frame" x="20" y="9" width="82" height="82"/>
+                                            <constraints>
+                                                <constraint id="3092" firstAttribute="width" constant="82"/>
+                                                <constraint id="3093" firstAttribute="height" constant="82"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Napolean Dynamite" lineBreakMode="tailTruncation" minimumFontSize="10" id="3054" translatesAutoresizingMaskIntoConstraints="NO">
+                                            <rect key="frame" x="120" y="9" width="210" height="21"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                            <constraints>
+                                                <constraint id="3096" firstAttribute="width" constant="210"/>
+                                                <constraint id="3097" firstAttribute="height" constant="21"/>
+                                            </constraints>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="18 years old" lineBreakMode="tailTruncation" minimumFontSize="10" id="3064" translatesAutoresizingMaskIntoConstraints="NO">
+                                            <rect key="frame" x="120" y="32" width="83" height="15"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" colorSpace="calibratedWhite" white="0.333333333333333" alpha="1"/>
+                                            <nil key="highlightedColor"/>
+                                            <constraints>
+                                                <constraint id="3100" firstAttribute="width" constant="83"/>
+                                                <constraint id="3101" firstAttribute="height" constant="15"/>
+                                            </constraints>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint id="3090" constant="20" firstItem="3053" firstAttribute="leading" secondItem="2947" secondAttribute="leading"/>
+                                        <constraint id="3091" constant="8" firstItem="2947" firstAttribute="bottom" secondItem="3053" secondAttribute="bottom"/>
+                                        <constraint id="3094" constant="11" firstItem="2947" firstAttribute="trailing" secondItem="3054" secondAttribute="trailing"/>
+                                        <constraint id="3095" constant="9" firstItem="3054" firstAttribute="top" secondItem="2947" secondAttribute="top"/>
+                                        <constraint id="3098" constant="120" firstItem="3064" firstAttribute="leading" secondItem="2947" secondAttribute="leading"/>
+                                        <constraint id="3099" constant="32" firstItem="3064" firstAttribute="top" secondItem="2947" secondAttribute="top"/>
+                                        <constraint firstItem="3054" firstAttribute="leading" secondItem="3053" secondAttribute="trailing" constant="18" id="3106"/>
+                                        <constraint firstItem="3064" firstAttribute="leading" secondItem="3053" secondAttribute="trailing" constant="18" id="3107"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="imageView" destination="3053" id="name-outlet-3053"/>
+                                    <outlet property="nameLabel" destination="3054" id="name-outlet-3054"/>
+                                    <outlet property="ageLabel" destination="3064" id="name-outlet-3064"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -446,6 +492,8 @@ If an estranged or former spouse or domestic partner abducts your children, CALL
         <image name="dna_boy.jpg" width="380" height="380"/>
         <image name="safety_for_children.jpg" width="380" height="253"/>
         <image name="19-gear.png" width="26" height="26"/>
+        <image name="napolean-dynamite.jpg" width="950" height="534"/>
+        <image name="napolean.jpg" width="950" height="534"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedScreenMetrics key="destination" type="retina47"/>
