@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using Foundation;
+using ObjCRuntime;
 using UIKit;
 
 namespace MCM.Ios.Classic.Controllers
@@ -13,6 +14,7 @@ namespace MCM.Ios.Classic.Controllers
 		private readonly string _homeDNASegue = "homeDNASegue";
 		private readonly string _missingChildSegue = "missingChildSegue";
 		private readonly string _safetyForChildrenSegue = "safetyForChildrenSegue";
+		private readonly string _myChildrenSegue = "myChildrenSegue";
 		private readonly MCMCollectionViewDelegate _delegate;
 
         static bool UserInterfaceIdiomIsPhone
@@ -46,13 +48,12 @@ namespace MCM.Ios.Classic.Controllers
 
 		private void setupNavBarButtonItems() {
 
-			//var settingsButtonItem = new UIBarButtonItem (new UIImage ("gear"), UIBarButtonItemStyle.Plain, new ObjCRuntime.Selector ("settingsTapped"));
-			var otherButton = new UIBarButtonItem (UIBarButtonSystemItem.Organize);
-			this.NavigationItem.RightBarButtonItem = otherButton;
-
+			this.NavigationItem.SetRightBarButtonItem (new UIBarButtonItem (new UIImage ("19-gear"), UIBarButtonItemStyle.Plain, (sender, args) => {
+				this.openSettings();
+			}), true);
 		}
 
-		public void settingsTapped() {
+		public void openSettings() {
 			
 		}
 			
@@ -73,7 +74,7 @@ namespace MCM.Ios.Classic.Controllers
 		public override void ItemSelected (UICollectionView collectionView, NSIndexPath indexPath) {
 
 			if (indexPath.Section == 0) {
-
+				performMyChildrenSegue ();
 			} else if (indexPath.Section == 1) {
 				switch (indexPath.Row) {
 				case 0:
@@ -113,6 +114,10 @@ namespace MCM.Ios.Classic.Controllers
 
 		private void performSafetyForChildrenSegue() {
 			this.PerformSegue (_safetyForChildrenSegue, this);
+		}
+
+		private void performMyChildrenSegue() {
+			this.PerformSegue (_myChildrenSegue, this);
 		}
     }
 }

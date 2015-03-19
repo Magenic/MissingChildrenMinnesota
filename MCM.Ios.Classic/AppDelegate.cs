@@ -31,6 +31,7 @@ namespace MCM.Ios.Classic
 			UINavigationBar.Appearance.TintColor = UIColor.White;
 			var textAttributes = new UITextAttributes ();
 			textAttributes.TextColor = UIColor.White;
+			textAttributes.Font = UIFont.BoldSystemFontOfSize (20);
 			UINavigationBar.Appearance.SetTitleTextAttributes(textAttributes);
 			UIApplication.SharedApplication.StatusBarStyle = UIStatusBarStyle.LightContent;
 		}

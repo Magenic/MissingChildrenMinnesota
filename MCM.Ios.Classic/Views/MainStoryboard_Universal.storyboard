@@ -162,6 +162,7 @@
                         <segue id="2523" destination="2477" kind="show" identifier="homeDNASegue"/>
                         <segue id="2627" destination="2553" kind="show" identifier="missingChildSegue"/>
                         <segue id="2719" destination="2652" kind="show" identifier="safetyForChildrenSegue"/>
+                        <segue id="3041" destination="2942" kind="show" identifier="myChildrenSegue"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1873" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -398,7 +399,34 @@ If an estranged or former spouse or domestic partner abducts your children, CALL
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2654" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2004" y="-734"/>
+            <point key="canvasLocation" x="1974" y="-689"/>
+        </scene>
+        <scene sceneID="2941">
+            <objects>
+                <tableViewController id="2942" sceneMemberID="viewController" customClass="MyChildrenViewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="2943">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="2946" rowHeight="44">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2946" id="2947">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="2942" id="2944"/>
+                            <outlet property="delegate" destination="2942" id="2945"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2948" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1994" y="101"/>
         </scene>
     </scenes>
     <resources>
@@ -417,6 +445,7 @@ If an estranged or former spouse or domestic partner abducts your children, CALL
         <image name="cheerful_children.jpg" width="380" height="272"/>
         <image name="dna_boy.jpg" width="380" height="380"/>
         <image name="safety_for_children.jpg" width="380" height="253"/>
+        <image name="19-gear.png" width="26" height="26"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedScreenMetrics key="destination" type="retina47"/>

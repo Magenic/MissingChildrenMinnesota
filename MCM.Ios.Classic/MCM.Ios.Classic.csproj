@@ -126,9 +126,13 @@
       <DependentUpon>MissingChildViewController.cs</DependentUpon>
     </Compile>
     <Compile Include="Controllers\MCMCollectionViewDelegate.cs" />
-    <Compile Include="SafetyForChildrenViewController.cs" />
-    <Compile Include="SafetyForChildrenViewController.designer.cs">
+    <Compile Include="Controllers\SafetyForChildrenViewController.cs" />
+    <Compile Include="Controllers\SafetyForChildrenViewController.designer.cs">
       <DependentUpon>SafetyForChildrenViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\MyChildrenViewController.cs" />
+    <Compile Include="Controllers\MyChildrenViewController.designer.cs">
+      <DependentUpon>MyChildrenViewController.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -145,6 +149,8 @@
     <BundleResource Include="Resources\cheerful_children.jpg" />
     <BundleResource Include="Resources\dna_boy.jpg" />
     <BundleResource Include="Resources\safety_for_children.jpg" />
+    <BundleResource Include="Resources\19-gear.png" />
+    <BundleResource Include="Resources\19-gear%402x.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.WindowsAzure.Mobile">
