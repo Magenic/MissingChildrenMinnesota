@@ -39,6 +39,7 @@ namespace MCM.Droid.Classic
         private System.Threading.Timer _timer;
         private int _timerCount = 0;
         private GlobalVars _globalVars;
+        private string _srcPath = string.Empty;
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -53,19 +54,23 @@ namespace MCM.Droid.Classic
             Button button = FindViewById<Button>(Resource.Id.MyButton);
             button.Click += ChooseImageButtonClick;
 
-
-            Button cameraButton = FindViewById<Button>(Resource.Id.myButton);
             if (!string.IsNullOrEmpty(_child.PictureUri))
             {
                 _imageView.SetImageURI(Android.Net.Uri.Parse(_child.PictureUri));
             }
-            else if (CameraCapture.bitmap != null)
-            {
-                _imageView.SetImageBitmap(CameraCapture.bitmap);
-                CameraCapture.bitmap = null;
-            }
-            cameraButton.Click += TakeAPicture;
 
+            if (IsThereAnAppToTakePictures())
+            {
+                CreateDirectoryForPictures();
+
+                Button cameraButton = FindViewById<Button>(Resource.Id.myButton);
+                //if (CameraCapture.bitmap != null)
+                //{
+                //    _imageView.SetImageBitmap(CameraCapture.bitmap);
+                //    CameraCapture.bitmap = null;
+                //}
+                cameraButton.Click += TakeAPicture;
+            }
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu)
@@ -79,23 +84,36 @@ namespace MCM.Droid.Classic
             switch (item.ItemId)
             {
                 case Resource.Id.menu_save_info:
-                    Intent returnIntent = new Intent();
-                    returnIntent.PutExtra("Child", JsonConvert.SerializeObject(_child));
-                    this.SetResult(Result.Ok, returnIntent);
+                    if (!string.IsNullOrWhiteSpace(_srcPath))
+                    {
+                        var documentsPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
+                        var filePath = System.IO.Path.Combine(documentsPath, string.Format("{0}_{1}_{2}{3}", _child.FirstName, _child.Id, "P", System.IO.Path.GetExtension(_srcPath) ?? ".jpg"));
+                        _child.PictureUri = filePath;
 
-                    Task task = null;
-                    _progressDialog = new ProgressDialog(this);
-                    _progressDialog.SetTitle("Adding Child Information");
-                    _progressDialog.SetMessage("Please Wait...");
-                    _progressDialog.Show();
+                        System.IO.File.Copy(_srcPath, filePath, true);
 
-                    var childTable = _globalVars.MobileServiceClient.GetTable<DataObjects.Child>();
-                    task = Task.Factory.StartNew(() => childTable.UpdateAsync(_child));
+                        Intent returnIntent = new Intent();
+                        returnIntent.PutExtra("Child", JsonConvert.SerializeObject(_child));
+                        this.SetResult(Result.Ok, returnIntent);
 
-                    //timer is used to assure that the Id assigned is retrieved. saw that it may take longer than expected
-                    //to retrieve the returned Id from the mobile service.
-                    _timerCount = 0;
-                    _timer = new System.Threading.Timer(TimerDelegate, null, 250, 250);
+                        Task task = null;
+                        _progressDialog = new ProgressDialog(this);
+                        _progressDialog.SetTitle("Adding Photo");
+                        _progressDialog.SetMessage("Please Wait...");
+                        _progressDialog.Show();
+
+                        var childTable = _globalVars.MobileServiceClient.GetTable<DataObjects.Child>();
+                        task = Task.Factory.StartNew(() => childTable.UpdateAsync(_child));
+
+                        //timer is used to assure that the Id assigned is retrieved. saw that it may take longer than expected
+                        //to retrieve the returned Id from the mobile service.
+                        _timerCount = 0;
+                        _timer = new System.Threading.Timer(TimerDelegate, null, 250, 250);
+                    }
+                    else
+                    {
+                        this.SetResult(Result.Canceled);
+                    }
 
                     Finish();
                     return true;
@@ -133,17 +151,16 @@ namespace MCM.Droid.Classic
                 //SaveImageToChild(bitmap);
 
 
-                var srcPath = GetPathFromGalleryItem(uri);
+                _srcPath = GetPathFromGalleryItem(uri);
 
-                var documentsPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
-                var filePath = System.IO.Path.Combine(documentsPath, string.Format("{0}_{1}_{2}{3}", _child.FirstName, _child.Id, "P", System.IO.Path.GetExtension(srcPath) ?? ".jpg"));
-                _child.PictureUri = filePath;
-                System.Diagnostics.Debug.WriteLine(filePath);
+                //var documentsPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
+                //var filePath = System.IO.Path.Combine(documentsPath, string.Format("{0}_{1}_{2}{3}", _child.FirstName, _child.Id, "P", System.IO.Path.GetExtension(srcPath) ?? ".jpg"));
+                //_child.PictureUri = filePath;
+                //System.Diagnostics.Debug.WriteLine(filePath);
 
+                //System.IO.File.Copy(_srcPath, filePath, true);
 
-                System.IO.File.Copy(srcPath, filePath, true);
-
-                Toast.MakeText(this, srcPath, ToastLength.Long);
+                //Toast.MakeText(this, srcPath, ToastLength.Long);
             }
             else
             {
@@ -161,6 +178,7 @@ namespace MCM.Droid.Classic
                 CameraCapture.bitmap = CameraCapture._file.Path.LoadAndResizeBitmap(width, height);
 
                 _imageView.SetImageBitmap(CameraCapture.bitmap);
+                _srcPath = CameraCapture._file.Path;
                 //SaveImageToChild(CameraCapture.bitmap);
 
             }
@@ -326,7 +344,11 @@ namespace MCM.Droid.Classic
         {
             Intent intent = new Intent(MediaStore.ActionImageCapture);
 
-            CameraCapture._file = new File(CameraCapture._dir, string.Format("MCM_{0}.jpg", System.Guid.NewGuid()));
+            if (CameraCapture._file == null || !CameraCapture._file.Exists())
+            {
+                CameraCapture._file = new File(CameraCapture._dir, "MCM_Camera_Capture.jpg");
+            }
+            //CameraCapture._file = new File(CameraCapture._dir, string.Format("MCM_{0}.jpg", System.Guid.NewGuid()));
 
             intent.PutExtra(MediaStore.ExtraOutput, Uri.FromFile(CameraCapture._file));
 

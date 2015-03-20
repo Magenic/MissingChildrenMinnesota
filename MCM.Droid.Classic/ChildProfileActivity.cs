@@ -28,7 +28,7 @@ namespace MCM.Droid.Classic
         private Button _medicalAlertInfoButton;
         private Button _distinguishingFeaturesButton;
         private Button _idChecklistButton;
-
+        private ImageView _imageView;
 
         enum IntentCodes
         {
@@ -54,6 +54,7 @@ namespace MCM.Droid.Classic
 
             SetContentView(Resource.Layout.ChildProfile);
 
+            _imageView = FindViewById<ImageView>(Resource.Id.ChildPhotoImageView);
             _addPhotoButton = FindViewById<Button>(Resource.Id.AddPhotoButton);
             _childBasicsButton = FindViewById<Button>(Resource.Id.ChildBasicsButton);
             _measurementsButton = FindViewById<Button>(Resource.Id.MeasurementsButton);
@@ -141,8 +142,9 @@ namespace MCM.Droid.Classic
                 _pageTitleTextView.Text = string.Format("{0}'s Profile", _child.FirstName );
                 if (!string.IsNullOrEmpty(_child.PictureUri))
                 {
-                    var imageView = FindViewById<ImageView>(Resource.Id.ChildPhotoImageView);
-                    imageView.SetImageURI(Android.Net.Uri.Parse(_child.PictureUri));
+                    _imageView = null;
+                    _imageView = FindViewById<ImageView>(Resource.Id.ChildPhotoImageView);
+                    _imageView.SetImageURI(Android.Net.Uri.Parse(_child.PictureUri));
                 }
                 EnableChildInfoButtons();
             }

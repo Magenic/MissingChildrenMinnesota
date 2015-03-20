@@ -82,7 +82,7 @@ namespace MCM.Droid.Classic
 
             progressDialog.Dismiss();
             
-            CreateAndShowDialog(_children.Count.ToString(), " Children Found");
+            //CreateAndShowDialog(_children.Count.ToString(), " Children Found");
         }
 
         void childClick(object sender, AdapterView.ItemClickEventArgs e)
