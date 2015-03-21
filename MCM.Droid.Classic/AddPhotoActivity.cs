@@ -147,47 +147,50 @@ namespace MCM.Droid.Classic
 
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
         {
-            if ((requestCode == (int)ActivityRequests.FromGallery) && (resultCode == Result.Ok) && (data != null))
+            if ((resultCode == Result.Ok) && (data != null))
             {
-                Android.Net.Uri uri = data.Data;
-                _imageView.SetImageURI(uri);
+                if ((requestCode == (int)ActivityRequests.FromGallery))
+                {
+                    Android.Net.Uri uri = data.Data;
+                    _imageView.SetImageURI(uri);
 
 
-                //_imageView.BuildDrawingCache(true);
-                // Bitmap bitmap = _imageView.GetDrawingCache(true);
-                //SaveImageToChild(bitmap);
+                    //_imageView.BuildDrawingCache(true);
+                    // Bitmap bitmap = _imageView.GetDrawingCache(true);
+                    //SaveImageToChild(bitmap);
 
 
-                _srcPath = GetPathFromGalleryItem(uri);
+                    _srcPath = GetPathFromGalleryItem(uri);
 
-                //var documentsPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
-                //var filePath = System.IO.Path.Combine(documentsPath, string.Format("{0}_{1}_{2}{3}", _child.FirstName, _child.Id, "P", System.IO.Path.GetExtension(srcPath) ?? ".jpg"));
-                //_child.PictureUri = filePath;
-                //System.Diagnostics.Debug.WriteLine(filePath);
+                    //var documentsPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
+                    //var filePath = System.IO.Path.Combine(documentsPath, string.Format("{0}_{1}_{2}{3}", _child.FirstName, _child.Id, "P", System.IO.Path.GetExtension(srcPath) ?? ".jpg"));
+                    //_child.PictureUri = filePath;
+                    //System.Diagnostics.Debug.WriteLine(filePath);
 
-                //System.IO.File.Copy(_srcPath, filePath, true);
+                    //System.IO.File.Copy(_srcPath, filePath, true);
 
-                //Toast.MakeText(this, srcPath, ToastLength.Long);
-            }
-            else
-            {
-                // make it available in the gallery
-                Intent mediaScanIntent = new Intent(Intent.ActionMediaScannerScanFile);
-                Uri contentUri = Uri.FromFile(CameraCapture._file);
-                mediaScanIntent.SetData(contentUri);
-                SendBroadcast(mediaScanIntent);
+                    //Toast.MakeText(this, srcPath, ToastLength.Long);
+                }
+                else
+                {
+                    // make it available in the gallery
+                    Intent mediaScanIntent = new Intent(Intent.ActionMediaScannerScanFile);
+                    Uri contentUri = Uri.FromFile(CameraCapture._file);
+                    mediaScanIntent.SetData(contentUri);
+                    SendBroadcast(mediaScanIntent);
 
-                // display in ImageView. We will resize the bitmap to fit the display
-                // Loading the full sized image will consume to much memory 
-                // and cause the application to crash.
-                int height = Resources.DisplayMetrics.HeightPixels;
-                int width = _imageView.Width;
-                CameraCapture.bitmap = CameraCapture._file.Path.LoadAndResizeBitmap(width, height);
+                    // display in ImageView. We will resize the bitmap to fit the display
+                    // Loading the full sized image will consume to much memory 
+                    // and cause the application to crash.
+                    int height = Resources.DisplayMetrics.HeightPixels;
+                    int width = _imageView.Width;
+                    CameraCapture.bitmap = CameraCapture._file.Path.LoadAndResizeBitmap(width, height);
 
-                _imageView.SetImageBitmap(CameraCapture.bitmap);
-                _srcPath = CameraCapture._file.Path;
-                //SaveImageToChild(CameraCapture.bitmap);
+                    _imageView.SetImageBitmap(CameraCapture.bitmap);
+                    _srcPath = CameraCapture._file.Path;
+                    //SaveImageToChild(CameraCapture.bitmap);
 
+                }
             }
         }
 
