@@ -139,6 +139,14 @@
     <Compile Include="Views\MyChildTableViewCell.designer.cs">
       <DependentUpon>MyChildTableViewCell.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\ChildProfileViewController.cs" />
+    <Compile Include="Controllers\ChildProfileViewController.designer.cs">
+      <DependentUpon>ChildProfileViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ChildProfileListItemCell.cs" />
+    <Compile Include="Views\ChildProfileListItemCell.designer.cs">
+      <DependentUpon>ChildProfileListItemCell.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Default-568h%402x.png" />
@@ -157,6 +165,25 @@
     <BundleResource Include="Resources\19-gear.png" />
     <BundleResource Include="Resources\19-gear%402x.png" />
     <BundleResource Include="Resources\napolean.jpg" />
+    <BundleResource Include="Resources\kip.jpg" />
+    <BundleResource Include="Resources\17-check.png" />
+    <BundleResource Include="Resources\17-check%402x.png" />
+    <BundleResource Include="Resources\12-eye.png" />
+    <BundleResource Include="Resources\12-eye%402x.png" />
+    <BundleResource Include="Resources\79-medical-bag.png" />
+    <BundleResource Include="Resources\79-medical-bag%402x.png" />
+    <BundleResource Include="Resources\83-calendar.png" />
+    <BundleResource Include="Resources\83-calendar%402x.png" />
+    <BundleResource Include="Resources\111-user.png" />
+    <BundleResource Include="Resources\111-user%402x.png" />
+    <BundleResource Include="Resources\123-id-card.png" />
+    <BundleResource Include="Resources\123-id-card%402x.png" />
+    <BundleResource Include="Resources\186-ruler.png" />
+    <BundleResource Include="Resources\186-ruler%402x.png" />
+    <BundleResource Include="Resources\253-person.png" />
+    <BundleResource Include="Resources\253-person%402x.png" />
+    <BundleResource Include="Resources\269-happyface.png" />
+    <BundleResource Include="Resources\269-happyface%402x.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.WindowsAzure.Mobile">

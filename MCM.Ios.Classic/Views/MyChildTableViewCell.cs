@@ -18,5 +18,15 @@ namespace MCM.Ios.Classic
 			imageView.Layer.MasksToBounds = true;
 			imageView.Layer.CornerRadius = imageView.Bounds.Size.Width/2;
 		}
+
+		public void updateWithChild(MyChild child) {
+			nameLabel.Text = child.Name;
+			ageLabel.Text = child.Age.ToString() + " years old";
+		}
+
+		public void updateImage(UIImage image) {
+			this.imageView.Image = image;
+		}
 	}
 }
+	

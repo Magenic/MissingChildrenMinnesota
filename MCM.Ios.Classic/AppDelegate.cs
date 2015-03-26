@@ -27,7 +27,7 @@ namespace MCM.Ios.Classic
 
 		public void setupNavBar() {
 
-			UINavigationBar.Appearance.BarTintColor = UIColor.FromRGB (114, 87, 146);
+			UINavigationBar.Appearance.BarTintColor = MCMExtensions.MCMPurple ();
 			UINavigationBar.Appearance.TintColor = UIColor.White;
 			var textAttributes = new UITextAttributes ();
 			textAttributes.TextColor = UIColor.White;
