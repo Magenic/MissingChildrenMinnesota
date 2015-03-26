@@ -184,6 +184,8 @@
     <BundleResource Include="Resources\253-person%402x.png" />
     <BundleResource Include="Resources\269-happyface.png" />
     <BundleResource Include="Resources\269-happyface%402x.png" />
+    <BundleResource Include="Resources\102-walk.png" />
+    <BundleResource Include="Resources\102-walk%402x.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.WindowsAzure.Mobile">

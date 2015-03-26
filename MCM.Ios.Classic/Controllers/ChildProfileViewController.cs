@@ -18,6 +18,7 @@ namespace MCM.Ios.Classic
 		{
 			base.ViewDidLoad ();
 			this.Title = "Child Profile";
+			this.TableView.TableFooterView = new UIView (new CoreGraphics.CGRect (0, 0, 0, 0));
 		}
 
 		public override nint RowsInSection (UITableView tableview, nint section)
@@ -43,21 +44,27 @@ namespace MCM.Ios.Classic
 					break;
 				case 3:
 					cell.TextLabel.Text = "Physical Details";
+					cell.updateWithImage (new UIImage ("12-eye"));
 					break;
 				case 4:
 					cell.TextLabel.Text = "Doctor Info";
+					cell.updateWithImage (new UIImage ("79-medical-bag"));
 					break;
 				case 5:
 					cell.TextLabel.Text = "Dental Info";
+					cell.updateWithImage (new UIImage ("269-happyface"));
 					break;
 				case 6:
 					cell.TextLabel.Text = "Medical Alert Info";
+					cell.updateWithImage (new UIImage ("79-medical-bag"));
 					break;
 				case 7:
 					cell.TextLabel.Text = "Distinguishing Features";
+					cell.updateWithImage (new UIImage ("102-walk"));
 					break;
 				case 8:
 					cell.TextLabel.Text = "I.D. Checklist";
+					cell.updateWithImage (new UIImage ("17-check"));
 					break;
 				default:
 					break;

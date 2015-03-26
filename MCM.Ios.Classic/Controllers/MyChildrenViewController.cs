@@ -9,7 +9,6 @@ namespace MCM.Ios.Classic
 	partial class MyChildrenViewController : UITableViewController
 	{
 		private readonly IList<MyChild> _children;
-		private readonly string _addnewChildSegueId = "addNewChildSegue";
 
 		public MyChildrenViewController (IntPtr handle) : base (handle)
 		{

@@ -571,6 +571,7 @@ If an estranged or former spouse or domestic partner abducts your children, CALL
         <image name="186-ruler.png" width="23" height="23"/>
         <image name="253-person.png" width="26" height="24"/>
         <image name="269-happyface.png" width="22" height="22"/>
+        <image name="102-walk.png" width="14" height="27"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedScreenMetrics key="destination" type="retina47"/>
