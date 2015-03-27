@@ -147,6 +147,10 @@
     <Compile Include="Views\ChildProfileListItemCell.designer.cs">
       <DependentUpon>ChildProfileListItemCell.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChildProfileImageCell.cs" />
+    <Compile Include="ChildProfileImageCell.designer.cs">
+      <DependentUpon>ChildProfileImageCell.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Default-568h%402x.png" />
