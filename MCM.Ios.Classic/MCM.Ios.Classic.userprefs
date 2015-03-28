@@ -1,13 +1,12 @@
 ﻿<Properties StartupItem="MCM.Ios.Classic.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone5.8.2" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Controllers/MyChildrenViewController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Controllers/MCMCollectionViewController.cs">
     <Files>
       <File FileName="Controllers/MCMCollectionViewControllerDataSource.cs" Line="1" Column="1" />
       <File FileName="Controllers/MCMCollectionViewController.cs" Line="1" Column="1" />
-      <File FileName="Controllers/AboutMCMViewController.cs" Line="1" Column="1" />
-      <File FileName="Controllers/HomeDNAViewController.cs" Line="21" Column="4" />
-      <File FileName="Controllers/MyChildrenViewController.cs" Line="60" Column="33" />
-      <File FileName="Views/MyChildTableViewCell.cs" Line="27" Column="43" />
+      <File FileName="Controllers/ChildProfileViewController.cs" Line="1" Column="1" />
+      <File FileName="Views/ChildProfileListItemCell.cs" Line="1" Column="1" />
+      <File FileName="Controllers/MyChildrenViewController.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
