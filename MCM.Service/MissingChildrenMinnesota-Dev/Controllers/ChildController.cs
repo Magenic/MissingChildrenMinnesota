@@ -26,26 +26,26 @@ namespace MCM.Service.Controllers
             return Query();
         }
 
-        // GET tables/TodoItem/48D68C86-6EA6-4C25-AA33-223FC9A27959
+        // GET tables/Child/48D68C86-6EA6-4C25-AA33-223FC9A27959
         public SingleResult<Child> GetChild(string id)
         {
             return Lookup(id);
         }
 
-        // PATCH tables/TodoItem/48D68C86-6EA6-4C25-AA33-223FC9A27959
+        // PATCH tables/Child/48D68C86-6EA6-4C25-AA33-223FC9A27959
         public Task<Child> PatchChild(string id, Delta<Child> patch)
         {
             return UpdateAsync(id, patch);
         }
 
-        // POST tables/TodoItem
+        // POST tables/Child
         public async Task<IHttpActionResult> PostChild(Child item)
         {
             Child current = await InsertAsync(item);
             return CreatedAtRoute("Tables", new { id = current.Id }, current);
         }
 
-        // DELETE tables/TodoItem/48D68C86-6EA6-4C25-AA33-223FC9A27959
+        // DELETE tables/Child/48D68C86-6EA6-4C25-AA33-223FC9A27959
         public Task DeleteChild(string id)
         {
             return DeleteAsync(id);

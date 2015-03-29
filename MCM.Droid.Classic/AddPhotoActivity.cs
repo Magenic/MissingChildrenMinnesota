@@ -154,22 +154,8 @@ namespace MCM.Droid.Classic
                     Android.Net.Uri uri = data.Data;
                     _imageView.SetImageURI(uri);
 
-
-                    //_imageView.BuildDrawingCache(true);
-                    // Bitmap bitmap = _imageView.GetDrawingCache(true);
-                    //SaveImageToChild(bitmap);
-
-
                     _srcPath = GetPathFromGalleryItem(uri);
 
-                    //var documentsPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
-                    //var filePath = System.IO.Path.Combine(documentsPath, string.Format("{0}_{1}_{2}{3}", _child.FirstName, _child.Id, "P", System.IO.Path.GetExtension(srcPath) ?? ".jpg"));
-                    //_child.PictureUri = filePath;
-                    //System.Diagnostics.Debug.WriteLine(filePath);
-
-                    //System.IO.File.Copy(_srcPath, filePath, true);
-
-                    //Toast.MakeText(this, srcPath, ToastLength.Long);
                 }
                 else
                 {
@@ -188,7 +174,6 @@ namespace MCM.Droid.Classic
 
                     _imageView.SetImageBitmap(CameraCapture.bitmap);
                     _srcPath = CameraCapture._file.Path;
-                    //SaveImageToChild(CameraCapture.bitmap);
 
                 }
             }

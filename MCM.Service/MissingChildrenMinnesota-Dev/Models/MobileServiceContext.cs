@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
 using Microsoft.WindowsAzure.Mobile.Service;
@@ -26,9 +27,7 @@ namespace MCM.Service.Models
         public MobileServiceContext()
             : base(connectionStringName)
         {
-        }
-
-        //public DbSet<TodoItem> TodoItems { get; set; }
+        } 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -43,9 +42,14 @@ namespace MCM.Service.Models
                     "ServiceTableColumn", (property, attributes) => attributes.Single().ColumnType.ToString()));
         }
 
-        public DbSet<Child> Child { get; set; }
+        public DbSet<Child> Children { get; set; }
 
-        public DbSet<ChildVitals> ChildVitals { get; set; }
+        public DbSet<ChildMeasurement> ChildMeasurements { get; set; }
+
+        public DbSet<DistinguishingFeature> DistinguishingFeatures { get; set; }
+
+        public DbSet<PictureType> PictureTypes { get; set; }
+
+        public DbSet<Picture> Pictures { get; set; }
     }
-
 }

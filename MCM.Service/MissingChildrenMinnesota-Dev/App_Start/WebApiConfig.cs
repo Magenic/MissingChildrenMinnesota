@@ -38,7 +38,7 @@ namespace MCM.Service
             //    context.Set<TodoItem>().Add(todoItem);
             //}
 
-            base.Seed(context);
+            //base.Seed(context);
         }
     }
 }
