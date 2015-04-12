@@ -105,8 +105,8 @@ namespace MCM.Droid.Classic
 			// aapt resource value: 0x7f060016
 			public const int ChildPhotoImageView = 2131099670;
 			
-			// aapt resource value: 0x7f060029
-			public const int ChildrenListView = 2131099689;
+			// aapt resource value: 0x7f060033
+			public const int ChildrenListView = 2131099699;
 			
 			// aapt resource value: 0x7f06000c
 			public const int DateDisplayTextView = 2131099660;
@@ -128,6 +128,9 @@ namespace MCM.Droid.Classic
 			
 			// aapt resource value: 0x7f060021
 			public const int GmailLoginButton = 2131099681;
+			
+			// aapt resource value: 0x7f06002d
+			public const int Height_ins_textview = 2131099693;
 			
 			// aapt resource value: 0x7f060025
 			public const int HomeDNAButton = 2131099685;
@@ -180,26 +183,47 @@ namespace MCM.Droid.Classic
 			// aapt resource value: 0x7f060022
 			public const int TwitterLoginButton = 2131099682;
 			
+			// aapt resource value: 0x7f06002a
+			public const int feet = 2131099690;
+			
+			// aapt resource value: 0x7f06002b
+			public const int height_ft_textview = 2131099691;
+			
 			// aapt resource value: 0x7f060003
 			public const int imageView1 = 2131099651;
+			
+			// aapt resource value: 0x7f06002c
+			public const int inches = 2131099692;
 			
 			// aapt resource value: 0x7f06000b
 			public const int linearLayout1 = 2131099659;
 			
-			// aapt resource value: 0x7f06002d
-			public const int menu_add_child = 2131099693;
+			// aapt resource value: 0x7f060029
+			public const int meas_height_textview = 2131099689;
 			
-			// aapt resource value: 0x7f06002b
-			public const int menu_cancel_info = 2131099691;
+			// aapt resource value: 0x7f06002e
+			public const int meas_weight_textview = 2131099694;
 			
-			// aapt resource value: 0x7f06002c
-			public const int menu_delete_info = 2131099692;
+			// aapt resource value: 0x7f060037
+			public const int menu_add_child = 2131099703;
 			
-			// aapt resource value: 0x7f06002a
-			public const int menu_save_info = 2131099690;
+			// aapt resource value: 0x7f060035
+			public const int menu_cancel_info = 2131099701;
+			
+			// aapt resource value: 0x7f060036
+			public const int menu_delete_info = 2131099702;
+			
+			// aapt resource value: 0x7f060034
+			public const int menu_save_info = 2131099700;
 			
 			// aapt resource value: 0x7f060001
 			public const int myButton = 2131099649;
+			
+			// aapt resource value: 0x7f060031
+			public const int ounces = 2131099697;
+			
+			// aapt resource value: 0x7f06002f
+			public const int pounds = 2131099695;
 			
 			// aapt resource value: 0x7f060000
 			public const int textView1 = 2131099648;
@@ -215,6 +239,12 @@ namespace MCM.Droid.Classic
 			
 			// aapt resource value: 0x7f06000a
 			public const int textView6 = 2131099658;
+			
+			// aapt resource value: 0x7f060030
+			public const int weight_lbs_textview = 2131099696;
+			
+			// aapt resource value: 0x7f060032
+			public const int weight_ozs_textview = 2131099698;
 			
 			static Id()
 			{

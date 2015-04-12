@@ -6,9 +6,87 @@
     android:minWidth="25px"
     android:minHeight="25px">
     <TextView
-        android:text="Large Text"
+        android:text="Measurements"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textView1" />
+    <TextView
+        android:text="Height"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/meas_height_textview" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="143.2dp"
+        android:id="@+id/linearLayout1">
+        <NumberPicker
+            android:layout_width="76.8dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/feet"
+            android:layout_marginRight="0.0dp"
+            android:layout_marginLeft="0.0dp"
+            android:padding="5dp" />
+        <TextView
+            android:text="FTs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/height_ft_textview"
+            android:padding="35dp" />
+        <NumberPicker
+            android:layout_width="76.8dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/inches"
+            android:layout_marginRight="0.0dp"
+            android:layout_marginLeft="0.0dp"
+            android:padding="5dp" />
+        <TextView
+            android:text="INs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/Height_ins_textview"
+            android:padding="35dp" />
+    </LinearLayout>
+    <TextView
+        android:text="Weight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/meas_weight_textview" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="143.2dp"
+        android:id="@+id/linearLayout1">
+        <NumberPicker
+            android:layout_width="76.8dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/pounds"
+            android:layout_marginRight="0.0dp"
+            android:layout_marginLeft="0.0dp"
+            android:padding="5dp" />
+        <TextView
+            android:text="LBs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/weight_lbs_textview"
+            android:padding="35dp" />
+        <NumberPicker
+            android:layout_width="76.8dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/ounces"
+            android:layout_marginRight="0.0dp"
+            android:layout_marginLeft="0.0dp"
+            android:padding="5dp" />
+        <TextView
+            android:text="OZs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/weight_ozs_textview"
+            android:padding="35dp" />
+    </LinearLayout>
 </LinearLayout>

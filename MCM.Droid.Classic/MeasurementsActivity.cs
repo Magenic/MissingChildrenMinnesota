@@ -26,7 +26,38 @@ namespace MCM.Droid.Classic
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
             MenuInflater.Inflate(Resource.Menu.menu_save_cancel, menu);
-            return true;
+
+            var poundPicker = FindViewById<NumberPicker>(Resource.Id.pounds);
+            poundPicker.MaxValue = 250;
+            poundPicker.MinValue = 0;
+            poundPicker.Value = 50;
+
+            var ouncePicker = FindViewById<NumberPicker>(Resource.Id.ounces);
+            ouncePicker.MaxValue = 16;
+            ouncePicker.MinValue = 0;
+            ouncePicker.Value = 0;
+
+            var feetPicker = FindViewById<NumberPicker>(Resource.Id.feet);
+            feetPicker.MaxValue = 6;
+            feetPicker.MinValue = 0;
+            feetPicker.Value = 3;
+
+            var inchPicker = FindViewById<NumberPicker>(Resource.Id.inches);
+            inchPicker.MaxValue = 11;
+            inchPicker.MinValue = 0;
+            inchPicker.Value = 0;
+
+            //Spinner spinner = FindViewById<Spinner>(Resource.Id.spinner1);
+            //var ounces = new int[15];
+            //for (var o = 0; o < 15; o++) ounces[o] = o;
+
+            //var adapter = ArrayAdapter.FromArray<int>(ounces.ToArray<int>());
+
+            //var adapter = new ArrayAdapter(this, "ounces");
+            //for (var o = 0; o < 15; o++) adapter.Add(o.ToString());
+
+            //spinner.Adapter =  adapter;
+                return true;
         }
 
         public override bool OnOptionsItemSelected(IMenuItem item)
