@@ -10,23 +10,34 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Newtonsoft.Json;
 
 namespace MCM.Droid.Classic
 {
-    [Activity(Label = "@string/measurements_layout_label")]			
-	public class MeasurementsActivity : Activity
-	{
-		protected override void OnCreate (Bundle bundle)
-		{
-			base.OnCreate (bundle);
+    [Activity(Label = "@string/measurements_layout_label")]
+    public class MeasurementsActivity : Activity
+    {
+        private DataObjects.Child _child;
 
-			SetContentView (Resource.Layout.Measurements);
-		}
+        protected override void OnCreate(Bundle bundle)
+        {
+            base.OnCreate(bundle);
+
+            SetContentView(Resource.Layout.Measurements);
+        }
 
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
             MenuInflater.Inflate(Resource.Menu.menu_save_cancel, menu);
 
+            _child = JsonConvert.DeserializeObject<DataObjects.Child>(Intent.GetStringExtra("Child"));
+
+            InitializePickers();
+            return true;
+        }
+
+        private void InitializePickers()
+        {
             var poundPicker = FindViewById<NumberPicker>(Resource.Id.pounds);
             poundPicker.MaxValue = 250;
             poundPicker.MinValue = 0;
@@ -46,18 +57,6 @@ namespace MCM.Droid.Classic
             inchPicker.MaxValue = 11;
             inchPicker.MinValue = 0;
             inchPicker.Value = 0;
-
-            //Spinner spinner = FindViewById<Spinner>(Resource.Id.spinner1);
-            //var ounces = new int[15];
-            //for (var o = 0; o < 15; o++) ounces[o] = o;
-
-            //var adapter = ArrayAdapter.FromArray<int>(ounces.ToArray<int>());
-
-            //var adapter = new ArrayAdapter(this, "ounces");
-            //for (var o = 0; o < 15; o++) adapter.Add(o.ToString());
-
-            //spinner.Adapter =  adapter;
-                return true;
         }
 
         public override bool OnOptionsItemSelected(IMenuItem item)
@@ -65,11 +64,11 @@ namespace MCM.Droid.Classic
             switch (item.ItemId)
             {
                 case Resource.Id.menu_save_info:
-                    CreateAndShowDialog("Save Clicked", "Menu");
+                    SaveChildInfo();
                     return true;
 
                 case Resource.Id.menu_cancel_info:
-                    CreateAndShowDialog("Cancel Clicked", "Menu");
+                    CancelChild();
                     return true;
 
                 default:
@@ -78,14 +77,37 @@ namespace MCM.Droid.Classic
             }
         }
 
-        private void CreateAndShowDialog(string message, string title)
+        private void CancelChild()
         {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            this.SetResult(Result.Canceled);
+            Finish();
 
-            builder.SetMessage(message);
-            builder.SetTitle(title);
-            builder.Create().Show();
         }
+
+        private async void SaveChildInfo()
+        {
+            try
+            {
+                await _child.Save(this);
+            }
+            catch (System.Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                Finish();
+            }
+        }
+
+        //private void CreateAndShowDialog(string message, string title)
+        //{
+        //    AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        //    builder.SetMessage(message);
+        //    builder.SetTitle(title);
+        //    builder.Create().Show();
+        //}
     }
 }
 

@@ -107,6 +107,9 @@ namespace MCM.Droid.Classic
 
                 switch (requestCode)
                 {
+                    case (int)IntentCodes.Measurements:
+                        break;
+
                     case (int)IntentCodes.Basics:
                         break;
                     
@@ -171,8 +174,8 @@ namespace MCM.Droid.Classic
         private void HandleMeasurementsButton(object sender, EventArgs ea)
         {
             var activity = new Intent(this, typeof(MeasurementsActivity));
-            //activity.PutExtra ("MyData", "Data from Activity1");
-            StartActivity(activity);
+            activity.PutExtra("Child", JsonConvert.SerializeObject(_child));
+            StartActivityForResult(activity, (int)IntentCodes.Measurements);
         }
 
         private void HandlePhysicalDetailsButton(object sender, EventArgs ea)
