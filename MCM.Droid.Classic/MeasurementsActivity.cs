@@ -18,6 +18,7 @@ namespace MCM.Droid.Classic
     public class MeasurementsActivity : Activity
     {
         private DataObjects.Child _child;
+        private DataObjects.ChildMeasurement _measurements;
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -32,6 +33,8 @@ namespace MCM.Droid.Classic
 
             _child = JsonConvert.DeserializeObject<DataObjects.Child>(Intent.GetStringExtra("Child"));
 
+            _measurements = DataObjects.ChildMeasurement.GetChildMeasurement(((GlobalVars)this.Application).MobileServiceClient, _child.Id);
+
             InitializePickers();
             return true;
         }
@@ -41,22 +44,22 @@ namespace MCM.Droid.Classic
             var poundPicker = FindViewById<NumberPicker>(Resource.Id.pounds);
             poundPicker.MaxValue = 250;
             poundPicker.MinValue = 0;
-            poundPicker.Value = 50;
+            poundPicker.Value = _measurements.Pounds.GetValueOrDefault(50);
 
             var ouncePicker = FindViewById<NumberPicker>(Resource.Id.ounces);
             ouncePicker.MaxValue = 16;
             ouncePicker.MinValue = 0;
-            ouncePicker.Value = 0;
+            ouncePicker.Value = _measurements.Ounces.GetValueOrDefault(0);
 
             var feetPicker = FindViewById<NumberPicker>(Resource.Id.feet);
             feetPicker.MaxValue = 6;
             feetPicker.MinValue = 0;
-            feetPicker.Value = 3;
+            feetPicker.Value = _measurements.Feet.GetValueOrDefault(3);
 
             var inchPicker = FindViewById<NumberPicker>(Resource.Id.inches);
             inchPicker.MaxValue = 11;
             inchPicker.MinValue = 0;
-            inchPicker.Value = 0;
+            inchPicker.Value = _measurements.Inches.GetValueOrDefault(0);
         }
 
         public override bool OnOptionsItemSelected(IMenuItem item)
@@ -64,11 +67,11 @@ namespace MCM.Droid.Classic
             switch (item.ItemId)
             {
                 case Resource.Id.menu_save_info:
-                    SaveChildInfo();
+                    SaveMeasurementsInfo();
                     return true;
 
                 case Resource.Id.menu_cancel_info:
-                    CancelChild();
+                    CancelMeasurements();
                     return true;
 
                 default:
@@ -77,18 +80,30 @@ namespace MCM.Droid.Classic
             }
         }
 
-        private void CancelChild()
+        private void CancelMeasurements()
         {
             this.SetResult(Result.Canceled);
             Finish();
 
         }
 
-        private async void SaveChildInfo()
+        private async void SaveMeasurementsInfo()
         {
             try
             {
-                await _child.Save(this);
+                var poundPicker = FindViewById<NumberPicker>(Resource.Id.pounds);
+                _measurements.Pounds = poundPicker.Value;
+                
+                var ouncePicker = FindViewById<NumberPicker>(Resource.Id.ounces);
+                _measurements.Ounces = ouncePicker.Value;
+
+                var feetPicker = FindViewById<NumberPicker>(Resource.Id.feet);
+                _measurements.Feet = feetPicker.Value;
+
+                var inchPicker = FindViewById<NumberPicker>(Resource.Id.inches);
+                _measurements.Inches = inchPicker.Value;
+
+                await _measurements.Save(this);
             }
             catch (System.Exception)
             {
