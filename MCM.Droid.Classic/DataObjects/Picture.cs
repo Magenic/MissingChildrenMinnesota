@@ -8,6 +8,6 @@ namespace MCM.Droid.Classic.DataObjects
         public string ChildId { get; set; }
         public string PictureType { get; set; }
         public string PictureUri { get; set; }
-        public byte[] PictureImage { get; set; }
+        public string PictureUrl { get; set; }
     }
 }

@@ -15,17 +15,11 @@ namespace MCM.Droid.Classic.DataObjects
 
         public string Id { get; set; }
         public string ChildId { get; set; }
-        public string Height { get; set; }
-        public string Weight { get; set; }
+        public int Feet { get; set; }
+        public int Inches { get; set; }
+        public int Pounds { get; set; }
+        public int Ounces { get; set; }
         public DateTime MeasurementDate { get; set; }
-
-
-        public int? Feet { get; set; }
-        public int? Inches { get; set; }
-
-        public int? Pounds { get; set; }
-        public int? Ounces { get; set; }
-
 
         public static  ChildMeasurement GetChildMeasurement(MobileServiceClient mobileServiceClient, string childId)
         {

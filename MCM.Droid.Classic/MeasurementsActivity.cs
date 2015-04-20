@@ -44,22 +44,22 @@ namespace MCM.Droid.Classic
             var poundPicker = FindViewById<NumberPicker>(Resource.Id.pounds);
             poundPicker.MaxValue = 250;
             poundPicker.MinValue = 0;
-            poundPicker.Value = _measurements.Pounds.GetValueOrDefault(50);
+            poundPicker.Value = _measurements.Pounds;
 
             var ouncePicker = FindViewById<NumberPicker>(Resource.Id.ounces);
             ouncePicker.MaxValue = 16;
             ouncePicker.MinValue = 0;
-            ouncePicker.Value = _measurements.Ounces.GetValueOrDefault(0);
+            ouncePicker.Value = _measurements.Ounces;
 
             var feetPicker = FindViewById<NumberPicker>(Resource.Id.feet);
             feetPicker.MaxValue = 6;
             feetPicker.MinValue = 0;
-            feetPicker.Value = _measurements.Feet.GetValueOrDefault(3);
+            feetPicker.Value = _measurements.Feet;
 
             var inchPicker = FindViewById<NumberPicker>(Resource.Id.inches);
             inchPicker.MaxValue = 11;
             inchPicker.MinValue = 0;
-            inchPicker.Value = _measurements.Inches.GetValueOrDefault(0);
+            inchPicker.Value = _measurements.Inches;
         }
 
         public override bool OnOptionsItemSelected(IMenuItem item)
