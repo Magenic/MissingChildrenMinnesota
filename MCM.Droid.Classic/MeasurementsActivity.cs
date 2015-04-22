@@ -44,17 +44,17 @@ namespace MCM.Droid.Classic
             var poundPicker = FindViewById<NumberPicker>(Resource.Id.pounds);
             poundPicker.MaxValue = 250;
             poundPicker.MinValue = 0;
-            poundPicker.Value = _measurements.Pounds;
+            poundPicker.Value = string.IsNullOrEmpty(_measurements.Id) ? 50 : _measurements.Pounds;
 
             var ouncePicker = FindViewById<NumberPicker>(Resource.Id.ounces);
-            ouncePicker.MaxValue = 16;
+            ouncePicker.MaxValue = 15;
             ouncePicker.MinValue = 0;
-            ouncePicker.Value = _measurements.Ounces;
+            ouncePicker.Value =  _measurements.Ounces;
 
             var feetPicker = FindViewById<NumberPicker>(Resource.Id.feet);
             feetPicker.MaxValue = 6;
             feetPicker.MinValue = 0;
-            feetPicker.Value = _measurements.Feet;
+            feetPicker.Value = string.IsNullOrEmpty(_measurements.Id) ? 3 : _measurements.Feet;
 
             var inchPicker = FindViewById<NumberPicker>(Resource.Id.inches);
             inchPicker.MaxValue = 11;

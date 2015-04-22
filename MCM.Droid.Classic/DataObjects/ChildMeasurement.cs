@@ -41,7 +41,7 @@ namespace MCM.Droid.Classic.DataObjects
 
         public async Task<ChildMeasurement> Save(Activity activityContext)
         {
-
+            this.MeasurementDate = new DateTime();
             _globalVars = ((GlobalVars)activityContext.Application);
             if (string.IsNullOrWhiteSpace(Id))
             {
@@ -59,6 +59,7 @@ namespace MCM.Droid.Classic.DataObjects
         {
             Task task = null;
             var childMeasurementTable = _globalVars.MobileServiceClient.GetTable<DataObjects.ChildMeasurement>();
+            
             task = Task.Factory.StartNew(() => childMeasurementTable.InsertAsync(this));
 
             //timer is used to assure that the Id assigned is retrieved. saw that it may take longer than expected
