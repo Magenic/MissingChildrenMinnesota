@@ -71,6 +71,7 @@
     <Compile Include="BitMapHelpers.cs" />
     <Compile Include="ChildBasicsActivity.cs" />
     <Compile Include="ChildProfileActivity.cs" />
+    <Compile Include="ConfigHelper.cs" />
     <Compile Include="DataObjects\Child.cs" />
     <Compile Include="DataObjects\ChildMeasurement.cs" />
     <Compile Include="DataObjects\DistinguishingFeature.cs" />
@@ -125,6 +126,11 @@
     <AndroidResource Include="Resources\drawable\Icon.png" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidAsset Include="Assets\MCMConfig.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </AndroidAsset>
+    <AndroidAsset Include="Assets\AboutMCM.txt" />
     <Content Include="Properties\AndroidManifest.xml" />
     <AndroidResource Include="Resources\drawable\ic_action_add_person.png" />
     <AndroidResource Include="Resources\drawable\ic_action_cancel.png" />

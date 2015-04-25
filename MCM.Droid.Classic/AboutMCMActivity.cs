@@ -1,6 +1,7 @@
 ﻿
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 
@@ -10,13 +11,20 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Android.Text;
+using Android.Webkit;
 
 namespace MCM.Droid.Classic
 {
     [Activity(Label = "@string/aboutmcm_layout_label")]			
 	public class AboutMCMActivity : Activity
 	{
-		protected override void OnCreate (Bundle bundle)
+        private string _mimeType = "text/html";
+        private string _encoding = "utf-8";
+
+        private WebView _htmlWebView;
+
+        protected override void OnCreate (Bundle bundle)
 		{
 			base.OnCreate (bundle);
 
@@ -25,7 +33,18 @@ namespace MCM.Droid.Classic
             ActionBar.SetHomeButtonEnabled(true);
 
 			SetContentView (Resource.Layout.AboutMCM);
+
+            WebView _htmlWebView = (WebView)FindViewById(Resource.Id.webView1);
+
+            // Read the contents of our asset
+            string content;
+            using (StreamReader sr = new StreamReader(Application.Context.Resources.Assets.Open("AboutMCM.txt")))
+            {
+                content = sr.ReadToEnd();
+            }
+
+            _htmlWebView.LoadData(content, _mimeType, _encoding);
         }
-	}
+    }
 }
 

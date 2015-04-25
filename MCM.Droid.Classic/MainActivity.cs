@@ -26,8 +26,6 @@ namespace MCM.Droid.Classic
             base.OnCreate(bundle);
 
             _globalVars = ((GlobalVars)this.Application);
-            _globalVars.ApplicationURL = @"";
-            _globalVars.ApplicationKey = @"";
 
             // Enable the ActionBar
             RequestWindowFeature(WindowFeatures.ActionBar);
@@ -40,7 +38,7 @@ namespace MCM.Droid.Classic
 				//MobileServiceAuthenticationProvider provder = null;
 				// Create the Mobile Service Client instance, using the provided
 				// Mobile Service URL and key
-                _globalVars.MobileServiceClient = new MobileServiceClient(_globalVars.ApplicationURL, _globalVars.ApplicationKey);
+                _globalVars.MobileServiceClient = new MobileServiceClient(_globalVars.ApplicationURI, _globalVars.ApplicationKey);
 
 				// Get our button from the layout resource,
 				// and attach an event to it
