@@ -21,7 +21,6 @@ namespace MCM.Droid.Classic
 	{
         private string _mimeType = "text/html";
         private string _encoding = "utf-8";
-
         private WebView _htmlWebView;
 
         protected override void OnCreate (Bundle bundle)
@@ -34,7 +33,7 @@ namespace MCM.Droid.Classic
 
 			SetContentView (Resource.Layout.AboutMCM);
 
-            WebView _htmlWebView = (WebView)FindViewById(Resource.Id.webView1);
+            _htmlWebView = (WebView)FindViewById(Resource.Id.AboutMCMWebView);
 
             // Read the contents of our asset
             string content;
