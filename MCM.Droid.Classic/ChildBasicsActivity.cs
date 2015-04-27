@@ -181,12 +181,11 @@ namespace MCM.Droid.Classic
                 }
                 catch
                 {
-                    CreateAndShowDialog("Unable to add Child.", "Add Child");
+                    CreateAndShowDialog("Unable to save Child.", "Save Child");
                 }
                 finally
                 {
                     _progressDialog.Dismiss();
-
                 }
             }
         }
