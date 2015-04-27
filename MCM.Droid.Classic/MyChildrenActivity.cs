@@ -79,7 +79,8 @@ namespace MCM.Droid.Classic
             var myChildListView = FindViewById<ListView>(Resource.Id.ChildrenListView);
             myChildListView.Adapter = new MyChildrenListViewAdapter(this, _children);
             myChildListView.ItemClick += childClick;
-
+
+
             progressDialog.Dismiss();
             
             //CreateAndShowDialog(_children.Count.ToString(), " Children Found");

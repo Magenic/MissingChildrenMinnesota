@@ -41,7 +41,6 @@ namespace MCM.Droid.Classic.DataObjects
 
         public async Task<ChildMeasurement> Save(Activity activityContext)
         {
-            this.MeasurementDate = new DateTime();
             _globalVars = ((GlobalVars)activityContext.Application);
             if (string.IsNullOrWhiteSpace(Id))
             {
