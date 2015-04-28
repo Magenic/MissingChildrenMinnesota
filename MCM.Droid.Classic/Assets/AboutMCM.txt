@@ -1,19 +1,7 @@
 ﻿<table>
-<tr>
-<td align="center">
-<h3><strong>WHAT IS</strong></h3>
-</td>
-</tr>
-<tr>
-<td align="center">
-<h3><strong>MISSING CHILDREN MINNESOTA?</strong></h3>
-</td>
-</tr>
-<tr>
-<td align="center">
-<h3><strong>MINNESOTA?</strong></h3>
-</td>
-</tr>
+<tr><td align="center">
+<h3><strong>WHAT IS<br>MISSING CHILDREN<br>MINNESOTA</strong></h3>
+</td></tr>
 <tr><td>&nbsp</td></tr>
 <tr>
 <td>
