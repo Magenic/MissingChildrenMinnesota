@@ -4,15 +4,17 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:minWidth="25px"
-    android:minHeight="25px">
+    android:minHeight="25px"
+    android:padding="5px">
     <TextView
-        android:text="Measurements"
+        android:text="@string/measurement_Measurements_title"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textView1" />
     <TextView
-        android:text="Height"
+        android:text="@string/measurement_height_textview_text"
+        android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/meas_height_textview" />
@@ -31,7 +33,7 @@
             android:layout_marginLeft="0.0dp"
             android:padding="5dp" />
         <TextView
-            android:text="FTs"
+            android:text="@string/measurement_fts_textview_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/height_ft_textview"
@@ -44,14 +46,15 @@
             android:layout_marginLeft="0.0dp"
             android:padding="5dp" />
         <TextView
-            android:text="INs"
+            android:text="@string/measurement_ins_textview_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/Height_ins_textview"
             android:padding="35dp" />
     </LinearLayout>
     <TextView
-        android:text="Weight"
+        android:text="@string/measurement_weight_textview_text"
+        android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/meas_weight_textview" />
@@ -70,7 +73,7 @@
             android:layout_marginLeft="0.0dp"
             android:padding="5dp" />
         <TextView
-            android:text="LBs"
+            android:text="@string/measurement_lbs_textview_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/weight_lbs_textview"
@@ -83,10 +86,33 @@
             android:layout_marginLeft="0.0dp"
             android:padding="5dp" />
         <TextView
-            android:text="OZs"
+            android:text="@string/measurement_ozs_textview_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/weight_ozs_textview"
             android:padding="35dp" />
+    </LinearLayout>
+    <TextView
+        android:text="@string/measurement_date_textview_text"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView6" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/DateLayout">
+        <TextView
+            android:text=""
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/MeasumentDateTextView" />
+        <Button
+            android:text="@string/childbasics_pickdate_button_text"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/MeasurementPickDateButton"
+            android:layout_margin="5dp" />
     </LinearLayout>
 </LinearLayout>

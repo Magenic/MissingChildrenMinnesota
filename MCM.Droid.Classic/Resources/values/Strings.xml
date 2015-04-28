@@ -44,4 +44,16 @@
   <string name="childbasics_lastname_textview_text">Last Name</string>
   <string name="childbasics_dateofbirth_textview_text">DOB</string>
   <string name="childbasics_pickdate_button_text">Pick Date</string>
+
+
+  <string name="measurement_height_textview_text">Height</string>
+  <string name="measurement_fts_textview_text">FTs</string>
+  <string name="measurement_ins_textview_text">INs</string>
+  <string name="measurement_weight_textview_text">Weight</string>
+  <string name="measurement_lbs_textview_text">LBs</string>
+  <string name="measurement_ozs_textview_text">OZs</string>
+
+  <string name="measurement_date_textview_text">Measurement Date</string>
+  <string name="measurement_Measurements_title">Measurements</string>
+
 </resources>

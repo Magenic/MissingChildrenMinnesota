@@ -17,6 +17,8 @@ namespace MCM.Droid.Classic
     [Activity(Label = "@string/measurements_layout_label")]
     public class MeasurementsActivity : Activity
     {
+        const int DATE_DIALOG_ID = 0;
+
         private DataObjects.Child _child;
         //private DataObjects.ChildMeasurement _measurements;
         private DataObjects.ChildMeasurement _measurement;
@@ -24,8 +26,12 @@ namespace MCM.Droid.Classic
         private NumberPicker _ouncePicker;
         private NumberPicker _feetPicker;
         private NumberPicker _inchPicker;
+        private TextView _dateDisplayTextView;
 
-        private ProgressDialog _progressDialog;
+        private Button _pickDate;
+        private DateTime _date = DateTime.Now;
+
+        //private ProgressDialog _progressDialog;
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -39,10 +45,16 @@ namespace MCM.Droid.Classic
             _ouncePicker = FindViewById<NumberPicker>(Resource.Id.ounces);
             _feetPicker = FindViewById<NumberPicker>(Resource.Id.feet);
             _inchPicker = FindViewById<NumberPicker>(Resource.Id.inches);
+            _dateDisplayTextView = FindViewById<TextView>(Resource.Id.MeasumentDateTextView);
 
-            //_measurements = DataObjects.ChildMeasurement.GetChildMeasurement(((GlobalVars)this.Application).MobileServiceClient, _child.Id);
-            _measurement = new DataObjects.ChildMeasurement();
+            _measurement = DataObjects.ChildMeasurement.GetChildMeasurement(((GlobalVars)this.Application).MobileServiceClient, _child.Id);
+            //_measurement = new DataObjects.ChildMeasurement();
             _measurement.ChildId = _child.Id;
+
+            _pickDate = FindViewById<Button>(Resource.Id.MeasurementPickDateButton);
+
+            // add a click event handler to the button
+            _pickDate.Click += delegate { ShowDialog(DATE_DIALOG_ID); };
 
             InitializePickers();
 
@@ -53,6 +65,25 @@ namespace MCM.Droid.Classic
             MenuInflater.Inflate(Resource.Menu.menu_save_cancel, menu);
             return true;
         }
+
+        protected override Dialog OnCreateDialog(int id)
+        {
+            switch (id)
+            {
+                case DATE_DIALOG_ID:
+                    return new DatePickerDialog(this, OnDateSet, _date.Year, _date.Month - 1, _date.Day);
+            }
+            return null;
+        }
+
+        // the event received when the user "sets" the date in the dialog
+        private void OnDateSet(object sender, DatePickerDialog.DateSetEventArgs e)
+        {
+            this._date = e.Date;
+            //UpdateBirthDateDisplay();
+            _dateDisplayTextView.Text = _date.ToShortDateString();
+            _measurement.MeasurementDate = _date ;
+        }   
 
         private void InitializePickers()
         {
@@ -71,6 +102,8 @@ namespace MCM.Droid.Classic
             _inchPicker.MaxValue = 11;
             _inchPicker.MinValue = 0;
             _inchPicker.Value = _measurement.Inches;
+
+            _dateDisplayTextView.Text = _measurement.MeasurementDate.ToShortDateString();
         }
 
         public override bool OnOptionsItemSelected(IMenuItem item)
@@ -117,7 +150,7 @@ namespace MCM.Droid.Classic
                 _measurement.Ounces = _ouncePicker.Value;
                 _measurement.Feet = _feetPicker.Value;
                 _measurement.Inches = _inchPicker.Value;
-                _measurement.MeasurementDate = DateTime.Now;
+                _measurement.MeasurementDate = _date;
                 await _measurement.Save(this);
             }
             catch
