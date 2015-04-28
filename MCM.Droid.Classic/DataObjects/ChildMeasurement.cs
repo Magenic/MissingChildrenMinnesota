@@ -27,7 +27,7 @@ namespace MCM.Droid.Classic.DataObjects
 
             var cm = GetMeasurement(mobileServiceClient, childId);
             if (cm.Result != null && cm.Result.Count() > 0) return cm.Result[0];
-            return new ChildMeasurement() { ChildId = childId };
+            return new ChildMeasurement() { ChildId = childId, MeasurementDate =  DateTime.Now };
         }
 
         private static Task<List<ChildMeasurement>> GetMeasurement(MobileServiceClient mobileServiceClient, string childId)
