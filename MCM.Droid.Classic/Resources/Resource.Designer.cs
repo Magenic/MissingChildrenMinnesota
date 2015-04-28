@@ -192,6 +192,9 @@ namespace MCM.Droid.Classic
 			// aapt resource value: 0x7f060027
 			public const int SafetyForChildrenButton = 2131099687;
 			
+			// aapt resource value: 0x7f060039
+			public const int SafetyForChildrenWebView = 2131099705;
+			
 			// aapt resource value: 0x7f06000f
 			public const int Text = 2131099663;
 			
@@ -219,17 +222,17 @@ namespace MCM.Droid.Classic
 			// aapt resource value: 0x7f06002f
 			public const int meas_weight_textview = 2131099695;
 			
-			// aapt resource value: 0x7f06003c
-			public const int menu_add_child = 2131099708;
-			
-			// aapt resource value: 0x7f06003a
-			public const int menu_cancel_info = 2131099706;
+			// aapt resource value: 0x7f06003d
+			public const int menu_add_child = 2131099709;
 			
 			// aapt resource value: 0x7f06003b
-			public const int menu_delete_info = 2131099707;
+			public const int menu_cancel_info = 2131099707;
 			
-			// aapt resource value: 0x7f060039
-			public const int menu_save_info = 2131099705;
+			// aapt resource value: 0x7f06003c
+			public const int menu_delete_info = 2131099708;
+			
+			// aapt resource value: 0x7f06003a
+			public const int menu_save_info = 2131099706;
 			
 			// aapt resource value: 0x7f060002
 			public const int myButton = 2131099650;

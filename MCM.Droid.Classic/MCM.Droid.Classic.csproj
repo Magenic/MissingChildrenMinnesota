@@ -132,6 +132,7 @@
     </AndroidAsset>
     <AndroidAsset Include="Assets\AboutMCM.txt" />
     <AndroidAsset Include="Assets\MissingChild.txt" />
+    <AndroidAsset Include="Assets\SafetyForChildren.txt" />
     <Content Include="Properties\AndroidManifest.xml" />
     <AndroidResource Include="Resources\drawable\ic_action_add_person.png" />
     <AndroidResource Include="Resources\drawable\ic_action_cancel.png" />
