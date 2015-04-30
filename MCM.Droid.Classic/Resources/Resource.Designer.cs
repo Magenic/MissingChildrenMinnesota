@@ -111,6 +111,9 @@ namespace MCM.Droid.Classic
 			// aapt resource value: 0x7f060038
 			public const int ChildrenListView = 2131099704;
 			
+			// aapt resource value: 0x7f06003e
+			public const int ContactsCheckBox = 2131099710;
+			
 			// aapt resource value: 0x7f06000d
 			public const int DateDisplayTextView = 2131099661;
 			
@@ -126,14 +129,23 @@ namespace MCM.Droid.Classic
 			// aapt resource value: 0x7f06001c
 			public const int DoctorInfoButton = 2131099676;
 			
+			// aapt resource value: 0x7f06003c
+			public const int EyeColorText = 2131099708;
+			
 			// aapt resource value: 0x7f060010
 			public const int FirstName = 2131099664;
 			
 			// aapt resource value: 0x7f060006
 			public const int FirstNameText = 2131099654;
 			
+			// aapt resource value: 0x7f06003d
+			public const int GlassesCheckBox = 2131099709;
+			
 			// aapt resource value: 0x7f060022
 			public const int GmailLoginButton = 2131099682;
+			
+			// aapt resource value: 0x7f06003a
+			public const int HairColorText = 2131099706;
 			
 			// aapt resource value: 0x7f06002e
 			public const int Height_ins_textview = 2131099694;
@@ -183,17 +195,26 @@ namespace MCM.Droid.Classic
 			// aapt resource value: 0x7f060015
 			public const int PercentComplete = 2131099669;
 			
+			// aapt resource value: 0x7f060039
+			public const int PhysicalDetailTitleTextView = 2131099705;
+			
 			// aapt resource value: 0x7f06001b
 			public const int PhysicalDetailsButton = 2131099675;
 			
 			// aapt resource value: 0x7f06000e
 			public const int PickDateButton = 2131099662;
 			
+			// aapt resource value: 0x7f060040
+			public const int RaceText = 2131099712;
+			
 			// aapt resource value: 0x7f060027
 			public const int SafetyForChildrenButton = 2131099687;
 			
-			// aapt resource value: 0x7f060039
-			public const int SafetyForChildrenWebView = 2131099705;
+			// aapt resource value: 0x7f060041
+			public const int SafetyForChildrenWebView = 2131099713;
+			
+			// aapt resource value: 0x7f06003f
+			public const int SkinToneText = 2131099711;
 			
 			// aapt resource value: 0x7f06000f
 			public const int Text = 2131099663;
@@ -222,17 +243,17 @@ namespace MCM.Droid.Classic
 			// aapt resource value: 0x7f06002f
 			public const int meas_weight_textview = 2131099695;
 			
-			// aapt resource value: 0x7f06003d
-			public const int menu_add_child = 2131099709;
+			// aapt resource value: 0x7f060045
+			public const int menu_add_child = 2131099717;
 			
-			// aapt resource value: 0x7f06003b
-			public const int menu_cancel_info = 2131099707;
+			// aapt resource value: 0x7f060043
+			public const int menu_cancel_info = 2131099715;
 			
-			// aapt resource value: 0x7f06003c
-			public const int menu_delete_info = 2131099708;
+			// aapt resource value: 0x7f060044
+			public const int menu_delete_info = 2131099716;
 			
-			// aapt resource value: 0x7f06003a
-			public const int menu_save_info = 2131099706;
+			// aapt resource value: 0x7f060042
+			public const int menu_save_info = 2131099714;
 			
 			// aapt resource value: 0x7f060002
 			public const int myButton = 2131099650;
@@ -245,6 +266,9 @@ namespace MCM.Droid.Classic
 			
 			// aapt resource value: 0x7f060000
 			public const int textView1 = 2131099648;
+			
+			// aapt resource value: 0x7f06003b
+			public const int textView2 = 2131099707;
 			
 			// aapt resource value: 0x7f060005
 			public const int textView3 = 2131099653;
@@ -500,6 +524,24 @@ namespace MCM.Droid.Classic
 			
 			// aapt resource value: 0x7f040012
 			public const int mychildren_layout_label = 2130968594;
+			
+			// aapt resource value: 0x7f040033
+			public const int physicaldetail_contacts_text = 2130968627;
+			
+			// aapt resource value: 0x7f040031
+			public const int physicaldetail_eyecolor_text = 2130968625;
+			
+			// aapt resource value: 0x7f040032
+			public const int physicaldetail_glasses_text = 2130968626;
+			
+			// aapt resource value: 0x7f040030
+			public const int physicaldetail_haircolor_text = 2130968624;
+			
+			// aapt resource value: 0x7f040035
+			public const int physicaldetail_race_text = 2130968629;
+			
+			// aapt resource value: 0x7f040034
+			public const int physicaldetail_skintone_text = 2130968628;
 			
 			// aapt resource value: 0x7f040013
 			public const int physicaldetails_layout_label = 2130968595;

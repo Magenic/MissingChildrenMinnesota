@@ -56,4 +56,10 @@
   <string name="measurement_date_textview_text">Measurement Date</string>
   <string name="measurement_Measurements_title">Measurements</string>
 
+  <string name="physicaldetail_haircolor_text">Hair Color</string>
+  <string name="physicaldetail_eyecolor_text">Eye Color</string>
+  <string name="physicaldetail_glasses_text">Glasses</string>
+  <string name="physicaldetail_contacts_text">Contacts</string>
+  <string name="physicaldetail_skintone_text">Skin Tone</string>
+  <string name="physicaldetail_race_text">Race</string>
 </resources>
