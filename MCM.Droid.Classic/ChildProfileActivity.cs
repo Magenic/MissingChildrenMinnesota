@@ -181,8 +181,9 @@ namespace MCM.Droid.Classic
         private void HandlePhysicalDetailsButton(object sender, EventArgs ea)
         {
             var activity = new Intent(this, typeof(PhysicalDetailsActivity));
-            //activity.PutExtra ("MyData", "Data from Activity1");
-            StartActivity(activity);
+            activity.PutExtra("Child", JsonConvert.SerializeObject(_child));
+
+            StartActivityForResult(activity, (int)IntentCodes.PhysicalDetails);
         }
 
         private void HandleDoctorInfoButton(object sender, EventArgs ea)

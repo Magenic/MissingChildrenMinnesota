@@ -6,9 +6,55 @@
     android:minWidth="25px"
     android:minHeight="25px">
     <TextView
-        android:text="Physical Details"
+        android:text="Child Physical Details"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/PhysicalDetailTitleTextView" />
+    <TextView
+        android:text="@string/physicaldetail_haircolor_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/textView1" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/HairColorText" />
+    <TextView
+        android:text="@string/physicaldetail_eyecolor_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView2" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/EyeColorText" />
+    <CheckBox
+        android:text="@string/physicaldetail_glasses_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/GlassesCheckBox" />
+    <CheckBox
+        android:text="@string/physicaldetail_contacts_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ContactsCheckBox" />
+    <TextView
+        android:text="@string/physicaldetail_skintone_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView3" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/SkinToneText" />
+    <TextView
+        android:text="@string/physicaldetail_race_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView4" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/RaceText" />
 </LinearLayout>
