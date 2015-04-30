@@ -6,7 +6,9 @@ using System.Windows.Markup;
 using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
-using MCM.Forms.WinPhone.Resources;
+using Cirrious.MvvmCross.ViewModels;
+using Cirrious.CrossCore;
+using MCM.Forms.Resources;
 
 namespace MCM.Forms.WinPhone
 {
@@ -35,6 +37,10 @@ namespace MCM.Forms.WinPhone
 			// Language display initialization
 			InitializeLanguage();
 
+			// Xamarin.Forms setup
+			var setup = new Setup(RootFrame);
+			setup.Initialize();
+
 			// Show graphics profiling information while debugging.
 			if (Debugger.IsAttached)
 			{
@@ -57,10 +63,17 @@ namespace MCM.Forms.WinPhone
 
 		}
 
+		// Code to execute when a contract activation such as a file open or save picker returns 
+		// with the picked file or other return values
+		private void Application_ContractActivated(object sender, Windows.ApplicationModel.Activation.IActivatedEventArgs e)
+		{
+		}
+
 		// Code to execute when the application is launching (eg, from Start)
 		// This code will not execute when the application is reactivated
 		private void Application_Launching(object sender, LaunchingEventArgs e)
 		{
+			RootFrame.Navigating += RootFrameOnNavigating;
 		}
 
 		// Code to execute when the application is activated (brought to foreground)
@@ -73,6 +86,13 @@ namespace MCM.Forms.WinPhone
 		// This code will not execute when the application is closing
 		private void Application_Deactivated(object sender, DeactivatedEventArgs e)
 		{
+		}
+
+		private void RootFrameOnNavigating(object sender, NavigatingCancelEventArgs args)
+		{
+			args.Cancel = true;
+			RootFrame.Navigating -= RootFrameOnNavigating;
+			RootFrame.Dispatcher.BeginInvoke(() => { Mvx.Resolve<IMvxAppStart>().Start(); });
 		}
 
 		// Code to execute when the application is closing (eg, user hit Back)
@@ -122,6 +142,9 @@ namespace MCM.Forms.WinPhone
 
 			// Handle reset requests for clearing the backstack
 			RootFrame.Navigated += CheckForResetNavigation;
+
+			// Handle contract activation such as a file open or save picker
+			PhoneApplicationService.Current.ContractActivated += Application_ContractActivated;
 
 			// Ensure we don't initialize again
 			phoneApplicationInitialized = true;

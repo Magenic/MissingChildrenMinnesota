@@ -5,7 +5,7 @@ using System.Linq;
 using Foundation;
 using UIKit;
 
-namespace MCM.Forms.iOS
+namespace MCM.Forms
 {
 	public class Application
 	{

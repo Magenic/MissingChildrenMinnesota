@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
-<Deployment xmlns="http://schemas.microsoft.com/windowsphone/2012/deployment" AppPlatformVersion="8.0">
+<Deployment xmlns="http://schemas.microsoft.com/windowsphone/2014/deployment" AppPlatformVersion="8.1">
   <DefaultLanguage xmlns="" code="en-US"/>
-  <App xmlns="" ProductID="{721d19e5-1843-4c55-ba3f-adb25fc172b8}" Title="MCM.Forms.WinPhone" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal"  Author="MCM.Forms.WinPhone author" Description="Sample description" Publisher="MCM.Forms.WinPhone" PublisherID="{c80fa585-2c8b-4ab6-ab0c-fe4cf0c9c1b2}">
+  <App xmlns="" ProductID="{9344e6df-862e-44d3-9240-74cbca7f1112}" Title="MCM.Forms.WinPhone" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal"  Author="MCM.Forms.WinPhone author" Description="Sample description" SDOptOut ="false" BackUpOptOut ="false" Publisher="MCM.Forms.WinPhone" PublisherID="{32da2d3b-50f0-467e-b49a-be68e49ab3d9}">
     <IconPath IsRelative="true" IsResource="false">Assets\ApplicationIcon.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_NETWORKING"/>
@@ -12,10 +12,10 @@
       <Capability Name="ID_CAP_WEBBROWSERCOMPONENT"/>
     </Capabilities>
     <Tasks>
-      <DefaultTask  Name ="_default" NavigationPage="MainPage.xaml"/>
+      <DefaultTask Name ="_default" NavigationPage="MainPage.xaml" ActivationPolicy="Resume"/>
     </Tasks>
     <Tokens>
-      <PrimaryToken TokenID="PhoneApp1Token" TaskName="_default">
+      <PrimaryToken TokenID="MCM.Forms.WinPhoneToken" TaskName="_default">
         <TemplateFlip>
           <SmallImageURI IsRelative="true" IsResource="false">Assets\Tiles\FlipCycleTileSmall.png</SmallImageURI>
           <Count>0</Count>

@@ -7,10 +7,12 @@ using System.Windows.Controls;
 using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
+using MCM.Forms.WinPhone.Helpers;
+using Xamarin.Forms;
 
 namespace MCM.Forms.WinPhone
 {
-	public partial class MainPage : global::Xamarin.Forms.Platform.WinPhone.FormsApplicationPage
+	public partial class MainPage : PhoneApplicationPage
 	{
 		public MainPage()
 		{
@@ -18,7 +20,9 @@ namespace MCM.Forms.WinPhone
 			SupportedOrientations = SupportedPageOrientation.PortraitOrLandscape;
 
 			global::Xamarin.Forms.Forms.Init();
-			LoadApplication(new MCM.Forms.App());
+
+			var navigationPage = MvxFormsWindowsPhonePagePresenter.NavigationPage;
+			Content = navigationPage.ConvertPageToUIElement(this);
 		}
 	}
 }

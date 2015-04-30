@@ -1,4 +1,4 @@
-﻿using MCM.Forms.WinPhone.Resources;
+﻿using MCM.Forms.Resources;
 
 namespace MCM.Forms.WinPhone
 {
