@@ -46,6 +46,7 @@ namespace MCM.Droid.Classic
 			base.OnCreate (bundle);
 
             _child = JsonConvert.DeserializeObject<DataObjects.Child>(Intent.GetStringExtra("Child"));
+            _childUpdated = false;
 
             RequestWindowFeature(WindowFeatures.ActionBar);
             ActionBar.SetDisplayHomeAsUpEnabled(true);
@@ -173,4 +174,3 @@ namespace MCM.Droid.Classic
         }
     }
 }
-
