@@ -6,9 +6,76 @@
     android:minWidth="25px"
     android:minHeight="25px">
     <TextView
-        android:text="Doctor Info"
+        android:text="Child Doctor Info"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView1" />
+        android:id="@+id/DoctorInfoTitleTextView" />
+    <TextView
+        android:text="@string/doctorinfo_name_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView2" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/DoctorNameText" />
+    <TextView
+        android:text="@string/doctordentalinfo_clinic_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView3" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/DoctorClinicNameText" />
+    <TextView
+        android:text="@string/doctordentalinfo_address_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView4" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/DoctorAddressLine1Text" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/DoctorAddressLine2Text" />
+    <TextView
+        android:text="@string/doctordentalinfo_city_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView5" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/DoctorCityText" />
+    <TextView
+        android:text="@string/doctordentalinfo_state_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView6" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/DoctorStateText" />
+    <TextView
+        android:text="@string/doctordentalinfo_zip_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView7" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/DoctorZipText" />
+    <TextView
+        android:text="@string/doctordentalinfo_phone_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView8" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/DoctorPhoneNumber" />
 </LinearLayout>

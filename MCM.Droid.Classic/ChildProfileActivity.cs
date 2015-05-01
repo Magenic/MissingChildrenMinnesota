@@ -38,6 +38,7 @@ namespace MCM.Droid.Classic
             PhysicalDetails,
             DoctorInfo,
             DentalInfo,
+            MedicalAlertInfo,
             DistinguishingFeatures,
             CheckList,
         }
@@ -189,22 +190,25 @@ namespace MCM.Droid.Classic
         private void HandleDoctorInfoButton(object sender, EventArgs ea)
         {
             var activity = new Intent(this, typeof(DoctorInfoActivity));
-            //activity.PutExtra ("MyData", "Data from Activity1");
-            StartActivity(activity);
+            activity.PutExtra("Child", JsonConvert.SerializeObject(_child));
+
+            StartActivityForResult(activity, (int)IntentCodes.DoctorInfo);
         }
 
         private void HandleDentalInfoButton(object sender, EventArgs ea)
         {
             var activity = new Intent(this, typeof(DentalInfoActivity));
-            //activity.PutExtra ("MyData", "Data from Activity1");
-            StartActivity(activity);
+            activity.PutExtra("Child", JsonConvert.SerializeObject(_child));
+
+            StartActivityForResult(activity, (int)IntentCodes.DentalInfo);
         }
 
         private void HandleMedicalAlertInfoButton(object sender, EventArgs ea)
         {
             var activity = new Intent(this, typeof(MedicalAlertInfoActivity));
-            //activity.PutExtra ("MyData", "Data from Activity1");
-            StartActivity(activity);
+            activity.PutExtra("Child", JsonConvert.SerializeObject(_child));
+
+            StartActivityForResult(activity, (int)IntentCodes.MedicalAlertInfo);
         }
 
         private void HandleDistinguishingFeaturesButton(object sender, EventArgs ea)
