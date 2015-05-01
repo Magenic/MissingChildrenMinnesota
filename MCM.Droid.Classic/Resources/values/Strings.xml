@@ -63,7 +63,9 @@
   <string name="physicaldetail_skintone_text">Skin Tone</string>
   <string name="physicaldetail_race_text">Race</string>
 
-  <string name="doctordentalinfo_name_text">Doctor Name</string>
+  <string name="doctorinfo_name_text">Doctor Name</string>
+  <string name="dentalinfo_name_text">Dentist Name</string>
+
   <string name="doctordentalinfo_clinic_text">Clinic</string>
   <string name="doctordentalinfo_address_text">Address</string>
   <string name="doctordentalinfo_city_text">City</string>

@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/DoctorInfoTitleTextView" />
     <TextView
-        android:text="@string/doctordentalinfo_name_text"
+        android:text="@string/doctorinfo_name_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textView2" />
