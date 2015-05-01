@@ -189,8 +189,9 @@ namespace MCM.Droid.Classic
         private void HandleDoctorInfoButton(object sender, EventArgs ea)
         {
             var activity = new Intent(this, typeof(DoctorInfoActivity));
-            //activity.PutExtra ("MyData", "Data from Activity1");
-            StartActivity(activity);
+            activity.PutExtra("Child", JsonConvert.SerializeObject(_child));
+
+            StartActivityForResult(activity, (int)IntentCodes.DoctorInfo);
         }
 
         private void HandleDentalInfoButton(object sender, EventArgs ea)

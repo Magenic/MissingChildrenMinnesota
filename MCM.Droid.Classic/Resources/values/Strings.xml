@@ -62,4 +62,12 @@
   <string name="physicaldetail_contacts_text">Contacts</string>
   <string name="physicaldetail_skintone_text">Skin Tone</string>
   <string name="physicaldetail_race_text">Race</string>
+
+  <string name="doctordentalinfo_name_text">Doctor Name</string>
+  <string name="doctordentalinfo_clinic_text">Clinic</string>
+  <string name="doctordentalinfo_address_text">Address</string>
+  <string name="doctordentalinfo_city_text">City</string>
+  <string name="doctordentalinfo_state_text">State</string>
+  <string name="doctordentalinfo_zip_text">Zip</string>
+  <string name="doctordentalinfo_phone_text">Phone Number</string>
 </resources>
