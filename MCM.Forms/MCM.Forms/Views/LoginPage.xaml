@@ -2,5 +2,9 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MCM.Forms.Views.LoginPage">
-	<Label Text="blah" VerticalOptions="Center" HorizontalOptions="Center" />
+	<StackLayout Orientation="Vertical">
+		<Button Text="Microsoft" Command="{Binding LogInWithMicrosoft}" />
+		<Button Text="Google" Command="{Binding LogInWithGoogle}" />
+		<Button Text="Twitter" Command="{Binding LogInWithTwitter}" />
+	</StackLayout>
 </ContentPage>
