@@ -73,7 +73,7 @@ namespace MCM.Droid.Classic
             switch (item.ItemId)
             {
                 case Resource.Id.menu_save_info:
-                    AddUpdatePhysicalDetail();
+                    SavePhysicalDetail();
                     return true;
 
                 case Resource.Id.menu_cancel_info:
@@ -110,7 +110,7 @@ namespace MCM.Droid.Classic
             base.Finish();
         }
 
-        private async void AddUpdatePhysicalDetail()
+        private async void SavePhysicalDetail()
         {
             var _progressDialog = new ProgressDialog(this);
             _progressDialog.SetTitle("Saving Physical Details");
