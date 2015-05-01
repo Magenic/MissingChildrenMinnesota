@@ -108,11 +108,11 @@ namespace MCM.Droid.Classic
 			// aapt resource value: 0x7f060017
 			public const int ChildPhotoImageView = 2131099671;
 			
-			// aapt resource value: 0x7f06004d
-			public const int ChildrenListView = 2131099725;
+			// aapt resource value: 0x7f06004f
+			public const int ChildrenListView = 2131099727;
 			
-			// aapt resource value: 0x7f060052
-			public const int ContactsCheckBox = 2131099730;
+			// aapt resource value: 0x7f060054
+			public const int ContactsCheckBox = 2131099732;
 			
 			// aapt resource value: 0x7f06000d
 			public const int DateDisplayTextView = 2131099661;
@@ -183,8 +183,8 @@ namespace MCM.Droid.Classic
 			// aapt resource value: 0x7f060034
 			public const int DoctorZipText = 2131099700;
 			
-			// aapt resource value: 0x7f060050
-			public const int EyeColorText = 2131099728;
+			// aapt resource value: 0x7f060052
+			public const int EyeColorText = 2131099730;
 			
 			// aapt resource value: 0x7f060010
 			public const int FirstName = 2131099664;
@@ -192,14 +192,14 @@ namespace MCM.Droid.Classic
 			// aapt resource value: 0x7f060006
 			public const int FirstNameText = 2131099654;
 			
-			// aapt resource value: 0x7f060051
-			public const int GlassesCheckBox = 2131099729;
+			// aapt resource value: 0x7f060053
+			public const int GlassesCheckBox = 2131099731;
 			
 			// aapt resource value: 0x7f060037
 			public const int GmailLoginButton = 2131099703;
 			
-			// aapt resource value: 0x7f06004f
-			public const int HairColorText = 2131099727;
+			// aapt resource value: 0x7f060051
+			public const int HairColorText = 2131099729;
 			
 			// aapt resource value: 0x7f060043
 			public const int Height_ins_textview = 2131099715;
@@ -231,14 +231,20 @@ namespace MCM.Droid.Classic
 			// aapt resource value: 0x7f06001e
 			public const int MedicalAlertInfoButton = 2131099678;
 			
+			// aapt resource value: 0x7f06004c
+			public const int MedicalAlertInfoTextView = 2131099724;
+			
+			// aapt resource value: 0x7f06004d
+			public const int MedicalAlertText = 2131099725;
+			
 			// aapt resource value: 0x7f060008
 			public const int MiddleNameText = 2131099656;
 			
 			// aapt resource value: 0x7f06003d
 			public const int MissingChildButton = 2131099709;
 			
-			// aapt resource value: 0x7f06004c
-			public const int MissingChildWebView = 2131099724;
+			// aapt resource value: 0x7f06004e
+			public const int MissingChildWebView = 2131099726;
 			
 			// aapt resource value: 0x7f060003
 			public const int MyButton = 2131099651;
@@ -249,8 +255,8 @@ namespace MCM.Droid.Classic
 			// aapt resource value: 0x7f060015
 			public const int PercentComplete = 2131099669;
 			
-			// aapt resource value: 0x7f06004e
-			public const int PhysicalDetailTitleTextView = 2131099726;
+			// aapt resource value: 0x7f060050
+			public const int PhysicalDetailTitleTextView = 2131099728;
 			
 			// aapt resource value: 0x7f06001b
 			public const int PhysicalDetailsButton = 2131099675;
@@ -258,17 +264,17 @@ namespace MCM.Droid.Classic
 			// aapt resource value: 0x7f06000e
 			public const int PickDateButton = 2131099662;
 			
-			// aapt resource value: 0x7f060054
-			public const int RaceText = 2131099732;
+			// aapt resource value: 0x7f060056
+			public const int RaceText = 2131099734;
 			
 			// aapt resource value: 0x7f06003c
 			public const int SafetyForChildrenButton = 2131099708;
 			
-			// aapt resource value: 0x7f060055
-			public const int SafetyForChildrenWebView = 2131099733;
+			// aapt resource value: 0x7f060057
+			public const int SafetyForChildrenWebView = 2131099735;
 			
-			// aapt resource value: 0x7f060053
-			public const int SkinToneText = 2131099731;
+			// aapt resource value: 0x7f060055
+			public const int SkinToneText = 2131099733;
 			
 			// aapt resource value: 0x7f06000f
 			public const int Text = 2131099663;
@@ -297,17 +303,17 @@ namespace MCM.Droid.Classic
 			// aapt resource value: 0x7f060044
 			public const int meas_weight_textview = 2131099716;
 			
-			// aapt resource value: 0x7f060059
-			public const int menu_add_child = 2131099737;
+			// aapt resource value: 0x7f06005b
+			public const int menu_add_child = 2131099739;
 			
-			// aapt resource value: 0x7f060057
-			public const int menu_cancel_info = 2131099735;
+			// aapt resource value: 0x7f060059
+			public const int menu_cancel_info = 2131099737;
+			
+			// aapt resource value: 0x7f06005a
+			public const int menu_delete_info = 2131099738;
 			
 			// aapt resource value: 0x7f060058
-			public const int menu_delete_info = 2131099736;
-			
-			// aapt resource value: 0x7f060056
-			public const int menu_save_info = 2131099734;
+			public const int menu_save_info = 2131099736;
 			
 			// aapt resource value: 0x7f060002
 			public const int myButton = 2131099650;
