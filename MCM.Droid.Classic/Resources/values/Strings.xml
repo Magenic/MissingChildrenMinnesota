@@ -72,4 +72,7 @@
   <string name="doctordentalinfo_state_text">State</string>
   <string name="doctordentalinfo_zip_text">Zip</string>
   <string name="doctordentalinfo_phone_text">Phone Number</string>
+
+  <string name="distinguishingfeature_feature_text">Distinguishing Feature</string>
+  <string name="distinguishingfeature_bodychartnbr_text">Body Chart Number</string>
 </resources>

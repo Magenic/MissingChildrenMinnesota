@@ -79,6 +79,7 @@
     <Compile Include="DataObjects\PictureType.cs" />
     <Compile Include="DentalInfoActivity.cs" />
     <Compile Include="DistinguishingFeaturesActivity.cs" />
+    <Compile Include="DistinguishingFeaturesListViewAdapter.cs" />
     <Compile Include="DoctorInfoActivity.cs" />
     <Compile Include="GlobalVars.cs" />
     <Compile Include="HomeDNAActivity.cs" />
@@ -115,12 +116,17 @@
     <AndroidResource Include="Resources\layout\MyChildren.axml" />
     <AndroidResource Include="Resources\layout\PhysicalDetails.axml" />
     <AndroidResource Include="Resources\layout\SafetyForChildren.axml" />
+    <AndroidResource Include="Resources\layout\DistinguishingFeatureListItem.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Main.axml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\values\Strings.xml" />
+    <AndroidResource Include="Resources\values\Strings.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\Icon.png" />

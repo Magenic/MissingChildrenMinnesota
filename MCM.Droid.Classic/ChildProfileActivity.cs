@@ -159,7 +159,6 @@ namespace MCM.Droid.Classic
         {
             var activity = new Intent(this, typeof(AddPhotoActivity));
             activity.PutExtra("Child", JsonConvert.SerializeObject(_child));
-
             StartActivityForResult(activity, (int)IntentCodes.Photo);
         }
 
@@ -167,8 +166,6 @@ namespace MCM.Droid.Classic
         {
             var activity = new Intent(this, typeof(ChildBasicsActivity));
             activity.PutExtra("Child", JsonConvert.SerializeObject(_child));
-            //StartActivity (activity);
-
             StartActivityForResult(activity, (int)IntentCodes.Basics);
         }
 
@@ -183,7 +180,6 @@ namespace MCM.Droid.Classic
         {
             var activity = new Intent(this, typeof(PhysicalDetailsActivity));
             activity.PutExtra("Child", JsonConvert.SerializeObject(_child));
-
             StartActivityForResult(activity, (int)IntentCodes.PhysicalDetails);
         }
 
@@ -191,7 +187,6 @@ namespace MCM.Droid.Classic
         {
             var activity = new Intent(this, typeof(DoctorInfoActivity));
             activity.PutExtra("Child", JsonConvert.SerializeObject(_child));
-
             StartActivityForResult(activity, (int)IntentCodes.DoctorInfo);
         }
 
@@ -199,7 +194,6 @@ namespace MCM.Droid.Classic
         {
             var activity = new Intent(this, typeof(DentalInfoActivity));
             activity.PutExtra("Child", JsonConvert.SerializeObject(_child));
-
             StartActivityForResult(activity, (int)IntentCodes.DentalInfo);
         }
 
@@ -207,15 +201,14 @@ namespace MCM.Droid.Classic
         {
             var activity = new Intent(this, typeof(MedicalAlertInfoActivity));
             activity.PutExtra("Child", JsonConvert.SerializeObject(_child));
-
             StartActivityForResult(activity, (int)IntentCodes.MedicalAlertInfo);
         }
 
         private void HandleDistinguishingFeaturesButton(object sender, EventArgs ea)
         {
             var activity = new Intent(this, typeof(DistinguishingFeaturesActivity));
-            //activity.PutExtra ("MyData", "Data from Activity1");
-            StartActivity(activity);
+            activity.PutExtra("Child", JsonConvert.SerializeObject(_child));
+            StartActivityForResult(activity, (int)IntentCodes.DistinguishingFeatures);
         }
 
         private void HandleIDChecklistButton(object sender, EventArgs ea)
