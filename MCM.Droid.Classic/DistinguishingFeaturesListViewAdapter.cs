@@ -40,8 +40,8 @@ namespace MCM.Droid.Classic
             View view = convertView;
             if (view == null) // no view to re-use, create new
                 view = context.LayoutInflater.Inflate(Resource.Layout.DistinguishingFeatureListItem, null);
-            view.FindViewById<TextView>(Resource.Id.BodyChartNbrText).Text = item.BodyChartNbr <= 0 ? string.Empty : item.BodyChartNbr.ToString();
-            view.FindViewById<TextView>(Resource.Id.DistinguishingFeatureText).Text = item.Feature;
+            view.FindViewById<TextView>(Resource.Id.BodyChartNbrTextView).Text = item.BodyChartNbr <= 0 ? string.Empty : item.BodyChartNbr.ToString();
+            view.FindViewById<TextView>(Resource.Id.DistinguishingFeatureTextView).Text = item.Feature;
 
             return view;
         }

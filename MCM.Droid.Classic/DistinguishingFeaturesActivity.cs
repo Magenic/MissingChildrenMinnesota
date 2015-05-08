@@ -43,28 +43,47 @@ namespace MCM.Droid.Classic
             _pageTitleTextView.Text = _pageTitleTextView.Text.Replace("Child ", _child.FirstName + "'s ");
         }
 
+        enum IntentCodes
+        {
+            Photo,
+            Basics,
+            Measurements,
+            PhysicalDetails,
+            DoctorInfo,
+            DentalInfo,
+            MedicalAlertInfo,
+            DistinguishingFeatures,
+            CheckList,
+        }
+
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
-            //MenuInflater.Inflate(Resource.Menu.menu_save_cancel, menu);
+            MenuInflater.Inflate(Resource.Menu.menu_distinguishingfeature, menu);
             return true;
         }
 
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
-            switch (item.ItemId)
+            if (item.ItemId == Resource.Id.menu_add_feature)
             {
-                case Resource.Id.menu_save_info:
-                    CreateAndShowDialog("Save Clicked", "Menu");
-                    return true;
-
-                case Resource.Id.menu_cancel_info:
-                    CreateAndShowDialog("Cancel Clicked", "Menu");
-                    return true;
-
-                default:
-                    Finish();
-                    return base.OnOptionsItemSelected(item);
+                var newFeature = new DataObjects.DistinguishingFeature();
+                newFeature.ChildId = _child.Id;
+                var activity = new Intent(this, typeof(AddDistinguishingFeatureActivity));
+                activity.PutExtra("Child", JsonConvert.SerializeObject(_child));
+                activity.PutExtra("Feature", JsonConvert.SerializeObject(newFeature));
+                StartActivityForResult(activity, (int)IntentCodes.DistinguishingFeatures);
             }
+
+            return true;
+        }
+
+        protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
+        {
+            if (resultCode == Result.Ok)
+            {
+                GetFeatures();
+            }
+            //base.OnActivityResult(requestCode, resultCode, data);
         }
 
         private async void GetFeatures()
@@ -85,9 +104,10 @@ namespace MCM.Droid.Classic
         void childFeaturesListView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
             var selectedFeature = ((DistinguishingFeaturesListViewAdapter)(((ListView)e.Parent).Adapter))[e.Position] as DataObjects.DistinguishingFeature;
-            //var activity = new Intent(this, typeof(ChildProfileActivity));
-            //activity.PutExtra("Child", JsonConvert.SerializeObject(selectedFeature));
-            //StartActivityForResult(activity, 0);
+            var activity = new Intent(this, typeof(AddDistinguishingFeatureActivity));
+            activity.PutExtra("Child", JsonConvert.SerializeObject(_child));
+            activity.PutExtra("Feature", JsonConvert.SerializeObject(selectedFeature));
+            StartActivityForResult(activity, (int)IntentCodes.DistinguishingFeatures);
         }
 
         private Task<List<DataObjects.DistinguishingFeature>> GetFeaturesList()

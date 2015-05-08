@@ -10,17 +10,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textView4" />
-    <EditText
+    <TextView
+        android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/BodyChartNbrText" />
+        android:id="@+id/BodyChartNbrTextView" />
     <TextView
         android:text="@string/distinguishingfeature_feature_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textView3" />
-    <EditText
+    <TextView
+        android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/DistinguishingFeatureText" />
+        android:id="@+id/DistinguishingFeatureTextView" />
 </LinearLayout>

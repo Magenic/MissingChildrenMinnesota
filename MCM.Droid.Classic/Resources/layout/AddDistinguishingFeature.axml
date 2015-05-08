@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <TextView
+        android:text="Add Distinguishing Feature"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/AddDistinguishingFeatureTitleTextView" />
+    <TextView
+        android:text="@string/distinguishingfeature_feature_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView1" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/DistinguishingFeatureText"
+        android:maxLines="5"
+        android:minLines="5"
+        android:lines="5"
+        android:gravity="top" />
+    <TextView
+        android:text="@string/distinguishingfeature_bodychartnbr_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView2" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/BodyChartNbrText"
+        android:maxLength="2"
+        android:numeric="integer" />
+</LinearLayout>

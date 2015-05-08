@@ -67,6 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AboutMCMActivity.cs" />
+    <Compile Include="AddDistinguishingFeatureActivity.cs" />
     <Compile Include="AddPhotoActivity.cs" />
     <Compile Include="BitMapHelpers.cs" />
     <Compile Include="ChildBasicsActivity.cs" />
@@ -119,6 +120,9 @@
     <AndroidResource Include="Resources\layout\DistinguishingFeatureListItem.axml">
       <SubType>AndroidResource</SubType>
     </AndroidResource>
+    <AndroidResource Include="Resources\layout\AddDistinguishingFeature.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Main.axml" />
@@ -149,6 +153,8 @@
     <AndroidResource Include="Resources\menu\menu_childbasics.xml" />
     <AndroidResource Include="Resources\menu\menu_mychildren.xml" />
     <AndroidResource Include="Resources\menu\menu_save_cancel.xml" />
+    <AndroidResource Include="Resources\menu\menu_distinguishingfeature.xml" />
+    <AndroidResource Include="Resources\menu\menu_save_cancel_delete.xml" />
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="azure-mobile-services">
