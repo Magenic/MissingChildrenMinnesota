@@ -75,7 +75,7 @@ namespace MCM.Droid.Classic
                     return true;
 
                 case Resource.Id.menu_delete_info:
-                    this.SetResult(Result.Ok, null);
+                    DeleteChild();
                     return true;
 
                 default:
@@ -130,10 +130,10 @@ namespace MCM.Droid.Classic
             {
 
                 _feature.Delete(this);
-
+                _featureAddedOrUpdated = true;
                 Finish();
             }
-            catch
+            catch (Exception ex)
             {
                 CreateAndShowDialog("Unable to remove Feature.", "Remove Feature");
             }
@@ -145,15 +145,22 @@ namespace MCM.Droid.Classic
 
         private void InitializeDisplay()
         {
-            if (string.IsNullOrWhiteSpace(_feature.Id))
+            if (!_pageTitleTextView.Text.Contains(_child.FirstName))
             {
-                _pageTitleTextView.Text = _pageTitleTextView.Text.Replace("Add ", string.Concat("Add ", _child.FirstName, "'s "));
+                if (string.IsNullOrWhiteSpace(_feature.Id))
+                {
+                    _pageTitleTextView.Text = _pageTitleTextView.Text.Replace("Add ", string.Concat("Add ", _child.FirstName, "'s "));
+                }
+                else
+                {
+                    _pageTitleTextView.Text = _pageTitleTextView.Text.Replace("Add ", _child.FirstName + "'s ");
+                }
             }
-            else
+
+            if (!string.IsNullOrWhiteSpace(_feature.Id))
             {
-                _pageTitleTextView.Text = _pageTitleTextView.Text.Replace("Add ", _child.FirstName + "'s ");
                 _distinguishingFeatureText.Text = _feature.Feature;
-                _bodyChartNbrText.Text = _feature.BodyChartNbr.ToString();
+                _bodyChartNbrText.Text = _feature.BodyChartNbr == 0 ? string.Empty : _feature.BodyChartNbr.ToString();
             }
 
             SaveOriginalValues();

@@ -33,6 +33,7 @@ namespace MCM.Droid.Classic.DataObjects
 
         public void Delete(Activity activityContext)
         {
+            _globalVars = ((GlobalVars)activityContext.Application);
             DeleteFromTable(activityContext);
         }
 
