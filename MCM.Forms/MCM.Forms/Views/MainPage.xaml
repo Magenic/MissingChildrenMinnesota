@@ -2,5 +2,42 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MCM.Forms.Views.MainPage">
-	<Label Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition />
+			<RowDefinition />
+			<RowDefinition />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition />
+			<ColumnDefinition />
+		</Grid.ColumnDefinitions>
+
+		<Button
+			Text="My Children"
+			Command="{Binding MyChildren}"
+			Grid.ColumnSpan="2" />
+
+		<Button
+			Text="Home DNA"
+			Command="{Binding HomeDna}"
+			Grid.Row="1" />
+
+		<Button
+			Text="Safety for Children"
+			Command="{Binding SafetyForChildren}"
+			Grid.Row="1"
+			Grid.Column="1" />
+
+		<Button
+			Text="Missing Child?"
+			Command="{Binding MissingChild}"
+			Grid.Row="2" />
+
+		<Button
+			Text="About MCM"
+			Command="{Binding AboutMcm}"
+			Grid.Row="2"
+			Grid.Column="1" />
+	</Grid>
 </ContentPage>
