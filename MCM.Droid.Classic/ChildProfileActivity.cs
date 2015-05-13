@@ -214,8 +214,8 @@ namespace MCM.Droid.Classic
         private void HandleIDChecklistButton(object sender, EventArgs ea)
         {
             var activity = new Intent(this, typeof(IDChecklistActivity));
-            //activity.PutExtra ("MyData", "Data from Activity1");
-            StartActivity(activity);
+            activity.PutExtra("Child", JsonConvert.SerializeObject(_child));
+            StartActivityForResult(activity, (int)IntentCodes.CheckList);
         }
 
         private void DisableChildInfoButtons()

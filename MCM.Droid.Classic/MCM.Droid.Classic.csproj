@@ -74,8 +74,10 @@
     <Compile Include="ChildProfileActivity.cs" />
     <Compile Include="ConfigHelper.cs" />
     <Compile Include="DataObjects\Child.cs" />
+    <Compile Include="DataObjects\ChildCheckListItem.cs" />
     <Compile Include="DataObjects\ChildMeasurement.cs" />
     <Compile Include="DataObjects\DistinguishingFeature.cs" />
+    <Compile Include="DataObjects\IDCheckListItem.cs" />
     <Compile Include="DataObjects\Picture.cs" />
     <Compile Include="DataObjects\PictureType.cs" />
     <Compile Include="DentalInfoActivity.cs" />
@@ -84,7 +86,10 @@
     <Compile Include="DoctorInfoActivity.cs" />
     <Compile Include="GlobalVars.cs" />
     <Compile Include="HomeDNAActivity.cs" />
-    <Compile Include="IDChecklistActivity.cs" />
+    <Compile Include="IDChecklistActivity.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IDCheckListListViewAdapter.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="MCMActivity.cs" />
     <Compile Include="MeasurementsActivity.cs" />
@@ -121,6 +126,9 @@
       <SubType>AndroidResource</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\AddDistinguishingFeature.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\IDCheckListItem.axml">
       <SubType>AndroidResource</SubType>
     </AndroidResource>
   </ItemGroup>

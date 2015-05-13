@@ -78,8 +78,8 @@ namespace MCM.Droid.Classic
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f060044
-			public const int AboutMCMButton = 2131099716;
+			// aapt resource value: 0x7f060047
+			public const int AboutMCMButton = 2131099719;
 			
 			// aapt resource value: 0x7f060001
 			public const int AboutMCMWebView = 2131099649;
@@ -102,8 +102,8 @@ namespace MCM.Droid.Classic
 			// aapt resource value: 0x7f060030
 			public const int BodyChartNbrTextView = 2131099696;
 			
-			// aapt resource value: 0x7f06003f
-			public const int BypassLoginButton = 2131099711;
+			// aapt resource value: 0x7f060042
+			public const int BypassLoginButton = 2131099714;
 			
 			// aapt resource value: 0x7f060018
 			public const int CheckListLabel = 2131099672;
@@ -117,17 +117,17 @@ namespace MCM.Droid.Classic
 			// aapt resource value: 0x7f06001b
 			public const int ChildPhotoImageView = 2131099675;
 			
-			// aapt resource value: 0x7f060055
-			public const int ChildrenListView = 2131099733;
+			// aapt resource value: 0x7f060058
+			public const int ChildrenListView = 2131099736;
 			
-			// aapt resource value: 0x7f06005a
-			public const int ContactsCheckBox = 2131099738;
+			// aapt resource value: 0x7f06005d
+			public const int ContactsCheckBox = 2131099741;
 			
 			// aapt resource value: 0x7f060011
 			public const int DateDisplayTextView = 2131099665;
 			
-			// aapt resource value: 0x7f06004f
-			public const int DateLayout = 2131099727;
+			// aapt resource value: 0x7f060052
+			public const int DateLayout = 2131099730;
 			
 			// aapt resource value: 0x7f060028
 			public const int DentalAddressLine1Text = 2131099688;
@@ -201,8 +201,8 @@ namespace MCM.Droid.Classic
 			// aapt resource value: 0x7f06003a
 			public const int DoctorZipText = 2131099706;
 			
-			// aapt resource value: 0x7f060058
-			public const int EyeColorText = 2131099736;
+			// aapt resource value: 0x7f06005b
+			public const int EyeColorText = 2131099739;
 			
 			// aapt resource value: 0x7f060014
 			public const int FirstName = 2131099668;
@@ -210,23 +210,32 @@ namespace MCM.Droid.Classic
 			// aapt resource value: 0x7f06000a
 			public const int FirstNameText = 2131099658;
 			
-			// aapt resource value: 0x7f060059
-			public const int GlassesCheckBox = 2131099737;
+			// aapt resource value: 0x7f06005c
+			public const int GlassesCheckBox = 2131099740;
+			
+			// aapt resource value: 0x7f060040
+			public const int GmailLoginButton = 2131099712;
+			
+			// aapt resource value: 0x7f06005a
+			public const int HairColorText = 2131099738;
+			
+			// aapt resource value: 0x7f06004c
+			public const int Height_ins_textview = 2131099724;
+			
+			// aapt resource value: 0x7f060044
+			public const int HomeDNAButton = 2131099716;
+			
+			// aapt resource value: 0x7f06003f
+			public const int HotmailLoginButton = 2131099711;
+			
+			// aapt resource value: 0x7f06003e
+			public const int IDCheckListItemCheckBox = 2131099710;
 			
 			// aapt resource value: 0x7f06003d
-			public const int GmailLoginButton = 2131099709;
-			
-			// aapt resource value: 0x7f060057
-			public const int HairColorText = 2131099735;
-			
-			// aapt resource value: 0x7f060049
-			public const int Height_ins_textview = 2131099721;
-			
-			// aapt resource value: 0x7f060041
-			public const int HomeDNAButton = 2131099713;
+			public const int IDCheckListListView = 2131099709;
 			
 			// aapt resource value: 0x7f06003c
-			public const int HotmailLoginButton = 2131099708;
+			public const int IDCheckListTitleTextView = 2131099708;
 			
 			// aapt resource value: 0x7f060024
 			public const int IDChecklistButton = 2131099684;
@@ -237,11 +246,11 @@ namespace MCM.Droid.Classic
 			// aapt resource value: 0x7f06000e
 			public const int LastNameText = 2131099662;
 			
-			// aapt resource value: 0x7f060050
-			public const int MeasumentDateTextView = 2131099728;
+			// aapt resource value: 0x7f060053
+			public const int MeasumentDateTextView = 2131099731;
 			
-			// aapt resource value: 0x7f060051
-			public const int MeasurementPickDateButton = 2131099729;
+			// aapt resource value: 0x7f060054
+			public const int MeasurementPickDateButton = 2131099732;
 			
 			// aapt resource value: 0x7f06001e
 			public const int MeasurementsButton = 2131099678;
@@ -249,32 +258,32 @@ namespace MCM.Droid.Classic
 			// aapt resource value: 0x7f060022
 			public const int MedicalAlertInfoButton = 2131099682;
 			
-			// aapt resource value: 0x7f060052
-			public const int MedicalAlertInfoTextView = 2131099730;
+			// aapt resource value: 0x7f060055
+			public const int MedicalAlertInfoTextView = 2131099733;
 			
-			// aapt resource value: 0x7f060053
-			public const int MedicalAlertText = 2131099731;
+			// aapt resource value: 0x7f060056
+			public const int MedicalAlertText = 2131099734;
 			
 			// aapt resource value: 0x7f06000c
 			public const int MiddleNameText = 2131099660;
 			
-			// aapt resource value: 0x7f060043
-			public const int MissingChildButton = 2131099715;
+			// aapt resource value: 0x7f060046
+			public const int MissingChildButton = 2131099718;
 			
-			// aapt resource value: 0x7f060054
-			public const int MissingChildWebView = 2131099732;
+			// aapt resource value: 0x7f060057
+			public const int MissingChildWebView = 2131099735;
 			
 			// aapt resource value: 0x7f060007
 			public const int MyButton = 2131099655;
 			
-			// aapt resource value: 0x7f060040
-			public const int MyChildrenButton = 2131099712;
+			// aapt resource value: 0x7f060043
+			public const int MyChildrenButton = 2131099715;
 			
 			// aapt resource value: 0x7f060019
 			public const int PercentComplete = 2131099673;
 			
-			// aapt resource value: 0x7f060056
-			public const int PhysicalDetailTitleTextView = 2131099734;
+			// aapt resource value: 0x7f060059
+			public const int PhysicalDetailTitleTextView = 2131099737;
 			
 			// aapt resource value: 0x7f06001f
 			public const int PhysicalDetailsButton = 2131099679;
@@ -282,68 +291,68 @@ namespace MCM.Droid.Classic
 			// aapt resource value: 0x7f060012
 			public const int PickDateButton = 2131099666;
 			
-			// aapt resource value: 0x7f06005c
-			public const int RaceText = 2131099740;
+			// aapt resource value: 0x7f06005f
+			public const int RaceText = 2131099743;
 			
-			// aapt resource value: 0x7f060042
-			public const int SafetyForChildrenButton = 2131099714;
+			// aapt resource value: 0x7f060045
+			public const int SafetyForChildrenButton = 2131099717;
 			
-			// aapt resource value: 0x7f06005d
-			public const int SafetyForChildrenWebView = 2131099741;
+			// aapt resource value: 0x7f060060
+			public const int SafetyForChildrenWebView = 2131099744;
 			
-			// aapt resource value: 0x7f06005b
-			public const int SkinToneText = 2131099739;
+			// aapt resource value: 0x7f06005e
+			public const int SkinToneText = 2131099742;
 			
 			// aapt resource value: 0x7f060013
 			public const int Text = 2131099667;
 			
-			// aapt resource value: 0x7f06003e
-			public const int TwitterLoginButton = 2131099710;
+			// aapt resource value: 0x7f060041
+			public const int TwitterLoginButton = 2131099713;
 			
-			// aapt resource value: 0x7f060046
-			public const int feet = 2131099718;
+			// aapt resource value: 0x7f060049
+			public const int feet = 2131099721;
 			
-			// aapt resource value: 0x7f060047
-			public const int height_ft_textview = 2131099719;
+			// aapt resource value: 0x7f06004a
+			public const int height_ft_textview = 2131099722;
 			
 			// aapt resource value: 0x7f060008
 			public const int imageView1 = 2131099656;
 			
-			// aapt resource value: 0x7f060048
-			public const int inches = 2131099720;
+			// aapt resource value: 0x7f06004b
+			public const int inches = 2131099723;
 			
 			// aapt resource value: 0x7f060010
 			public const int linearLayout1 = 2131099664;
 			
-			// aapt resource value: 0x7f060045
-			public const int meas_height_textview = 2131099717;
+			// aapt resource value: 0x7f060048
+			public const int meas_height_textview = 2131099720;
 			
-			// aapt resource value: 0x7f06004a
-			public const int meas_weight_textview = 2131099722;
+			// aapt resource value: 0x7f06004d
+			public const int meas_weight_textview = 2131099725;
+			
+			// aapt resource value: 0x7f060065
+			public const int menu_add_child = 2131099749;
+			
+			// aapt resource value: 0x7f060064
+			public const int menu_add_feature = 2131099748;
 			
 			// aapt resource value: 0x7f060062
-			public const int menu_add_child = 2131099746;
+			public const int menu_cancel_info = 2131099746;
+			
+			// aapt resource value: 0x7f060063
+			public const int menu_delete_info = 2131099747;
 			
 			// aapt resource value: 0x7f060061
-			public const int menu_add_feature = 2131099745;
-			
-			// aapt resource value: 0x7f06005f
-			public const int menu_cancel_info = 2131099743;
-			
-			// aapt resource value: 0x7f060060
-			public const int menu_delete_info = 2131099744;
-			
-			// aapt resource value: 0x7f06005e
-			public const int menu_save_info = 2131099742;
+			public const int menu_save_info = 2131099745;
 			
 			// aapt resource value: 0x7f060006
 			public const int myButton = 2131099654;
 			
-			// aapt resource value: 0x7f06004d
-			public const int ounces = 2131099725;
+			// aapt resource value: 0x7f060050
+			public const int ounces = 2131099728;
 			
-			// aapt resource value: 0x7f06004b
-			public const int pounds = 2131099723;
+			// aapt resource value: 0x7f06004e
+			public const int pounds = 2131099726;
 			
 			// aapt resource value: 0x7f060000
 			public const int textView1 = 2131099648;
@@ -369,11 +378,11 @@ namespace MCM.Droid.Classic
 			// aapt resource value: 0x7f06002e
 			public const int textView8 = 2131099694;
 			
-			// aapt resource value: 0x7f06004c
-			public const int weight_lbs_textview = 2131099724;
+			// aapt resource value: 0x7f06004f
+			public const int weight_lbs_textview = 2131099727;
 			
-			// aapt resource value: 0x7f06004e
-			public const int weight_ozs_textview = 2131099726;
+			// aapt resource value: 0x7f060051
+			public const int weight_ozs_textview = 2131099729;
 			
 			static Id()
 			{
@@ -425,28 +434,31 @@ namespace MCM.Droid.Classic
 			public const int IDChecklist = 2130903051;
 			
 			// aapt resource value: 0x7f03000c
-			public const int Main = 2130903052;
+			public const int IDCheckListItem = 2130903052;
 			
 			// aapt resource value: 0x7f03000d
-			public const int MCM = 2130903053;
+			public const int Main = 2130903053;
 			
 			// aapt resource value: 0x7f03000e
-			public const int Measurements = 2130903054;
+			public const int MCM = 2130903054;
 			
 			// aapt resource value: 0x7f03000f
-			public const int MedicalAlertInfo = 2130903055;
+			public const int Measurements = 2130903055;
 			
 			// aapt resource value: 0x7f030010
-			public const int MissingChild = 2130903056;
+			public const int MedicalAlertInfo = 2130903056;
 			
 			// aapt resource value: 0x7f030011
-			public const int MyChildren = 2130903057;
+			public const int MissingChild = 2130903057;
 			
 			// aapt resource value: 0x7f030012
-			public const int PhysicalDetails = 2130903058;
+			public const int MyChildren = 2130903058;
 			
 			// aapt resource value: 0x7f030013
-			public const int SafetyForChildren = 2130903059;
+			public const int PhysicalDetails = 2130903059;
+			
+			// aapt resource value: 0x7f030014
+			public const int SafetyForChildren = 2130903060;
 			
 			static Layout()
 			{
