@@ -40,14 +40,34 @@
     <Compile Include="Helpers\UiContext.cs" />
     <Compile Include="McmApp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\AboutMcmPageViewModel.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\HomeDnaPageViewModel.cs" />
     <Compile Include="ViewModels\LoginPageViewModel.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />
+    <Compile Include="ViewModels\MissingChildPageViewModel.cs" />
+    <Compile Include="ViewModels\MyChildrenPageViewModel.cs" />
+    <Compile Include="ViewModels\SafetyForChildrenPageViewModel.cs" />
+    <Compile Include="Views\AboutMcmPage.xaml.cs">
+      <DependentUpon>AboutMcmPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HomeDnaPage.xaml.cs">
+      <DependentUpon>HomeDnaPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MissingChildPage.xaml.cs">
+      <DependentUpon>MissingChildPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MyChildrenPage.xaml.cs">
+      <DependentUpon>MyChildrenPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SafetyForChildrenPage.xaml.cs">
+      <DependentUpon>SafetyForChildrenPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -78,6 +98,36 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\MainPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\MyChildrenPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\HomeDnaPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\SafetyForChildrenPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\MissingChildPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\AboutMcmPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
