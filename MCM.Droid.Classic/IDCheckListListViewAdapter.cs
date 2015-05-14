@@ -17,23 +17,46 @@ namespace MCM.Droid.Classic
         private List<DataObjects.IDCheckListItem> _items;
         private Activity _context;
 
+        //blog on keeping track of state of the checkboxes: http://androidcocktail.blogspot.com/2012/04/adding-checkboxes-to-custom-listview-in.html
+        //code in blog was used as a starting guideline
         //these are needed to keep track of the state of the checkboxes
         //android re-uses the convertView during scrolling.
         //find that you check a box and when you scroll it checks other boxes that
         //were not visible and becomes checked.
-        private Dictionary<int, bool> _checkBoxStates;
+        //using the blog as a guideline to fix problem with the scrolling.
 
-        public IDCheckListListViewAdapter(Activity context, List<DataObjects.IDCheckListItem> items)
+        private Dictionary<int, bool> _checkBoxStates;
+        public Dictionary<int, bool> CheckBoxStates
+        {
+            get { return _checkBoxStates; }
+        }
+
+        public IDCheckListListViewAdapter(Activity context, List<DataObjects.IDCheckListItem> idCheckItems, List<DataObjects.ChildCheckListItem> childCheckedItems)
             : base()
         {
             _context = context;
-            _items = items;
+            _items = idCheckItems;
             if (_items != null)
             {
                 _checkBoxStates = new Dictionary<int, bool>();
                 foreach(DataObjects.IDCheckListItem listItem in _items)
                 {
-                    _checkBoxStates.Add(listItem.IDCheckListItemId, false);
+                    if (childCheckedItems != null && childCheckedItems.Count > 0)
+                    {
+                        var childlistItem = childCheckedItems.FirstOrDefault<DataObjects.ChildCheckListItem>(_ => _.IDCheckListItemId == listItem.IDCheckListItemId);
+                        if (childlistItem != null)
+                        {
+                            _checkBoxStates.Add(listItem.IDCheckListItemId, true);
+                        }
+                        else
+                        {
+                            _checkBoxStates.Add(listItem.IDCheckListItemId, false);
+                        }
+                    }
+                    else 
+                    {
+                        _checkBoxStates.Add(listItem.IDCheckListItemId, false);
+                    }
                 }
             }
         }
@@ -57,7 +80,6 @@ namespace MCM.Droid.Classic
             ViewHolder holder;
             if (view == null)
             {
-                //checkBoxItemId[position] = item.IDCheckListItemId;
                 // no view to re-use, create new
                 view = _context.LayoutInflater.Inflate(Resource.Layout.IDCheckListItem, null);
                 holder = new ViewHolder();
@@ -69,7 +91,14 @@ namespace MCM.Droid.Classic
                 holder = (ViewHolder)view.Tag;
             }
 
-            holder.chkBox.Checked = _checkBoxStates[item.IDCheckListItemId];
+            if (_checkBoxStates.ContainsKey(item.IDCheckListItemId))
+            {
+                holder.chkBox.Checked = _checkBoxStates[item.IDCheckListItemId];
+            }
+            else
+            {
+                holder.chkBox.Checked = false;
+            }
             holder.chkBox.Tag = item.IDCheckListItemId;
             holder.chkBox.Text = item.LongDescription;
             holder.chkBox.Click += (sender, e) => {

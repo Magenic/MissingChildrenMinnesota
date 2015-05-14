@@ -22,11 +22,12 @@ namespace MCM.Droid.Classic
         private GlobalVars _globalVars;
 
         private DataObjects.Child _child;
+        private List<DataObjects.ChildCheckListItem> _childIDCheckItems;
         private List<DataObjects.IDCheckListItem> _idCheckListItems;
+
+        private ProgressDialog _progressDialog;
         private TextView _pageTitleTextView;
         private ListView _idCheckListListView;
-
-        public Boolean[] CheckBoxState;
 
         protected override void OnCreate(Bundle bundle)
 		{
@@ -41,7 +42,8 @@ namespace MCM.Droid.Classic
 
 			SetContentView (Resource.Layout.IDChecklist);
 
-            GetCheckListItems();
+            GetItems();
+
             _pageTitleTextView = FindViewById<TextView>(Resource.Id.IDCheckListTitleTextView);
             _pageTitleTextView.Text = _pageTitleTextView.Text.Replace("Child ", _child.FirstName + "'s ");
         }
@@ -57,11 +59,11 @@ namespace MCM.Droid.Classic
             switch (item.ItemId)
             {
                 case Resource.Id.menu_save_info:
-                    CreateAndShowDialog("Save Clicked", "Menu");
+                    MaintainChildIDCheckList();
                     return true;
 
                 case Resource.Id.menu_cancel_info:
-                    CreateAndShowDialog("Cancel Clicked", "Menu");
+                    CancelChanges();
                     return true;
 
                 default:
@@ -70,28 +72,95 @@ namespace MCM.Droid.Classic
             }
         }
 
-        private void GetCheckListItems()
+        private void GetItems()
         {
             ProgressDialog progressDialog = new ProgressDialog(this);
             progressDialog.SetTitle("Loading");
             progressDialog.SetMessage("Please Wait...");
             progressDialog.Show();
 
-            Task<List<DataObjects.IDCheckListItem>> listItems = GetIDCheckListItems();
-            listItems.Wait();
+            GetChildIDCheckItems();
+            GetIDListItems();
 
-            _idCheckListItems = listItems.Result;
-            
-            var idCheckListListView = FindViewById<ListView>(Resource.Id.IDCheckListListView);
-            idCheckListListView.Adapter = new IDCheckListListViewAdapter(this, _idCheckListItems);
-            idCheckListListView.ItemClick += idCheckListListView_ItemClick;
+            _idCheckListListView = FindViewById<ListView>(Resource.Id.IDCheckListListView);
+            _idCheckListListView.Adapter = new IDCheckListListViewAdapter(this, _idCheckListItems, _childIDCheckItems);
 
             progressDialog.Dismiss();
         }
 
-        void idCheckListListView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
+        private void GetChildIDCheckItems()
         {
-            var selectedIDCheck = ((IDCheckListListViewAdapter)(((ListView)e.Parent).Adapter))[e.Position] as DataObjects.IDCheckListItem;
+            Task<List<DataObjects.ChildCheckListItem>> listItems = GetChildIDCheckListItems();
+            listItems.Wait();
+
+            _childIDCheckItems = listItems.Result;
+        }
+
+        private void GetIDListItems()
+        {
+            Task<List<DataObjects.IDCheckListItem>> listItems = GetIDCheckListItems();
+            listItems.Wait();
+
+            _idCheckListItems = listItems.Result;
+        }
+
+        private void CancelChanges()
+        {
+            ProgressDialog progressDialog = new ProgressDialog(this);
+            progressDialog.SetTitle("Canceling Changes");
+            progressDialog.SetMessage("Please Wait...");
+            progressDialog.Show();
+
+            _idCheckListListView = FindViewById<ListView>(Resource.Id.IDCheckListListView);
+            _idCheckListListView.Adapter = new IDCheckListListViewAdapter(this, _idCheckListItems, _childIDCheckItems);
+
+            progressDialog.Dismiss();
+        }
+
+        private void MaintainChildIDCheckList()
+        {
+            _progressDialog = new ProgressDialog(this);
+            _progressDialog.SetTitle("Saving ID Check List");
+            _progressDialog.SetMessage("Please Wait...");
+            _progressDialog.Show();
+
+            try
+            {
+                //foreach(var checkBoxState in ((IDCheckListListViewAdapter)_idCheckListListView.Adapter).CheckBoxStates)
+                Parallel.ForEach(((IDCheckListListViewAdapter)_idCheckListListView.Adapter).CheckBoxStates, checkBoxState =>
+                {
+                    var childIDCheckItem = _childIDCheckItems.FirstOrDefault<DataObjects.ChildCheckListItem>(_ => _.IDCheckListItemId == checkBoxState.Key);
+                    if (checkBoxState.Value)
+                    {
+                        if (childIDCheckItem == null)
+                        {
+                            childIDCheckItem = new DataObjects.ChildCheckListItem();
+                            childIDCheckItem.ChildId = _child.Id;
+                            childIDCheckItem.IDCheckListItemId = checkBoxState.Key;
+                            childIDCheckItem.Save(this);
+                            _childIDCheckItems.Add(childIDCheckItem);
+                        }
+                    }
+                    else
+                    {
+                        if (childIDCheckItem != null)
+                        {
+                            int pos = _childIDCheckItems.IndexOf(childIDCheckItem);
+                            childIDCheckItem.Delete(this);
+                            _childIDCheckItems.RemoveAt(pos);
+                        }
+                    }
+                });
+                //};
+            }
+            catch (Exception ex)
+            {
+                CreateAndShowDialog(string.Format("Unable to save ID Check List: {0}", ex.Message), "Save ID Check List");
+            }
+            finally
+            {
+                _progressDialog.Dismiss();
+            }
         }
 
         private void CreateAndShowDialog(string message, string title)
@@ -101,6 +170,15 @@ namespace MCM.Droid.Classic
             builder.SetMessage(message);
             builder.SetTitle(title);
             builder.Create().Show();
+        }
+
+        private Task<List<DataObjects.ChildCheckListItem>> GetChildIDCheckListItems()
+        {
+
+            Task<List<DataObjects.ChildCheckListItem>> t = Task.Run(() => _globalVars.MobileServiceClient.GetTable<DataObjects.ChildCheckListItem>()
+                .ToListAsync());
+
+            return t;
         }
 
         private Task<List<DataObjects.IDCheckListItem>> GetIDCheckListItems()
@@ -113,7 +191,7 @@ namespace MCM.Droid.Classic
             return t;
         }
 
-        public Task<DataObjects.IDCheckListItem> GetIDCheckListItem(int idCheckListItemId)
+        private Task<DataObjects.IDCheckListItem> GetIDCheckListItem(int idCheckListItemId)
         {
 
             Task<List<DataObjects.IDCheckListItem>> t = Task.Run(() => _globalVars.MobileServiceClient.GetTable<DataObjects.IDCheckListItem>()
