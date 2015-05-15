@@ -122,6 +122,10 @@
     <AndroidResource Include="Resources\drawable\splash.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Core\MCM.Core.Droid\MCM.Core.Droid.csproj">
+      <Project>{bca78beb-c768-41d4-bc36-242c675e38c5}</Project>
+      <Name>MCM.Core.Droid</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MCM.Forms\MCM.Forms.csproj">
       <Name>MCM.Forms</Name>
     </ProjectReference>

@@ -1,6 +1,7 @@
 using Cirrious.CrossCore;
 using Cirrious.MvvmCross.Touch.Views.Presenters;
 using Cirrious.MvvmCross.ViewModels;
+using MCM.Core.Helpers;
 using System.Threading.Tasks;
 using UIKit;
 using Xamarin.Forms;

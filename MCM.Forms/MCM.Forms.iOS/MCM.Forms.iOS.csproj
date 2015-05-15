@@ -98,6 +98,7 @@
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <Compile Include="Setup.cs" />
+    <None Include="app.config" />
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -106,6 +107,12 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Core\MCM.Core.iOS\MCM.Core.iOS.csproj">
+      <Project>{dcfcd378-8285-46f8-bba9-cce487f9dff5}</Project>
+      <Name>MCM.Core.iOS</Name>
+      <IsAppExtension>false</IsAppExtension>
+      <IsWatchApp>false</IsWatchApp>
+    </ProjectReference>
     <ProjectReference Include="..\MCM.Forms\MCM.Forms.csproj">
       <Name>MCM.Forms</Name>
     </ProjectReference>

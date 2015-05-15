@@ -172,6 +172,10 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Core\MCM.Core.WinPhone\MCM.Core.WinPhone.csproj">
+      <Project>{37e1c7ae-8062-4fad-9e01-136dbb9aff9e}</Project>
+      <Name>MCM.Core.WinPhone</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MCM.Forms\MCM.Forms.csproj">
       <Project>{8e3b0342-9ded-4243-9307-b47355ecb680}</Project>
       <Name>MCM.Forms</Name>

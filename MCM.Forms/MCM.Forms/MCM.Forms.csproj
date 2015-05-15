@@ -34,10 +34,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Helpers\IUiContext.cs" />
     <Compile Include="Helpers\MvxAppStart.cs" />
     <Compile Include="Helpers\MvxPresenterHelpers.cs" />
-    <Compile Include="Helpers\UiContext.cs" />
     <Compile Include="McmApp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\AboutMcmPageViewModel.cs" />
