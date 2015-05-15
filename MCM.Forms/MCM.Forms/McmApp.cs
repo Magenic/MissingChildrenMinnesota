@@ -1,5 +1,7 @@
 ﻿using Cirrious.CrossCore;
 using Cirrious.CrossCore.IoC;
+using MCM.Core.Helpers;
+using MCM.Core.Services;
 using MCM.Forms.Helpers;
 
 namespace MCM.Forms
@@ -17,6 +19,10 @@ namespace MCM.Forms
 				.EndingWith("ViewModel")
 				.AsTypes()
 				.RegisterAsDynamic();
+
+			Mvx.RegisterSingleton<IUiContext>(new UiContext());
+
+			Mvx.RegisterType(typeof(IMobileService), typeof(MobileService));
 				
             RegisterAppStart(new MvxAppStart());
         }

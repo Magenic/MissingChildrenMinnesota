@@ -176,10 +176,6 @@
       <Project>{37e1c7ae-8062-4fad-9e01-136dbb9aff9e}</Project>
       <Name>MCM.Core.WinPhone</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MCM.Forms\MCM.Forms.csproj">
-      <Project>{8e3b0342-9ded-4243-9307-b47355ecb680}</Project>
-      <Name>MCM.Forms</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Cirrious.CrossCore">
@@ -213,6 +209,7 @@
       <HintPath>..\..\packages\Xamarin.Forms.1.4.2.6359\lib\WP80\Xamarin.Forms.Xaml.dll</HintPath>
     </Reference>
   </ItemGroup>
+  <Import Project="..\MCM.Forms\MCM.Forms.projitems" Label="Shared" Condition="Exists('..\MCM.Forms\MCM.Forms.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>0d129a1a-a24b-48f9-99a1-bb1ec5f25b2c</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>MCM.Forms</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\MvxAppStart.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\MvxPresenterHelpers.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)McmApp.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\AboutMcmPageViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\BaseViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\HomeDnaPageViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\LoginPageViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\MainPageViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\MissingChildPageViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\MyChildrenPageViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\SafetyForChildrenPageViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\AboutMcmPage.xaml.cs">
+      <DependentUpon>AboutMcmPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\HomeDnaPage.xaml.cs">
+      <DependentUpon>HomeDnaPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\MissingChildPage.xaml.cs">
+      <DependentUpon>MissingChildPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\MyChildrenPage.xaml.cs">
+      <DependentUpon>MyChildrenPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\SafetyForChildrenPage.xaml.cs">
+      <DependentUpon>SafetyForChildrenPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\AboutMcmPage.xaml" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\HomeDnaPage.xaml" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\LoginPage.xaml" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\MainPage.xaml" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\MissingChildPage.xaml" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\MyChildrenPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\SafetyForChildrenPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

@@ -1,4 +1,5 @@
 using Android.Content;
+using Android.Runtime;
 using Cirrious.CrossCore;
 using Cirrious.CrossCore.IoC;
 using Cirrious.CrossCore.Platform;
@@ -6,6 +7,7 @@ using Cirrious.MvvmCross.Droid.Platform;
 using Cirrious.MvvmCross.Droid.Views;
 using Cirrious.MvvmCross.ViewModels;
 using MCM.Forms.Helpers;
+using System;
 
 namespace MCM.Forms
 {
@@ -13,6 +15,15 @@ namespace MCM.Forms
     {
         public Setup(Context applicationContext) : base(applicationContext)
         {
+			AppDomain.CurrentDomain.UnhandledException += (s, e) =>
+			{
+				Mvx.Error(e.ToString());
+			};
+
+			AndroidEnvironment.UnhandledExceptionRaiser += (s, e) =>
+			{
+				Mvx.Error(e.ToString());
+			};
         }
 
         protected override IMvxApplication CreateApp()
