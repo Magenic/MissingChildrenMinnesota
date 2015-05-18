@@ -19,7 +19,8 @@ namespace MCM.Service
             // line. Comment it out again when you deploy your service for production use.
             // config.IncludeErrorDetailPolicy = IncludeErrorDetailPolicy.Always;
 
-            Database.SetInitializer(new MobileServiceInitializer());
+            //Database.SetInitializer(new MobileServiceInitializer());
+            Database.SetInitializer<MobileServiceContext>(null);
         }
     }
 
