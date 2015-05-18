@@ -51,5 +51,11 @@ namespace MCM.Service.Models
         public DbSet<PictureType> PictureTypes { get; set; }
 
         public DbSet<Picture> Pictures { get; set; }
+
+        public DbSet<IDCheckListItem> IDCheckListItems { get; set; }
+
+        public DbSet<ChildCheckListItem> ChildCheckListItems { get; set; }
+
+        public DbSet<StaticContent> StaticContents { get; set; }
     }
 }

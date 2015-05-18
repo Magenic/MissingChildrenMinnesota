@@ -186,18 +186,24 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\ChildCheckListItemController.cs" />
     <Compile Include="Controllers\ChildController.cs" />
     <Compile Include="Controllers\ChildMeasurementController.cs" />
     <Compile Include="Controllers\ChildVitalsController.cs" />
     <Compile Include="Controllers\DistinguishingFeatureController.cs" />
+    <Compile Include="Controllers\IDCheckListItemController.cs" />
     <Compile Include="Controllers\PictureController.cs" />
     <Compile Include="Controllers\PictureTypeController.cs" />
+    <Compile Include="Controllers\StaticContentController.cs" />
     <Compile Include="DataObjects\Child.cs" />
+    <Compile Include="DataObjects\ChildCheckListItem.cs" />
     <Compile Include="DataObjects\ChildMeasurement.cs" />
     <Compile Include="DataObjects\ChildVitals.cs" />
     <Compile Include="DataObjects\DistinguishingFeature.cs" />
+    <Compile Include="DataObjects\IDCheckListItem.cs" />
     <Compile Include="DataObjects\Picture.cs" />
     <Compile Include="DataObjects\PictureType.cs" />
+    <Compile Include="DataObjects\StaticContent.cs" />
     <Compile Include="Models\MobileServiceContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
