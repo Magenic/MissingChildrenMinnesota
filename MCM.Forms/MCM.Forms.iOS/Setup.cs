@@ -1,12 +1,11 @@
-using Cirrious.CrossCore.Platform;
-using Cirrious.MvvmCross.ViewModels;
-using Cirrious.MvvmCross.Touch.Platform;
-using UIKit;
-using Cirrious.MvvmCross.Touch.Views.Presenters;
-using MCM.Forms.Helpers;
 using Cirrious.CrossCore;
-using Cirrious.CrossCore.Touch.Views;
-using Cirrious.CrossCore.IoC;
+using Cirrious.CrossCore.Platform;
+using Cirrious.MvvmCross.Touch.Platform;
+using Cirrious.MvvmCross.Touch.Views.Presenters;
+using Cirrious.MvvmCross.ViewModels;
+using MCM.Core.Helpers;
+using MCM.Forms.Helpers;
+using UIKit;
 
 namespace MCM.Forms
 {

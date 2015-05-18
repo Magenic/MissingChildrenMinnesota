@@ -1,8 +1,10 @@
 ﻿<Properties StartupItem="MCM.Forms\MCM.Forms\MCM.Forms.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="MCM.Forms\MCM.Forms\Views\LoginPage.xaml">
+  <MonoDevelop.Ide.Workbench ActiveDocument="MCM.Forms\MCM.Forms\Views\MainPage.xaml">
     <Files>
-      <File FileName="MCM.Forms\MCM.Forms\Views\LoginPage.xaml" Line="8" Column="60" />
+      <File FileName="MCM.Forms\MCM.Forms\Views\LoginPage.xaml" Line="1" Column="1" />
+      <File FileName="MCM.Forms\MCM.Forms\Views\MainPage.xaml" Line="39" Column="30" />
+      <File FileName="MCM.Forms\MCM.Forms\Views\MyChildrenPage.xaml" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

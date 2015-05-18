@@ -26,6 +26,8 @@ namespace MCM.Forms
 		
 		public static void UpdateIdValues()
 		{
+			global::MCM.Core.Resource.String.ApplicationName = global::MCM.Forms.Resource.String.ApplicationName;
+			global::MCM.Core.Resource.String.Hello = global::MCM.Forms.Resource.String.Hello;
 		}
 		
 		public partial class Attribute
@@ -109,6 +111,25 @@ namespace MCM.Forms
 			}
 			
 			private Layout()
+			{
+			}
+		}
+		
+		public partial class String
+		{
+			
+			// aapt resource value: 0x7f060001
+			public const int ApplicationName = 2131099649;
+			
+			// aapt resource value: 0x7f060000
+			public const int Hello = 2131099648;
+			
+			static String()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private String()
 			{
 			}
 		}

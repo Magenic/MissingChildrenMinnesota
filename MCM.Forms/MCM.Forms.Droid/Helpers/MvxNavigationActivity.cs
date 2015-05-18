@@ -3,6 +3,7 @@ using Android.Content.PM;
 using Android.OS;
 using Cirrious.CrossCore;
 using Cirrious.MvvmCross.ViewModels;
+using MCM.Core.Helpers;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 
