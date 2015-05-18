@@ -21,7 +21,7 @@ namespace MCM.Forms
 				.RegisterAsDynamic();
 
 			Mvx.RegisterSingleton<IUiContext>(new UiContext());
-
+			Mvx.RegisterType(typeof(IConfiguration), typeof(Configuration));
 			Mvx.RegisterType(typeof(IMobileService), typeof(MobileService));
 				
             RegisterAppStart(new MvxAppStart());

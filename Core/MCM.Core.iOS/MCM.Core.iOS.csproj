@@ -61,6 +61,7 @@
     </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
     <Reference Include="Xamarin.iOS" />
   </ItemGroup>
   <Import Project="..\MCM.Core\MCM.Core.projitems" Label="Shared" Condition="Exists('..\MCM.Core\MCM.Core.projitems')" />
