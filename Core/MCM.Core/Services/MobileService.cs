@@ -2,9 +2,7 @@
 using MCM.Core.Models;
 using Microsoft.WindowsAzure.MobileServices;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace MCM.Core.Services
@@ -12,18 +10,30 @@ namespace MCM.Core.Services
 	[SuppressMessage("Microsoft.Design", "CA1001:TypesThatOwnDisposableFieldsShouldBeDisposable")]
 	public sealed class MobileService : IMobileService
 	{
+		private readonly MobileServiceClient mobileService;
+		private readonly IConfiguration configuration;
 #if ANDROID || IOS
 		private readonly IUiContext currentUiContext;
 
-		public MobileService(IUiContext uiContext)
+		public MobileService(IUiContext uiContext, IConfiguration configuration)
 		{
 			this.currentUiContext = uiContext;
+			this.configuration = configuration;
+
+			mobileService = new MobileServiceClient(
+				configuration.GetValue<string>(Constants.ConfigurationKeys.MobileServiceUrl),
+				configuration.GetValue<string>(Constants.ConfigurationKeys.MobileServiceKey));
+		}
+#else
+		public MobileService(IConfiguration configuration)
+		{
+			this.configuration = configuration;
+
+			mobileService = new MobileServiceClient(
+				configuration.GetValue<string>(Constants.ConfigurationKeys.MobileServiceUrl),
+				configuration.GetValue<string>(Constants.ConfigurationKeys.MobileServiceKey));
 		}
 #endif // ANDROID || IOS
-
-		private readonly MobileServiceClient mobileService = new MobileServiceClient(
-			"",
-			"");
 
 		public async Task<User> AuthenticateAsync(AuthenticationProvider provider)
 		{

@@ -184,3 +184,6 @@ FakesAssemblies/
 GeneratedArtifacts/
 _Pvt_Extensions/
 ModelManifest.xml
+
+# Private Configuration File
+Core/MCM.Core/config.xml
