@@ -7,8 +7,11 @@ using Microsoft.WindowsAzure.Mobile.Service;
 using MCM.Service.DataObjects;
 using MCM.Service.Models;
 
-namespace MCM_NormanGService.Controllers
+using Microsoft.WindowsAzure.Mobile.Service.Security;
+
+namespace MCM.Service.Controllers
 {
+    [AuthorizeLevel(AuthorizationLevel.User)]
     public class PictureController : TableController<Picture>
     {
         protected override void Initialize(HttpControllerContext controllerContext)
