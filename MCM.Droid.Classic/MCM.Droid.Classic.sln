@@ -5,7 +5,15 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCM.Droid.Classic", "MCM.Droid.Classic.csproj", "{6FBC0134-4048-4700-B27A-05EF5D4017A5}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "MCM.Core", "..\Core\MCM.Core\MCM.Core.shproj", "{7FAA0D62-8408-4952-8E9F-963B59CE5009}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCM.Core.Droid", "..\Core\MCM.Core.Droid\MCM.Core.Droid.csproj", "{BCA78BEB-C768-41D4-BC36-242C675E38C5}"
+EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		..\Core\MCM.Core\MCM.Core.projitems*{bca78beb-c768-41d4-bc36-242c675e38c5}*SharedItemsImports = 4
+		..\Core\MCM.Core\MCM.Core.projitems*{7faa0d62-8408-4952-8e9f-963b59ce5009}*SharedItemsImports = 13
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -17,6 +25,10 @@ Global
 		{6FBC0134-4048-4700-B27A-05EF5D4017A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6FBC0134-4048-4700-B27A-05EF5D4017A5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6FBC0134-4048-4700-B27A-05EF5D4017A5}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{BCA78BEB-C768-41D4-BC36-242C675E38C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCA78BEB-C768-41D4-BC36-242C675E38C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCA78BEB-C768-41D4-BC36-242C675E38C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCA78BEB-C768-41D4-BC36-242C675E38C5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
