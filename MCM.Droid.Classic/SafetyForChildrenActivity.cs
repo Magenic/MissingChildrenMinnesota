@@ -24,6 +24,9 @@ namespace MCM.Droid.Classic
         private string _mimeType = "text/html";
         private string _encoding = "utf-8";
         private WebView _htmlWebView;
+        private ProgressDialog _progressDialog;
+        private string _pageContent = string.Empty;
+        private bool _saveContentToFile = false;
         
         protected override void OnCreate(Bundle bundle)
 		{
@@ -39,49 +42,92 @@ namespace MCM.Droid.Classic
 
             _htmlWebView = (WebView)FindViewById(Resource.Id.SafetyForChildrenWebView);
 
-            string content = string.Empty;
+            _progressDialog = new ProgressDialog(this);
+            _progressDialog.SetTitle("Retreiving page content");
+            _progressDialog.SetMessage("Please Wait...");
+            _progressDialog.Show();
 
-            DateTime updatedAt = GetStaticContentDate();
-            content = GetStaticContentContent();
+            GetPageContent();
 
-            //using (DataObjects.StaticContent staticContent = GetStaticContentItem())
-            //{
-            //};
+        }
+
+        private async void GetPageContent()
+        {
+            await DisplayRetrievedContent();
             
-            ////Read the contents of our asset
-            //using (StreamReader sr = new StreamReader(Application.Context.Resources.Assets.Open("SafetyForChildren.txt")))
-            //{
-            //    content = sr.ReadToEnd();
-            //}
+            _htmlWebView.LoadData(_pageContent, _mimeType, _encoding);
 
-            _htmlWebView.LoadData(content, _mimeType, _encoding);
+            if (_saveContentToFile)
+            {
+                SaveContentToInternalStorage(_pageContent);
+            }
+
+            _progressDialog.Dismiss();
+        }
+
+        private Task DisplayRetrievedContent()
+        {
+            DateTime fileDt = DateTime.MinValue;
+            Java.IO.File file = this.GetFileStreamPath("SafetyForChildren.txt");
+            if (file.Exists())
+            {
+                Java.Text.SimpleDateFormat sdf = new Java.Text.SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+                fileDt = DateTime.Parse(sdf.Format(file.LastModified()));
+            }
+
+            DateTime databaseDt = GetStaticContentDate();
+
+            Task t = Task.Run(() => 
+                {
+                    DetermineStaticContentSource(databaseDt, fileDt);
+                });
+
+            t.Wait();
+
+            return t;
+        }
+
+        private void DetermineStaticContentSource(DateTime databaseDate, DateTime fileDate)
+        {
+            try
+            {
+                if (fileDate == DateTime.MinValue || databaseDate > fileDate)
+                {
+                    //Read the contents of file from database
+                    _pageContent = GetStaticContentContent();
+                    _saveContentToFile = true;
+                }
+                else
+                {
+                    //Read the contents of file from internal storage
+                    _pageContent = GetContentFromInternalStorage();
+                }
+            }
+            catch (Exception ex)
+            {
+                _pageContent = string.Format("Unable to retrieve content: {0}", ex.Message);
+            }
         }
 
         private DateTime GetStaticContentDate()
         {
-            DateTime updatedAt = DateTime.MinValue;
-
             //var t = Task.Run(() => (from sc in _globalVars.MobileServiceClient.GetTable<DataObjects.StaticContent>()
             //                        where sc.ContentTypeCode == "Page" && sc.ContentName == "SafetyForChildren"
             //                        select (sc.UpdatedAt)).ToListAsync());
+            DateTime updatedDt = DateTime.MinValue;
 
             var t = Task.Run(() => _globalVars.MobileServiceClient.GetTable<DataObjects.StaticContent>()
                 .Where(_ => _.ContentTypeCode == "Page" && _.ContentName == "SafetyForChildren")
                 .Select(_ => _.__updatedAt)
-                .ToListAsync()
-                );
+                .ToListAsync());
 
             t.Wait();
 
             if (t != null && t.Result != null && t.Result.Count > 0)
             {
-                if (t.Result[0].HasValue)
-                {
-                    updatedAt = t.Result[0].GetValueOrDefault().DateTime;
-                }                
+                updatedDt = t.Result[0].GetValueOrDefault().DateTime;
             }
-
-            return updatedAt;
+            return updatedDt;
         }
 
         private string GetStaticContentContent()
@@ -100,6 +146,33 @@ namespace MCM.Droid.Classic
             {
                 content = t.Result[0];
             }
+
+            return content;
+        }
+
+        private async void SaveContentToInternalStorage(string content)
+        {
+            using (var output = new StreamWriter(OpenFileOutput("SafetyForChildren.txt", FileCreationMode.Private)))
+            {
+                await output.WriteAsync(content).ConfigureAwait(false);
+            }
+        }
+
+        private string GetContentFromInternalStorage()
+        {
+            string content = string.Empty;
+
+            //Read the contents of file from internal storage
+            using (StreamReader sr = new StreamReader(this.ApplicationContext.OpenFileInput("SafetyForChildren.txt")))
+            {
+                content = sr.ReadToEnd();
+            }
+
+            ////Read the contents of file under assets folder
+            //using (StreamReader sr = new StreamReader(Application.Context.Resources.Assets.Open("SafetyForChildren.txt")))
+            //{
+            //    content = sr.ReadToEnd();
+            //}
 
             return content;
         }
