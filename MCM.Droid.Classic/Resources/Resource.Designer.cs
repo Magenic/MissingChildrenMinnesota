@@ -26,6 +26,8 @@ namespace MCM.Droid.Classic
 		
 		public static void UpdateIdValues()
 		{
+			global::MCM.Core.Resource.String.ApplicationName = global::MCM.Droid.Classic.Resource.String.ApplicationName;
+			global::MCM.Core.Resource.String.Hello = global::MCM.Droid.Classic.Resource.String.Hello;
 		}
 		
 		public partial class Attribute
@@ -500,6 +502,12 @@ namespace MCM.Droid.Classic
 		
 		public partial class String
 		{
+			
+			// aapt resource value: 0x7f040041
+			public const int ApplicationName = 2130968641;
+			
+			// aapt resource value: 0x7f040040
+			public const int Hello = 2130968640;
 			
 			// aapt resource value: 0x7f040004
 			public const int aboutmcm_layout_label = 2130968580;

@@ -173,6 +173,12 @@
     <AndroidResource Include="Resources\menu\menu_distinguishingfeature.xml" />
     <AndroidResource Include="Resources\menu\menu_save_cancel_delete.xml" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Core\MCM.Core.Droid\MCM.Core.Droid.csproj">
+      <Project>{bca78beb-c768-41d4-bc36-242c675e38c5}</Project>
+      <Name>MCM.Core.Droid</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
   <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
