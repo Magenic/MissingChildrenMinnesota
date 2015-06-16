@@ -12,12 +12,12 @@
         android:layout_height="wrap_content"
         android:id="@+id/textView1" />
     <Button
-        android:id="@+id/myButton"
+        android:id="@+id/CameraButton"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="Open Camera" />
     <Button
-        android:id="@+id/MyButton"
+        android:id="@+id/PickImageButton"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="Pick Image" />

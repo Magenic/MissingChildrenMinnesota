@@ -17,5 +17,11 @@ namespace MCM.Core
             MissingChildren,
             SafetyForChildren
         }
+
+        public enum PictureTypes
+        {
+            Picture,
+            Icon
+        }
     }
 }

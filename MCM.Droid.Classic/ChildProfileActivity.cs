@@ -144,11 +144,17 @@ namespace MCM.Droid.Classic
             else
             {
                 _pageTitleTextView.Text = string.Format("{0}'s Profile", _child.FirstName );
+                _imageView.SetImageBitmap(null);
                 if (!string.IsNullOrEmpty(_child.PictureUri))
                 {
-                    _imageView = null;
-                    _imageView = FindViewById<ImageView>(Resource.Id.ChildPhotoImageView);
-                    _imageView.SetImageURI(Android.Net.Uri.Parse(_child.PictureUri));
+                    Java.IO.File file = new Java.IO.File(this.ApplicationInfo.DataDir, _child.PictureUri);
+                    if (file.Exists())
+                    {
+                        int height = Resources.DisplayMetrics.HeightPixels;
+                        int width = _imageView.Width;
+                        Bitmap bm = file.Path.LoadAndResizeBitmap(width, height);
+                        _imageView.SetImageBitmap(bm);
+                    }
                 }
                 EnableChildInfoButtons();
             }

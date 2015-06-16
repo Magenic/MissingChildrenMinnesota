@@ -107,6 +107,9 @@ namespace MCM.Droid.Classic
 			// aapt resource value: 0x7f060042
 			public const int BypassLoginButton = 2131099714;
 			
+			// aapt resource value: 0x7f060006
+			public const int CameraButton = 2131099654;
+			
 			// aapt resource value: 0x7f060018
 			public const int CheckListLabel = 2131099672;
 			
@@ -275,9 +278,6 @@ namespace MCM.Droid.Classic
 			// aapt resource value: 0x7f060057
 			public const int MissingChildWebView = 2131099735;
 			
-			// aapt resource value: 0x7f060007
-			public const int MyButton = 2131099655;
-			
 			// aapt resource value: 0x7f060043
 			public const int MyChildrenButton = 2131099715;
 			
@@ -292,6 +292,9 @@ namespace MCM.Droid.Classic
 			
 			// aapt resource value: 0x7f060012
 			public const int PickDateButton = 2131099666;
+			
+			// aapt resource value: 0x7f060007
+			public const int PickImageButton = 2131099655;
 			
 			// aapt resource value: 0x7f06005f
 			public const int RaceText = 2131099743;
@@ -346,9 +349,6 @@ namespace MCM.Droid.Classic
 			
 			// aapt resource value: 0x7f060061
 			public const int menu_save_info = 2131099745;
-			
-			// aapt resource value: 0x7f060006
-			public const int myButton = 2131099654;
 			
 			// aapt resource value: 0x7f060050
 			public const int ounces = 2131099728;

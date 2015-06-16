@@ -23,6 +23,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Services\MobileService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)config.xml" />
+    <Content Include="$(MSBuildThisFileDirectory)config.xml" />
   </ItemGroup>
 </Project>

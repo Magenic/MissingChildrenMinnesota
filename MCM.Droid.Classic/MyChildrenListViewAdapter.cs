@@ -5,10 +5,12 @@ using System.Text;
 
 using Android.App;
 using Android.Content;
+using Android.Content.Res;
 using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Android.Graphics;
 
 namespace MCM.Droid.Classic
 {
@@ -44,11 +46,19 @@ namespace MCM.Droid.Classic
             view.FindViewById<TextView>(Resource.Id.Age).Text = item.DisplayAge; 
             view.FindViewById<TextView>(Resource.Id.FirstName).Text = item.FirstName;
             view.FindViewById<TextView>(Resource.Id.PercentComplete).Text = item.DisplayCompletion;
+            var imageView = view.FindViewById<ImageView>(Resource.Id.Image);
+            imageView.SetImageBitmap(null);
 
             if (!string.IsNullOrEmpty(item.PictureUri))
             {
-                var imageView = view.FindViewById<ImageView>(Resource.Id.Image);
-                imageView.SetImageURI(Android.Net.Uri.Parse(item.PictureUri));
+
+                Java.IO.File file = new Java.IO.File(this.context.ApplicationInfo.DataDir, item.PictureUri);
+                if (file.Exists())
+                {
+                    //the size of the image is 100, 100 as code in the axml.
+                    Bitmap bm = file.Path.LoadAndResizeBitmap(100, 100);
+                    imageView.SetImageBitmap(bm);
+                }
             }
             return view;
         }

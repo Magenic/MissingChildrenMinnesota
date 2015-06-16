@@ -21,6 +21,8 @@ using Android.Graphics.Drawables;
 using Newtonsoft.Json;
 using System.Threading.Tasks;
 
+using MCM.Core;
+
 namespace MCM.Droid.Classic
 {
     [Activity(Label = "@string/addphoto_layout_label")]
@@ -33,6 +35,8 @@ namespace MCM.Droid.Classic
         };
 
         private ImageView _imageView;
+        private Button _cameraButton;
+        private Button _pickImageButton;
         private DataObjects.Child _child;
 
         private ProgressDialog _progressDialog;
@@ -49,25 +53,42 @@ namespace MCM.Droid.Classic
 
             SetContentView(Resource.Layout.AddPhoto);
             _imageView = FindViewById<ImageView>(Resource.Id.imageView1);
-            Button button = FindViewById<Button>(Resource.Id.MyButton);
-            button.Click += ChooseImageButtonClick;
+            _cameraButton = FindViewById<Button>(Resource.Id.CameraButton);
+            _pickImageButton = FindViewById<Button>(Resource.Id.PickImageButton);
+            _pickImageButton.Click += ChooseImageButtonClick;
 
+            _imageView.SetImageBitmap(null);
             if (!string.IsNullOrEmpty(_child.PictureUri))
             {
-                _imageView.SetImageURI(Android.Net.Uri.Parse(_child.PictureUri));
+                Java.IO.File file = new Java.IO.File(this.ApplicationInfo.DataDir, _child.PictureUri);
+                if (file.Exists())
+                {
+                    //string uri = file.CanonicalPath;
+                    //_imageView.SetImageURI(Android.Net.Uri.Parse(uri));
+
+                    int height = Resources.DisplayMetrics.HeightPixels;
+                    int width = _imageView.Width;
+                    Bitmap bm = file.Path.LoadAndResizeBitmap(width, height);
+
+                    _imageView.SetImageBitmap(bm);
+                }
             }
 
             if (IsThereAnAppToTakePictures())
             {
+                _cameraButton.Enabled = true;
                 CreateDirectoryForPictures();
 
-                Button cameraButton = FindViewById<Button>(Resource.Id.myButton);
                 //if (CameraCapture.bitmap != null)
                 //{
                 //    _imageView.SetImageBitmap(CameraCapture.bitmap);
                 //    CameraCapture.bitmap = null;
                 //}
-                cameraButton.Click += TakeAPicture;
+                _cameraButton.Click += TakeAPicture;
+            }
+            else
+            {
+                _cameraButton.Enabled = false;
             }
         }
 
@@ -84,17 +105,26 @@ namespace MCM.Droid.Classic
                 case Resource.Id.menu_save_info:
                     if (!string.IsNullOrWhiteSpace(_srcPath))
                     {
-                        var documentsPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
-                        var filePath = System.IO.Path.Combine(documentsPath, string.Format("{0}_{1}_{2}{3}", _child.FirstName, _child.Id, "P", System.IO.Path.GetExtension(_srcPath) ?? ".jpg"));
-                        _child.PictureUri = filePath;
+                        try
+                        {
+                            //var documentsPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
+                            string fileName = string.Format("{0}_{1}_{2}{3}", _child.FirstName, _child.Id, Enums.PictureTypes.Picture.ToString(), System.IO.Path.GetExtension(_srcPath) ?? ".jpg");
+                            //var filePath = System.IO.Path.Combine(documentsPath, fileName);
 
-                        System.IO.File.Copy(_srcPath, filePath, true);
+                            Utility.SaveFileToInternalStorage(this, new Java.IO.File(_srcPath), fileName);
+                            //System.IO.File.Copy(_srcPath, filePath, true);
 
-                        Intent returnIntent = new Intent();
-                        returnIntent.PutExtra("Child", JsonConvert.SerializeObject(_child));
-                        this.SetResult(Result.Ok, returnIntent);
+                            _child.PictureUri = fileName;
+                            Intent returnIntent = new Intent();
+                            returnIntent.PutExtra("Child", JsonConvert.SerializeObject(_child));
+                            this.SetResult(Result.Ok, returnIntent);
 
-                        SaveChildPhoto();
+                            SaveChildPhoto();
+                        }
+                        catch (System.Exception ex)
+                        {
+                            string errMsg = ex.Message;
+                        }
                     }
                     else
                     {
@@ -147,34 +177,43 @@ namespace MCM.Droid.Classic
 
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
         {
-            if ((resultCode == Result.Ok) && (data != null))
+
+            //the parameter, data, that is returned from the call to the camera is usually null
+            if ((resultCode == Result.Ok))
             {
+                Bitmap bm = null;
+                int height = Resources.DisplayMetrics.HeightPixels;
+                int width = _imageView.Width;
+
                 if ((requestCode == (int)ActivityRequests.FromGallery))
                 {
                     Android.Net.Uri uri = data.Data;
-                    _imageView.SetImageURI(uri);
-
                     _srcPath = GetPathFromGalleryItem(uri);
 
+                    bm = new File(_srcPath).Path.LoadAndResizeBitmap(width, height);
                 }
                 else
                 {
-                    // make it available in the gallery
-                    Intent mediaScanIntent = new Intent(Intent.ActionMediaScannerScanFile);
-                    Uri contentUri = Uri.FromFile(CameraCapture._file);
-                    mediaScanIntent.SetData(contentUri);
-                    SendBroadcast(mediaScanIntent);
+                    //the camera capture file is deleted before calling the camera.
+                    //this checks whether the camera creates the file when a pciture is taken.
+                    if (CameraCapture._file.Exists())
+                    {
+                        // make it available in the gallery
+                        Intent mediaScanIntent = new Intent(Intent.ActionMediaScannerScanFile);
+                        Uri contentUri = Uri.FromFile(CameraCapture._file);
+                        mediaScanIntent.SetData(contentUri);
+                        SendBroadcast(mediaScanIntent);
 
-                    // display in ImageView. We will resize the bitmap to fit the display
-                    // Loading the full sized image will consume to much memory 
-                    // and cause the application to crash.
-                    int height = Resources.DisplayMetrics.HeightPixels;
-                    int width = _imageView.Width;
-                    CameraCapture.bitmap = CameraCapture._file.Path.LoadAndResizeBitmap(width, height);
-
-                    _imageView.SetImageBitmap(CameraCapture.bitmap);
-                    _srcPath = CameraCapture._file.Path;
-
+                        _srcPath = CameraCapture._file.Path;
+                        // Resize the bitmap to fit the display
+                        // Loading the full sized image will consume to much memory 
+                        // and cause the application to crash.
+                        bm = CameraCapture._file.Path.LoadAndResizeBitmap(width, height);
+                    }
+                }
+                if (bm != null)
+                {
+                    _imageView.SetImageBitmap(bm);
                 }
             }
         }
@@ -328,22 +367,24 @@ namespace MCM.Droid.Classic
 
         private void CreateDirectoryForPictures()
         {
-            CameraCapture._dir = new File(Environment.GetExternalStoragePublicDirectory(Environment.DirectoryPictures), "MNMissingChildren");
-            if (!CameraCapture._dir.Exists())
-            {
-                CameraCapture._dir.Mkdirs();
-            }
+            CameraCapture._dir = Environment.GetExternalStoragePublicDirectory(Environment.DirectoryPictures);
+            //CameraCapture._dir = new File(Environment.GetExternalStoragePublicDirectory(Environment.DirectoryPictures), "MNMissingChildren");
+            //if (!CameraCapture._dir.Exists())
+            //{
+            //    CameraCapture._dir.Mkdirs();
+            //}
         }
 
         private void TakeAPicture(object sender, System.EventArgs eventArgs)
         {
             Intent intent = new Intent(MediaStore.ActionImageCapture);
 
-            if (CameraCapture._file == null || !CameraCapture._file.Exists())
-            {
-                CameraCapture._file = new File(CameraCapture._dir, "MCM_Camera_Capture.jpg");
-            }
-            //CameraCapture._file = new File(CameraCapture._dir, string.Format("MCM_{0}.jpg", System.Guid.NewGuid()));
+            //CameraCapture._file = new File(CameraCapture._dir, "MCM_Camera_Capture.jpg");
+            //if (!CameraCapture._file.Exists())
+            //{
+            //    CameraCapture._file.Delete();
+            //}
+            CameraCapture._file = new File(CameraCapture._dir, string.Format("MCM_{0}.jpg", System.Guid.NewGuid()));
 
             intent.PutExtra(MediaStore.ExtraOutput, Uri.FromFile(CameraCapture._file));
 
