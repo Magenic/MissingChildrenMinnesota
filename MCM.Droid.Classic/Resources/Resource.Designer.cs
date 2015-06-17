@@ -80,8 +80,8 @@ namespace MCM.Droid.Classic
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f060047
-			public const int AboutMCMButton = 2131099719;
+			// aapt resource value: 0x7f060049
+			public const int AboutMCMButton = 2131099721;
 			
 			// aapt resource value: 0x7f060001
 			public const int AboutMCMWebView = 2131099649;
@@ -89,206 +89,206 @@ namespace MCM.Droid.Classic
 			// aapt resource value: 0x7f060002
 			public const int AddDistinguishingFeatureTitleTextView = 2131099650;
 			
-			// aapt resource value: 0x7f06001c
-			public const int AddPhotoButton = 2131099676;
+			// aapt resource value: 0x7f06001e
+			public const int AddPhotoButton = 2131099678;
 			
-			// aapt resource value: 0x7f060016
-			public const int Age = 2131099670;
+			// aapt resource value: 0x7f060018
+			public const int Age = 2131099672;
 			
-			// aapt resource value: 0x7f060015
-			public const int AgeLabel = 2131099669;
+			// aapt resource value: 0x7f060017
+			public const int AgeLabel = 2131099671;
 			
 			// aapt resource value: 0x7f060005
 			public const int BodyChartNbrText = 2131099653;
 			
-			// aapt resource value: 0x7f060030
-			public const int BodyChartNbrTextView = 2131099696;
+			// aapt resource value: 0x7f060032
+			public const int BodyChartNbrTextView = 2131099698;
 			
-			// aapt resource value: 0x7f060042
-			public const int BypassLoginButton = 2131099714;
+			// aapt resource value: 0x7f060044
+			public const int BypassLoginButton = 2131099716;
 			
 			// aapt resource value: 0x7f060006
 			public const int CameraButton = 2131099654;
 			
-			// aapt resource value: 0x7f060018
-			public const int CheckListLabel = 2131099672;
+			// aapt resource value: 0x7f06001a
+			public const int CheckListLabel = 2131099674;
 			
-			// aapt resource value: 0x7f060017
-			public const int CheckListLayout = 2131099671;
+			// aapt resource value: 0x7f060019
+			public const int CheckListLayout = 2131099673;
+			
+			// aapt resource value: 0x7f06001f
+			public const int ChildBasicsButton = 2131099679;
 			
 			// aapt resource value: 0x7f06001d
-			public const int ChildBasicsButton = 2131099677;
+			public const int ChildPhotoImageView = 2131099677;
 			
-			// aapt resource value: 0x7f06001b
-			public const int ChildPhotoImageView = 2131099675;
+			// aapt resource value: 0x7f06005a
+			public const int ChildrenListView = 2131099738;
 			
-			// aapt resource value: 0x7f060058
-			public const int ChildrenListView = 2131099736;
-			
-			// aapt resource value: 0x7f06005d
-			public const int ContactsCheckBox = 2131099741;
+			// aapt resource value: 0x7f06005f
+			public const int ContactsCheckBox = 2131099743;
 			
 			// aapt resource value: 0x7f060011
 			public const int DateDisplayTextView = 2131099665;
 			
-			// aapt resource value: 0x7f060052
-			public const int DateLayout = 2131099730;
-			
-			// aapt resource value: 0x7f060028
-			public const int DentalAddressLine1Text = 2131099688;
-			
-			// aapt resource value: 0x7f060029
-			public const int DentalAddressLine2Text = 2131099689;
+			// aapt resource value: 0x7f060054
+			public const int DateLayout = 2131099732;
 			
 			// aapt resource value: 0x7f06002a
-			public const int DentalCityText = 2131099690;
-			
-			// aapt resource value: 0x7f060027
-			public const int DentalClinicNameText = 2131099687;
-			
-			// aapt resource value: 0x7f060021
-			public const int DentalInfoButton = 2131099681;
-			
-			// aapt resource value: 0x7f060025
-			public const int DentalInfoTitleTextView = 2131099685;
-			
-			// aapt resource value: 0x7f060026
-			public const int DentalNameText = 2131099686;
-			
-			// aapt resource value: 0x7f06002f
-			public const int DentalPhoneNumber = 2131099695;
+			public const int DentalAddressLine1Text = 2131099690;
 			
 			// aapt resource value: 0x7f06002b
-			public const int DentalStateText = 2131099691;
+			public const int DentalAddressLine2Text = 2131099691;
+			
+			// aapt resource value: 0x7f06002c
+			public const int DentalCityText = 2131099692;
+			
+			// aapt resource value: 0x7f060029
+			public const int DentalClinicNameText = 2131099689;
+			
+			// aapt resource value: 0x7f060023
+			public const int DentalInfoButton = 2131099683;
+			
+			// aapt resource value: 0x7f060027
+			public const int DentalInfoTitleTextView = 2131099687;
+			
+			// aapt resource value: 0x7f060028
+			public const int DentalNameText = 2131099688;
+			
+			// aapt resource value: 0x7f060031
+			public const int DentalPhoneNumber = 2131099697;
 			
 			// aapt resource value: 0x7f06002d
-			public const int DentalZipText = 2131099693;
+			public const int DentalStateText = 2131099693;
+			
+			// aapt resource value: 0x7f06002f
+			public const int DentalZipText = 2131099695;
 			
 			// aapt resource value: 0x7f060003
 			public const int DistinguishingFeatureText = 2131099651;
 			
-			// aapt resource value: 0x7f060031
-			public const int DistinguishingFeatureTextView = 2131099697;
-			
-			// aapt resource value: 0x7f060023
-			public const int DistinguishingFeaturesButton = 2131099683;
-			
-			// aapt resource value: 0x7f060032
-			public const int DistinguishingFeaturesListView = 2131099698;
-			
-			// aapt resource value: 0x7f060036
-			public const int DoctorAddressLine1Text = 2131099702;
-			
-			// aapt resource value: 0x7f060037
-			public const int DoctorAddressLine2Text = 2131099703;
-			
-			// aapt resource value: 0x7f060038
-			public const int DoctorCityText = 2131099704;
-			
-			// aapt resource value: 0x7f060035
-			public const int DoctorClinicNameText = 2131099701;
-			
-			// aapt resource value: 0x7f060020
-			public const int DoctorInfoButton = 2131099680;
-			
 			// aapt resource value: 0x7f060033
-			public const int DoctorInfoTitleTextView = 2131099699;
+			public const int DistinguishingFeatureTextView = 2131099699;
+			
+			// aapt resource value: 0x7f060025
+			public const int DistinguishingFeaturesButton = 2131099685;
 			
 			// aapt resource value: 0x7f060034
-			public const int DoctorNameText = 2131099700;
+			public const int DistinguishingFeaturesListView = 2131099700;
 			
-			// aapt resource value: 0x7f06003b
-			public const int DoctorPhoneNumber = 2131099707;
+			// aapt resource value: 0x7f060038
+			public const int DoctorAddressLine1Text = 2131099704;
 			
 			// aapt resource value: 0x7f060039
-			public const int DoctorStateText = 2131099705;
+			public const int DoctorAddressLine2Text = 2131099705;
 			
 			// aapt resource value: 0x7f06003a
-			public const int DoctorZipText = 2131099706;
+			public const int DoctorCityText = 2131099706;
 			
-			// aapt resource value: 0x7f06005b
-			public const int EyeColorText = 2131099739;
+			// aapt resource value: 0x7f060037
+			public const int DoctorClinicNameText = 2131099703;
 			
-			// aapt resource value: 0x7f060014
-			public const int FirstName = 2131099668;
+			// aapt resource value: 0x7f060022
+			public const int DoctorInfoButton = 2131099682;
+			
+			// aapt resource value: 0x7f060035
+			public const int DoctorInfoTitleTextView = 2131099701;
+			
+			// aapt resource value: 0x7f060036
+			public const int DoctorNameText = 2131099702;
+			
+			// aapt resource value: 0x7f06003d
+			public const int DoctorPhoneNumber = 2131099709;
+			
+			// aapt resource value: 0x7f06003b
+			public const int DoctorStateText = 2131099707;
+			
+			// aapt resource value: 0x7f06003c
+			public const int DoctorZipText = 2131099708;
+			
+			// aapt resource value: 0x7f06005d
+			public const int EyeColorText = 2131099741;
+			
+			// aapt resource value: 0x7f060016
+			public const int FirstName = 2131099670;
 			
 			// aapt resource value: 0x7f06000a
 			public const int FirstNameText = 2131099658;
 			
+			// aapt resource value: 0x7f06005e
+			public const int GlassesCheckBox = 2131099742;
+			
+			// aapt resource value: 0x7f060042
+			public const int GmailLoginButton = 2131099714;
+			
 			// aapt resource value: 0x7f06005c
-			public const int GlassesCheckBox = 2131099740;
+			public const int HairColorText = 2131099740;
+			
+			// aapt resource value: 0x7f06004e
+			public const int Height_ins_textview = 2131099726;
+			
+			// aapt resource value: 0x7f060046
+			public const int HomeDNAButton = 2131099718;
+			
+			// aapt resource value: 0x7f060041
+			public const int HotmailLoginButton = 2131099713;
 			
 			// aapt resource value: 0x7f060040
-			public const int GmailLoginButton = 2131099712;
-			
-			// aapt resource value: 0x7f06005a
-			public const int HairColorText = 2131099738;
-			
-			// aapt resource value: 0x7f06004c
-			public const int Height_ins_textview = 2131099724;
-			
-			// aapt resource value: 0x7f060044
-			public const int HomeDNAButton = 2131099716;
+			public const int IDCheckListItemCheckBox = 2131099712;
 			
 			// aapt resource value: 0x7f06003f
-			public const int HotmailLoginButton = 2131099711;
+			public const int IDCheckListListView = 2131099711;
 			
 			// aapt resource value: 0x7f06003e
-			public const int IDCheckListItemCheckBox = 2131099710;
+			public const int IDCheckListTitleTextView = 2131099710;
 			
-			// aapt resource value: 0x7f06003d
-			public const int IDCheckListListView = 2131099709;
+			// aapt resource value: 0x7f060026
+			public const int IDChecklistButton = 2131099686;
 			
-			// aapt resource value: 0x7f06003c
-			public const int IDCheckListTitleTextView = 2131099708;
-			
-			// aapt resource value: 0x7f060024
-			public const int IDChecklistButton = 2131099684;
-			
-			// aapt resource value: 0x7f06001a
-			public const int Image = 2131099674;
+			// aapt resource value: 0x7f060014
+			public const int Image = 2131099668;
 			
 			// aapt resource value: 0x7f06000e
 			public const int LastNameText = 2131099662;
 			
-			// aapt resource value: 0x7f060053
-			public const int MeasumentDateTextView = 2131099731;
-			
-			// aapt resource value: 0x7f060054
-			public const int MeasurementPickDateButton = 2131099732;
-			
-			// aapt resource value: 0x7f06001e
-			public const int MeasurementsButton = 2131099678;
-			
-			// aapt resource value: 0x7f060022
-			public const int MedicalAlertInfoButton = 2131099682;
-			
 			// aapt resource value: 0x7f060055
-			public const int MedicalAlertInfoTextView = 2131099733;
+			public const int MeasumentDateTextView = 2131099733;
 			
 			// aapt resource value: 0x7f060056
-			public const int MedicalAlertText = 2131099734;
+			public const int MeasurementPickDateButton = 2131099734;
+			
+			// aapt resource value: 0x7f060020
+			public const int MeasurementsButton = 2131099680;
+			
+			// aapt resource value: 0x7f060024
+			public const int MedicalAlertInfoButton = 2131099684;
+			
+			// aapt resource value: 0x7f060057
+			public const int MedicalAlertInfoTextView = 2131099735;
+			
+			// aapt resource value: 0x7f060058
+			public const int MedicalAlertText = 2131099736;
 			
 			// aapt resource value: 0x7f06000c
 			public const int MiddleNameText = 2131099660;
 			
-			// aapt resource value: 0x7f060046
-			public const int MissingChildButton = 2131099718;
-			
-			// aapt resource value: 0x7f060057
-			public const int MissingChildWebView = 2131099735;
-			
-			// aapt resource value: 0x7f060043
-			public const int MyChildrenButton = 2131099715;
-			
-			// aapt resource value: 0x7f060019
-			public const int PercentComplete = 2131099673;
+			// aapt resource value: 0x7f060048
+			public const int MissingChildButton = 2131099720;
 			
 			// aapt resource value: 0x7f060059
-			public const int PhysicalDetailTitleTextView = 2131099737;
+			public const int MissingChildWebView = 2131099737;
 			
-			// aapt resource value: 0x7f06001f
-			public const int PhysicalDetailsButton = 2131099679;
+			// aapt resource value: 0x7f060045
+			public const int MyChildrenButton = 2131099717;
+			
+			// aapt resource value: 0x7f06001b
+			public const int PercentComplete = 2131099675;
+			
+			// aapt resource value: 0x7f06005b
+			public const int PhysicalDetailTitleTextView = 2131099739;
+			
+			// aapt resource value: 0x7f060021
+			public const int PhysicalDetailsButton = 2131099681;
 			
 			// aapt resource value: 0x7f060012
 			public const int PickDateButton = 2131099666;
@@ -296,65 +296,71 @@ namespace MCM.Droid.Classic
 			// aapt resource value: 0x7f060007
 			public const int PickImageButton = 2131099655;
 			
-			// aapt resource value: 0x7f06005f
-			public const int RaceText = 2131099743;
+			// aapt resource value: 0x7f060013
+			public const int RLayout = 2131099667;
 			
-			// aapt resource value: 0x7f060045
-			public const int SafetyForChildrenButton = 2131099717;
+			// aapt resource value: 0x7f060061
+			public const int RaceText = 2131099745;
+			
+			// aapt resource value: 0x7f060047
+			public const int SafetyForChildrenButton = 2131099719;
+			
+			// aapt resource value: 0x7f060062
+			public const int SafetyForChildrenWebView = 2131099746;
 			
 			// aapt resource value: 0x7f060060
-			public const int SafetyForChildrenWebView = 2131099744;
+			public const int SkinToneText = 2131099744;
 			
-			// aapt resource value: 0x7f06005e
-			public const int SkinToneText = 2131099742;
+			// aapt resource value: 0x7f060015
+			public const int Text = 2131099669;
 			
-			// aapt resource value: 0x7f060013
-			public const int Text = 2131099667;
+			// aapt resource value: 0x7f060043
+			public const int TwitterLoginButton = 2131099715;
 			
-			// aapt resource value: 0x7f060041
-			public const int TwitterLoginButton = 2131099713;
+			// aapt resource value: 0x7f06004b
+			public const int feet = 2131099723;
 			
-			// aapt resource value: 0x7f060049
-			public const int feet = 2131099721;
-			
-			// aapt resource value: 0x7f06004a
-			public const int height_ft_textview = 2131099722;
+			// aapt resource value: 0x7f06004c
+			public const int height_ft_textview = 2131099724;
 			
 			// aapt resource value: 0x7f060008
 			public const int imageView1 = 2131099656;
 			
-			// aapt resource value: 0x7f06004b
-			public const int inches = 2131099723;
+			// aapt resource value: 0x7f06004d
+			public const int inches = 2131099725;
 			
 			// aapt resource value: 0x7f060010
 			public const int linearLayout1 = 2131099664;
 			
-			// aapt resource value: 0x7f060048
-			public const int meas_height_textview = 2131099720;
+			// aapt resource value: 0x7f06004a
+			public const int meas_height_textview = 2131099722;
 			
-			// aapt resource value: 0x7f06004d
-			public const int meas_weight_textview = 2131099725;
+			// aapt resource value: 0x7f06004f
+			public const int meas_weight_textview = 2131099727;
 			
-			// aapt resource value: 0x7f060065
-			public const int menu_add_child = 2131099749;
+			// aapt resource value: 0x7f060067
+			public const int menu_add_child = 2131099751;
+			
+			// aapt resource value: 0x7f060066
+			public const int menu_add_feature = 2131099750;
 			
 			// aapt resource value: 0x7f060064
-			public const int menu_add_feature = 2131099748;
+			public const int menu_cancel_info = 2131099748;
 			
-			// aapt resource value: 0x7f060062
-			public const int menu_cancel_info = 2131099746;
+			// aapt resource value: 0x7f060065
+			public const int menu_delete_info = 2131099749;
 			
 			// aapt resource value: 0x7f060063
-			public const int menu_delete_info = 2131099747;
+			public const int menu_save_info = 2131099747;
 			
-			// aapt resource value: 0x7f060061
-			public const int menu_save_info = 2131099745;
+			// aapt resource value: 0x7f060052
+			public const int ounces = 2131099730;
 			
 			// aapt resource value: 0x7f060050
-			public const int ounces = 2131099728;
+			public const int pounds = 2131099728;
 			
-			// aapt resource value: 0x7f06004e
-			public const int pounds = 2131099726;
+			// aapt resource value: 0x7f06001c
+			public const int scrollViewChildProfile = 2131099676;
 			
 			// aapt resource value: 0x7f060000
 			public const int textView1 = 2131099648;
@@ -374,17 +380,17 @@ namespace MCM.Droid.Classic
 			// aapt resource value: 0x7f06000f
 			public const int textView6 = 2131099663;
 			
-			// aapt resource value: 0x7f06002c
-			public const int textView7 = 2131099692;
-			
 			// aapt resource value: 0x7f06002e
-			public const int textView8 = 2131099694;
+			public const int textView7 = 2131099694;
 			
-			// aapt resource value: 0x7f06004f
-			public const int weight_lbs_textview = 2131099727;
+			// aapt resource value: 0x7f060030
+			public const int textView8 = 2131099696;
 			
 			// aapt resource value: 0x7f060051
-			public const int weight_ozs_textview = 2131099729;
+			public const int weight_lbs_textview = 2131099729;
+			
+			// aapt resource value: 0x7f060053
+			public const int weight_ozs_textview = 2131099731;
 			
 			static Id()
 			{
@@ -503,203 +509,203 @@ namespace MCM.Droid.Classic
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f040041
-			public const int ApplicationName = 2130968641;
-			
-			// aapt resource value: 0x7f040040
-			public const int Hello = 2130968640;
-			
-			// aapt resource value: 0x7f040004
-			public const int aboutmcm_layout_label = 2130968580;
-			
-			// aapt resource value: 0x7f040005
-			public const int addphoto_layout_label = 2130968581;
+			// aapt resource value: 0x7f040001
+			public const int ApplicationName = 2130968577;
 			
 			// aapt resource value: 0x7f040000
-			public const int app_name = 2130968576;
-			
-			// aapt resource value: 0x7f040026
-			public const int childbasics_dateofbirth_textview_text = 2130968614;
-			
-			// aapt resource value: 0x7f040023
-			public const int childbasics_firstname_textview_text = 2130968611;
-			
-			// aapt resource value: 0x7f040025
-			public const int childbasics_lastname_textview_text = 2130968613;
+			public const int Hello = 2130968576;
 			
 			// aapt resource value: 0x7f040006
-			public const int childbasics_layout_label = 2130968582;
-			
-			// aapt resource value: 0x7f040024
-			public const int childbasics_middlename_textview_text = 2130968612;
-			
-			// aapt resource value: 0x7f040027
-			public const int childbasics_pickdate_button_text = 2130968615;
-			
-			// aapt resource value: 0x7f04001a
-			public const int childprofile_addphoto_button_text = 2130968602;
-			
-			// aapt resource value: 0x7f04001b
-			public const int childprofile_childbasics_button_text = 2130968603;
-			
-			// aapt resource value: 0x7f04001f
-			public const int childprofile_dentalinfo_button_text = 2130968607;
-			
-			// aapt resource value: 0x7f040021
-			public const int childprofile_distinguishingfeatures_button_text = 2130968609;
-			
-			// aapt resource value: 0x7f04001e
-			public const int childprofile_doctorinfo_button_text = 2130968606;
-			
-			// aapt resource value: 0x7f040022
-			public const int childprofile_idchecklist_button_text = 2130968610;
+			public const int aboutmcm_layout_label = 2130968582;
 			
 			// aapt resource value: 0x7f040007
-			public const int childprofile_layout_label = 2130968583;
-			
-			// aapt resource value: 0x7f04001c
-			public const int childprofile_measurements_button_text = 2130968604;
-			
-			// aapt resource value: 0x7f040020
-			public const int childprofile_medicalalertinfo_button_text = 2130968608;
-			
-			// aapt resource value: 0x7f04001d
-			public const int childprofile_physicaldetails_button_text = 2130968605;
-			
-			// aapt resource value: 0x7f040008
-			public const int dentalinfo_layout_label = 2130968584;
-			
-			// aapt resource value: 0x7f040037
-			public const int dentalinfo_name_text = 2130968631;
-			
-			// aapt resource value: 0x7f04003f
-			public const int distinguishingfeature_bodychartnbr_text = 2130968639;
-			
-			// aapt resource value: 0x7f04003e
-			public const int distinguishingfeature_feature_text = 2130968638;
-			
-			// aapt resource value: 0x7f040009
-			public const int distinguishingfeatures_layout_label = 2130968585;
-			
-			// aapt resource value: 0x7f040039
-			public const int doctordentalinfo_address_text = 2130968633;
-			
-			// aapt resource value: 0x7f04003a
-			public const int doctordentalinfo_city_text = 2130968634;
-			
-			// aapt resource value: 0x7f040038
-			public const int doctordentalinfo_clinic_text = 2130968632;
-			
-			// aapt resource value: 0x7f04003d
-			public const int doctordentalinfo_phone_text = 2130968637;
-			
-			// aapt resource value: 0x7f04003b
-			public const int doctordentalinfo_state_text = 2130968635;
-			
-			// aapt resource value: 0x7f04003c
-			public const int doctordentalinfo_zip_text = 2130968636;
-			
-			// aapt resource value: 0x7f04000a
-			public const int doctorinfo_layout_label = 2130968586;
-			
-			// aapt resource value: 0x7f040036
-			public const int doctorinfo_name_text = 2130968630;
+			public const int addphoto_layout_label = 2130968583;
 			
 			// aapt resource value: 0x7f040002
-			public const int gmail_login_button_text = 2130968578;
-			
-			// aapt resource value: 0x7f04000b
-			public const int homedna_layout_label = 2130968587;
-			
-			// aapt resource value: 0x7f040001
-			public const int hotmail_login_button_text = 2130968577;
-			
-			// aapt resource value: 0x7f04000c
-			public const int idchecklist_layout_label = 2130968588;
-			
-			// aapt resource value: 0x7f04000d
-			public const int main_layout_label = 2130968589;
-			
-			// aapt resource value: 0x7f040019
-			public const int mcm_aboutmcm_button_text = 2130968601;
-			
-			// aapt resource value: 0x7f040016
-			public const int mcm_homedna_button_text = 2130968598;
-			
-			// aapt resource value: 0x7f04000e
-			public const int mcm_layout_label = 2130968590;
-			
-			// aapt resource value: 0x7f040018
-			public const int mcm_missingchild_button_text = 2130968600;
-			
-			// aapt resource value: 0x7f040015
-			public const int mcm_mychildren_button_text = 2130968597;
-			
-			// aapt resource value: 0x7f040017
-			public const int mcm_safetyforchildren_button_text = 2130968599;
-			
-			// aapt resource value: 0x7f04002f
-			public const int measurement_Measurements_title = 2130968623;
-			
-			// aapt resource value: 0x7f04002e
-			public const int measurement_date_textview_text = 2130968622;
-			
-			// aapt resource value: 0x7f040029
-			public const int measurement_fts_textview_text = 2130968617;
+			public const int app_name = 2130968578;
 			
 			// aapt resource value: 0x7f040028
-			public const int measurement_height_textview_text = 2130968616;
+			public const int childbasics_dateofbirth_textview_text = 2130968616;
 			
-			// aapt resource value: 0x7f04002a
-			public const int measurement_ins_textview_text = 2130968618;
+			// aapt resource value: 0x7f040025
+			public const int childbasics_firstname_textview_text = 2130968613;
 			
-			// aapt resource value: 0x7f04002c
-			public const int measurement_lbs_textview_text = 2130968620;
+			// aapt resource value: 0x7f040027
+			public const int childbasics_lastname_textview_text = 2130968615;
 			
-			// aapt resource value: 0x7f04002d
-			public const int measurement_ozs_textview_text = 2130968621;
+			// aapt resource value: 0x7f040008
+			public const int childbasics_layout_label = 2130968584;
 			
-			// aapt resource value: 0x7f04002b
-			public const int measurement_weight_textview_text = 2130968619;
+			// aapt resource value: 0x7f040026
+			public const int childbasics_middlename_textview_text = 2130968614;
 			
-			// aapt resource value: 0x7f04000f
-			public const int measurements_layout_label = 2130968591;
+			// aapt resource value: 0x7f040029
+			public const int childbasics_pickdate_button_text = 2130968617;
 			
-			// aapt resource value: 0x7f040010
-			public const int medicalalertinfo_layout_label = 2130968592;
+			// aapt resource value: 0x7f04001c
+			public const int childprofile_addphoto_button_text = 2130968604;
 			
-			// aapt resource value: 0x7f040011
-			public const int missingchild_layout_label = 2130968593;
+			// aapt resource value: 0x7f04001d
+			public const int childprofile_childbasics_button_text = 2130968605;
 			
-			// aapt resource value: 0x7f040012
-			public const int mychildren_layout_label = 2130968594;
+			// aapt resource value: 0x7f040021
+			public const int childprofile_dentalinfo_button_text = 2130968609;
 			
-			// aapt resource value: 0x7f040033
-			public const int physicaldetail_contacts_text = 2130968627;
+			// aapt resource value: 0x7f040023
+			public const int childprofile_distinguishingfeatures_button_text = 2130968611;
 			
-			// aapt resource value: 0x7f040031
-			public const int physicaldetail_eyecolor_text = 2130968625;
+			// aapt resource value: 0x7f040020
+			public const int childprofile_doctorinfo_button_text = 2130968608;
 			
-			// aapt resource value: 0x7f040032
-			public const int physicaldetail_glasses_text = 2130968626;
+			// aapt resource value: 0x7f040024
+			public const int childprofile_idchecklist_button_text = 2130968612;
 			
-			// aapt resource value: 0x7f040030
-			public const int physicaldetail_haircolor_text = 2130968624;
+			// aapt resource value: 0x7f040009
+			public const int childprofile_layout_label = 2130968585;
 			
-			// aapt resource value: 0x7f040035
-			public const int physicaldetail_race_text = 2130968629;
+			// aapt resource value: 0x7f04001e
+			public const int childprofile_measurements_button_text = 2130968606;
 			
-			// aapt resource value: 0x7f040034
-			public const int physicaldetail_skintone_text = 2130968628;
+			// aapt resource value: 0x7f040022
+			public const int childprofile_medicalalertinfo_button_text = 2130968610;
 			
-			// aapt resource value: 0x7f040013
-			public const int physicaldetails_layout_label = 2130968595;
+			// aapt resource value: 0x7f04001f
+			public const int childprofile_physicaldetails_button_text = 2130968607;
 			
-			// aapt resource value: 0x7f040014
-			public const int safetyforchildren_layout_label = 2130968596;
+			// aapt resource value: 0x7f04000a
+			public const int dentalinfo_layout_label = 2130968586;
+			
+			// aapt resource value: 0x7f040039
+			public const int dentalinfo_name_text = 2130968633;
+			
+			// aapt resource value: 0x7f040041
+			public const int distinguishingfeature_bodychartnbr_text = 2130968641;
+			
+			// aapt resource value: 0x7f040040
+			public const int distinguishingfeature_feature_text = 2130968640;
+			
+			// aapt resource value: 0x7f04000b
+			public const int distinguishingfeatures_layout_label = 2130968587;
+			
+			// aapt resource value: 0x7f04003b
+			public const int doctordentalinfo_address_text = 2130968635;
+			
+			// aapt resource value: 0x7f04003c
+			public const int doctordentalinfo_city_text = 2130968636;
+			
+			// aapt resource value: 0x7f04003a
+			public const int doctordentalinfo_clinic_text = 2130968634;
+			
+			// aapt resource value: 0x7f04003f
+			public const int doctordentalinfo_phone_text = 2130968639;
+			
+			// aapt resource value: 0x7f04003d
+			public const int doctordentalinfo_state_text = 2130968637;
+			
+			// aapt resource value: 0x7f04003e
+			public const int doctordentalinfo_zip_text = 2130968638;
+			
+			// aapt resource value: 0x7f04000c
+			public const int doctorinfo_layout_label = 2130968588;
+			
+			// aapt resource value: 0x7f040038
+			public const int doctorinfo_name_text = 2130968632;
+			
+			// aapt resource value: 0x7f040004
+			public const int gmail_login_button_text = 2130968580;
+			
+			// aapt resource value: 0x7f04000d
+			public const int homedna_layout_label = 2130968589;
 			
 			// aapt resource value: 0x7f040003
-			public const int twitter_login_button_text = 2130968579;
+			public const int hotmail_login_button_text = 2130968579;
+			
+			// aapt resource value: 0x7f04000e
+			public const int idchecklist_layout_label = 2130968590;
+			
+			// aapt resource value: 0x7f04000f
+			public const int main_layout_label = 2130968591;
+			
+			// aapt resource value: 0x7f04001b
+			public const int mcm_aboutmcm_button_text = 2130968603;
+			
+			// aapt resource value: 0x7f040018
+			public const int mcm_homedna_button_text = 2130968600;
+			
+			// aapt resource value: 0x7f040010
+			public const int mcm_layout_label = 2130968592;
+			
+			// aapt resource value: 0x7f04001a
+			public const int mcm_missingchild_button_text = 2130968602;
+			
+			// aapt resource value: 0x7f040017
+			public const int mcm_mychildren_button_text = 2130968599;
+			
+			// aapt resource value: 0x7f040019
+			public const int mcm_safetyforchildren_button_text = 2130968601;
+			
+			// aapt resource value: 0x7f040031
+			public const int measurement_Measurements_title = 2130968625;
+			
+			// aapt resource value: 0x7f040030
+			public const int measurement_date_textview_text = 2130968624;
+			
+			// aapt resource value: 0x7f04002b
+			public const int measurement_fts_textview_text = 2130968619;
+			
+			// aapt resource value: 0x7f04002a
+			public const int measurement_height_textview_text = 2130968618;
+			
+			// aapt resource value: 0x7f04002c
+			public const int measurement_ins_textview_text = 2130968620;
+			
+			// aapt resource value: 0x7f04002e
+			public const int measurement_lbs_textview_text = 2130968622;
+			
+			// aapt resource value: 0x7f04002f
+			public const int measurement_ozs_textview_text = 2130968623;
+			
+			// aapt resource value: 0x7f04002d
+			public const int measurement_weight_textview_text = 2130968621;
+			
+			// aapt resource value: 0x7f040011
+			public const int measurements_layout_label = 2130968593;
+			
+			// aapt resource value: 0x7f040012
+			public const int medicalalertinfo_layout_label = 2130968594;
+			
+			// aapt resource value: 0x7f040013
+			public const int missingchild_layout_label = 2130968595;
+			
+			// aapt resource value: 0x7f040014
+			public const int mychildren_layout_label = 2130968596;
+			
+			// aapt resource value: 0x7f040035
+			public const int physicaldetail_contacts_text = 2130968629;
+			
+			// aapt resource value: 0x7f040033
+			public const int physicaldetail_eyecolor_text = 2130968627;
+			
+			// aapt resource value: 0x7f040034
+			public const int physicaldetail_glasses_text = 2130968628;
+			
+			// aapt resource value: 0x7f040032
+			public const int physicaldetail_haircolor_text = 2130968626;
+			
+			// aapt resource value: 0x7f040037
+			public const int physicaldetail_race_text = 2130968631;
+			
+			// aapt resource value: 0x7f040036
+			public const int physicaldetail_skintone_text = 2130968630;
+			
+			// aapt resource value: 0x7f040015
+			public const int physicaldetails_layout_label = 2130968597;
+			
+			// aapt resource value: 0x7f040016
+			public const int safetyforchildren_layout_label = 2130968598;
+			
+			// aapt resource value: 0x7f040005
+			public const int twitter_login_button_text = 2130968581;
 			
 			static String()
 			{

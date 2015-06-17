@@ -1,62 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollViewChildProfile"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
-    <TextView
-        android:text="Child Profile"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView1" />
-    <ImageView
-        android:src="@android:drawable/ic_menu_gallery"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/ChildPhotoImageView" />
-    <Button
-        android:text="@string/childprofile_addphoto_button_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/AddPhotoButton" />
-    <Button
-        android:text="@string/childprofile_childbasics_button_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/ChildBasicsButton" />
-    <Button
-        android:text="@string/childprofile_measurements_button_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/MeasurementsButton" />
-    <Button
-        android:text="@string/childprofile_physicaldetails_button_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/PhysicalDetailsButton" />
-    <Button
-        android:text="@string/childprofile_doctorinfo_button_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/DoctorInfoButton" />
-    <Button
-        android:text="@string/childprofile_dentalinfo_button_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/DentalInfoButton" />
-    <Button
-        android:text="@string/childprofile_medicalalertinfo_button_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/MedicalAlertInfoButton" />
-    <Button
-        android:text="@string/childprofile_distinguishingfeatures_button_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/DistinguishingFeaturesButton" />
-    <Button
-        android:text="@string/childprofile_idchecklist_button_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/IDChecklistButton" />
-</LinearLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+        <TextView
+            android:text="Child Profile"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView1" />
+        <ImageView
+            android:src="@android:drawable/ic_menu_gallery"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/ChildPhotoImageView" />
+        <Button
+            android:text="@string/childprofile_addphoto_button_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/AddPhotoButton" />
+        <Button
+            android:text="@string/childprofile_childbasics_button_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/ChildBasicsButton" />
+        <Button
+            android:text="@string/childprofile_measurements_button_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/MeasurementsButton" />
+        <Button
+            android:text="@string/childprofile_physicaldetails_button_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/PhysicalDetailsButton" />
+        <Button
+            android:text="@string/childprofile_doctorinfo_button_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/DoctorInfoButton" />
+        <Button
+            android:text="@string/childprofile_dentalinfo_button_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/DentalInfoButton" />
+        <Button
+            android:text="@string/childprofile_medicalalertinfo_button_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/MedicalAlertInfoButton" />
+        <Button
+            android:text="@string/childprofile_distinguishingfeatures_button_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/DistinguishingFeaturesButton" />
+        <Button
+            android:text="@string/childprofile_idchecklist_button_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/IDChecklistButton" />
+    </LinearLayout>
+</ScrollView>
