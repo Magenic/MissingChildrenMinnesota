@@ -1,4 +1,11 @@
-﻿<table>
+﻿  <style>
+	body {
+		background: #000000;
+		color: #FFFFFF;
+		padding: 5px;
+	}
+  </style>
+  <table>
 <tr><td align="center">
 <h3><strong><u>TEACH YOUR CHILDREN <br>TO PROTECT THEMSELVES</u></strong></h3>
 </td></tr>

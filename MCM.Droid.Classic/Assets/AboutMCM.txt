@@ -1,4 +1,17 @@
-﻿<table>
+﻿  <style>
+	body {
+		background: #000000;
+		color: #FFFFFF;
+		padding: 5px;
+	}
+  </style>  <style>
+	body {
+		background: #000000;
+		color: #FFFFFF;
+		padding: 5px;
+	}
+  </style>
+<table>
 <tr><td align="center">
 <h3><strong>WHAT IS<br>MISSING CHILDREN<br>MINNESOTA</strong></h3>
 </td></tr>
