@@ -172,6 +172,11 @@
     <AndroidResource Include="Resources\menu\menu_save_cancel.xml" />
     <AndroidResource Include="Resources\menu\menu_distinguishingfeature.xml" />
     <AndroidResource Include="Resources\menu\menu_save_cancel_delete.xml" />
+    <AndroidResource Include="Resources\drawable\img_about_mcm_1x.jpg" />
+    <AndroidResource Include="Resources\drawable\img_home_dna_1x.jpg" />
+    <AndroidResource Include="Resources\drawable\img_missing_child_1x.jpg" />
+    <AndroidResource Include="Resources\drawable\img_my_children_1x.jpg" />
+    <AndroidResource Include="Resources\drawable\img_safety_children_1x.jpg" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Core\MCM.Core.Droid\MCM.Core.Droid.csproj">

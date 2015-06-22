@@ -1,31 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
-    <Button
-        android:text="@string/mcm_mychildren_button_text"
-        android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    android:padding="15px">
+    <ImageButton
+        android:id="@+id/MyChildrenButton"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/MyChildrenButton" />
-    <Button
-        android:text="@string/mcm_homedna_button_text"
-        android:layout_width="match_parent"
+        android:src="@drawable/img_my_children_1x"
+        android:padding="30px"
+        android:layout_centerHorizontal="true" />
+    <ImageButton
+        android:id="@+id/HomeDNAButton"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/HomeDNAButton" />
-    <Button
-        android:text="@string/mcm_safetyforchildren_button_text"
-        android:layout_width="match_parent"
+        android:src="@drawable/img_home_dna_1x"
+        android:padding="30px"
+        android:layout_below="@+id/MyChildrenButton" />
+    <ImageButton
+        android:id="@+id/SafetyForChildrenButton"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/SafetyForChildrenButton" />
-    <Button
-        android:text="@string/mcm_missingchild_button_text"
-        android:layout_width="match_parent"
+        android:src="@drawable/img_safety_children_1x"
+        android:padding="30px"
+        android:layout_below="@+id/MyChildrenButton"
+        android:layout_toRightOf="@+id/HomeDNAButton" />
+    <ImageButton
+        android:id="@+id/MissingChildButton"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/MissingChildButton" />
-    <Button
-        android:text="@string/mcm_aboutmcm_button_text"
-        android:layout_width="match_parent"
+        android:src="@drawable/img_missing_child_1x"
+        android:padding="30px"
+        android:layout_below="@+id/HomeDNAButton" />
+    <ImageButton
+        android:id="@+id/AboutMCMButton"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/AboutMCMButton" />
-</LinearLayout>
+        android:src="@drawable/img_about_mcm_1x"
+        android:padding="30px"
+        android:layout_below="@+id/SafetyForChildrenButton"
+        android:layout_toRightOf="@+id/MissingChildButton" />
+</RelativeLayout>

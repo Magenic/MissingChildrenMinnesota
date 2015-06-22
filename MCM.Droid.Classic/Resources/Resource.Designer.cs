@@ -62,10 +62,25 @@ namespace MCM.Droid.Classic
 			public const int Icon = 2130837508;
 			
 			// aapt resource value: 0x7f020005
-			public const int sample_0 = 2130837509;
+			public const int img_about_mcm_1x = 2130837509;
 			
 			// aapt resource value: 0x7f020006
-			public const int sample_1 = 2130837510;
+			public const int img_home_dna_1x = 2130837510;
+			
+			// aapt resource value: 0x7f020007
+			public const int img_missing_child_1x = 2130837511;
+			
+			// aapt resource value: 0x7f020008
+			public const int img_my_children_1x = 2130837512;
+			
+			// aapt resource value: 0x7f020009
+			public const int img_safety_children_1x = 2130837513;
+			
+			// aapt resource value: 0x7f02000a
+			public const int sample_0 = 2130837514;
+			
+			// aapt resource value: 0x7f02000b
+			public const int sample_1 = 2130837515;
 			
 			static Drawable()
 			{

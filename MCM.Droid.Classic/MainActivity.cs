@@ -121,11 +121,11 @@ namespace MCM.Droid.Classic
 		{
 			SetContentView (Resource.Layout.MCM);
 
-			Button myChildrenButton = FindViewById<Button>(Resource.Id.MyChildrenButton);
-			Button homeDNAButton = FindViewById<Button>(Resource.Id.HomeDNAButton);
-			Button safetyForChildrenButton = FindViewById<Button>(Resource.Id.SafetyForChildrenButton);
-			Button missingChildButton = FindViewById<Button>(Resource.Id.MissingChildButton);
-			Button aboutMCMButton = FindViewById<Button>(Resource.Id.AboutMCMButton);
+            ImageButton myChildrenButton = FindViewById<ImageButton>(Resource.Id.MyChildrenButton);
+            ImageButton homeDNAButton = FindViewById<ImageButton>(Resource.Id.HomeDNAButton);
+            ImageButton safetyForChildrenButton = FindViewById<ImageButton>(Resource.Id.SafetyForChildrenButton);
+            ImageButton missingChildButton = FindViewById<ImageButton>(Resource.Id.MissingChildButton);
+            ImageButton aboutMCMButton = FindViewById<ImageButton>(Resource.Id.AboutMCMButton);
 
 			myChildrenButton.Click += HandleMyChildrenButton;
 			homeDNAButton.Click += HandleHomeDNAButton;
