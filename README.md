@@ -1,6 +1,9 @@
 Mobile Kids ID Kit
 ==================
 
+**Note:** This project has moved to the Humanitarian Toolbox: https://github.com/HTBox/MobileKidsIdApp
+
+
 The intent of the app is to help parents keep up to date information on their kids, and to provide parents with relevant information to keep their kids safe and what to do if they can’t find their child.
 
 The majority of missing children are runaways (many of whom are trafficked), followed by parental abductions, with the high profile stranger abductions being least common. There’s another category of “lost, injured, otherwise missing” where the cause of the child being missing is unknown.
